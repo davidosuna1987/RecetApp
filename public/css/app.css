@@ -19554,3 +19554,12 @@ input[type=range].slider.is-danger .has-output-tooltip + output {
   padding-top: 52px;
 }
 
+.welcome-title {
+  font-size: 5rem;
+  font-weight: 300;
+}
+
+.hero.is-fullheight {
+  min-height: calc(100vh - 52px);
+}
+

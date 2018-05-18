@@ -5,7 +5,7 @@
 // Initial bulma variables
 @import "src/initial-variables.sass";
 
-// Overrides
+// Variables overrides
 @import "overrides/variables";
 
 // Bulma, bulma extensions and variables
@@ -13,3 +13,7 @@
 
 // Layouts
 @import "layouts/layout";
+@import "layouts/welcome";
+
+// Overrides
+@import "overrides/overrides";
