@@ -3,7 +3,7 @@
 @section('content')
     <div class="columns is-marginless is-centered">
         <div class="column is-5">
-            <div class="card">
+            <div class="card m-t-60">
                 <header class="card-header">
                     <p class="card-header-title">Register</p>
                 </header>
