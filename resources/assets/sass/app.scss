@@ -2,5 +2,14 @@
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
-// Variables
-@import "bulma";
+// Initial bulma variables
+@import "src/initial-variables.sass";
+
+// Overrides
+@import "overrides/variables";
+
+// Bulma, bulma extensions and variables
+@import "src/bulma";
+
+// Layouts
+@import "layouts/layout";

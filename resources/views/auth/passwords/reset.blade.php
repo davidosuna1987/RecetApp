@@ -1,18 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <section class="hero is-primary">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Reset Password
-                </h1>
-            </div>
-        </div>
-    </section>
-
-
     <div class="columns is-marginless is-centered">
         <div class="column is-5">
             <div class="card">
@@ -34,11 +22,8 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
 
-                        <div class="field is-horizontal">
-                            <div class="field-label">
-                                <label class="label">E-Mail Address</label>
-                            </div>
-
+                        <div class="field">
+                            <label class="label">E-Mail Address</label>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
@@ -55,11 +40,8 @@
                             </div>
                         </div>
 
-                        <div class="field is-horizontal">
-                            <div class="field-label">
-                                <label class="label">Password</label>
-                            </div>
-
+                        <div class="field">
+                            <label class="label">Password</label>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
@@ -76,11 +58,8 @@
                         </div>
 
 
-                        <div class="field is-horizontal">
-                            <div class="field-label">
-                                <label class="label">Confirm Password</label>
-                            </div>
-
+                        <div class="field">
+                            <label class="label">Confirm Password</label>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
@@ -91,9 +70,7 @@
                         </div>
 
 
-                        <div class="field is-horizontal">
-                            <div class="field-label"></div>
-
+                        <div class="field">
                             <div class="field-body">
                                 <div class="field is-grouped">
                                     <div class="control">

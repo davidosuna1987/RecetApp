@@ -7516,7 +7516,7 @@ a.navbar-item.is-active,
 .navbar-link:hover,
 .navbar-link.is-active {
   background-color: #fafafa;
-  color: #3273dc;
+  color: #00d1b2;
 }
 
 .navbar-item {
@@ -19548,5 +19548,9 @@ input[type=range].slider.is-danger .has-output-tooltip + output {
 .tooltip.is-tooltip-danger::before {
   background: rgba(255, 56, 96, 0.9);
   color: #fff;
+}
+
+#app {
+  padding-top: 52px;
 }
 
