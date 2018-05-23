@@ -30,16 +30,17 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/users/friendships/deny/{id}', 'UserController@denyFriendshipRequest');
 
     Route::get('/test', function(){
-      $user = \Auth::user();
-      dump($user->isFriendWith(1));
-      dump($user->hasFriendshipRequestFrom(1));
-      dump($user->hasSentFriendshipRequestTo(2));
-      dump($user->getFriendship(2));
-      dump($user->getAllFriendships());
-      dump($user->getPendingFriendships());
-      dump($user->getAcceptedFriendships());
-      dump($user->getFriends());
-      dump($user->getFriendsCount());
-      dump($user->getPendingFriendshipsCount());
+      $user = App\User::findOrFail(1);
+      dump('test', $user->test($user));
+      dump('isFriendWith(1)', $user->isFriendWith(1));
+      dump('hasFriendshipRequestFrom(1)', $user->hasFriendshipRequestFrom(1));
+      dump('hasSentFriendshipRequestTo(2)', $user->hasSentFriendshipRequestTo(2));
+      dump('getFriendship(2)', $user->getFriendship(2));
+      dump('getAllFriendships()', $user->getAllFriendships());
+      dump('getPendingFriendships()', $user->getPendingFriendships());
+      dump('getAcceptedFriendships()', $user->getAcceptedFriendships());
+      dump('getFriends()', $user->getFriends());
+      dump('getFriendsCount()', $user->getFriendsCount());
+      dump('getPendingFriendshipsCount()', $user->getPendingFriendshipsCount());
     });
 });

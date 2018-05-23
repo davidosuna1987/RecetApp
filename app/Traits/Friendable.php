@@ -8,13 +8,21 @@ use Illuminate\Support\Facades\Auth;
 
 trait Friendable
 {
-  public function sendFriendshipRequest($id)
+  public function test($user)
   {
-    $friendship = Auth::user()->getFriendship($id);
+    $id = $user instanceof User ? $user->id : $user;
+    return $id;
+  }
+
+  public function sendFriendshipRequest($user)
+  {
+    $id = $user instanceof User ? $user->id : $user;
+
+    $friendship = $this->getFriendship($id);
 
     if(!$friendship):
       $friendship = Friendship::create([
-        'sender_id' => Auth::user()->id,
+        'sender_id' => $this->id,
         'recipient_id' => $id,
         'accepted' => false
       ]);
@@ -23,11 +31,13 @@ trait Friendable
     return $friendship;
   }
 
-  public function acceptFriendshipRequest($id)
+  public function acceptFriendshipRequest($user)
   {
+    $id = $user instanceof User ? $user->id : $user;
+
     $friendship = Friendship::where([
       'sender_id' => $id,
-      'recipient_id' => Auth::user()->id
+      'recipient_id' => $this->id
     ])->first();
 
     if($friendship):
@@ -39,16 +49,20 @@ trait Friendable
     return $friendship;
   }
 
-  public function denyFriendshipRequest($id)
+  public function denyFriendshipRequest($user)
   {
+    $id = $user instanceof User ? $user->id : $user;
+
     return $this->deleteFriendship($id);
   }
 
-  public function deleteFriendship($id)
+  public function deleteFriendship($user)
   {
+    $id = $user instanceof User ? $user->id : $user;
+
     $friendship = Friendship::where([
       'sender_id' => $id,
-      'recipient_id' => Auth::user()->id
+      'recipient_id' => $this->id
     ])->first();
 
     if($friendship)
@@ -57,10 +71,12 @@ trait Friendable
     return true;
   }
 
-  public function isFriendWith($id)
+  public function isFriendWith($user)
   {
+    $id = $user instanceof User ? $user->id : $user;
+
     $friendship = Friendship::where([
-      'sender_id' => Auth::user()->id,
+      'sender_id' => $this->id,
       'recipient_id' => $id,
       'accepted' => true
     ])->first();
@@ -68,7 +84,7 @@ trait Friendable
     if(!$friendship):
       $friendship = Friendship::where([
         'sender_id' => $id,
-        'recipient_id' => Auth::user()->id,
+        'recipient_id' => $this->id,
         'accepted' => true
       ])->first();
     endif;
@@ -76,21 +92,25 @@ trait Friendable
     return $friendship ? true : false;
   }
 
-  public function hasFriendshipRequestFrom($id)
+  public function hasFriendshipRequestFrom($user)
   {
+    $id = $user instanceof User ? $user->id : $user;
+
     $friendship = Friendship::where([
       'sender_id' => $id,
-      'recipient_id' => Auth::user()->id,
+      'recipient_id' => $this->id,
       'accepted' => false
     ])->first();
 
     return $friendship ? true : false;
   }
 
-  public function hasSentFriendshipRequestTo($id)
+  public function hasSentFriendshipRequestTo($user)
   {
+    $id = $user instanceof User ? $user->id : $user;
+
     $friendship = Friendship::where([
-      'sender_id' => Auth::user()->id,
+      'sender_id' => $this->id,
       'recipient_id' => $id,
       'accepted' => false
     ])->first();
@@ -98,14 +118,16 @@ trait Friendable
     return $friendship ? true : false;
   }
 
-  public function getFriendship($id)
+  public function getFriendship($user)
   {
+    $id = $user instanceof User ? $user->id : $user;
+
     $friendship = Friendship::where([
-      'sender_id' => Auth::user()->id,
+      'sender_id' => $this->id,
       'recipient_id' => $id
     ])->orWhere([
       'sender_id' => $id,
-      'recipient_id' => Auth::user()->id
+      'recipient_id' => $this->id
     ])->first();
 
     return  $friendship;
@@ -113,8 +135,8 @@ trait Friendable
 
   public function getAllFriendships()
   {
-    $friendships = Friendship::where('sender_id', Auth::user()->id)
-        ->orWhere('recipient_id', Auth::user()->id)
+    $friendships = Friendship::where('sender_id', $this->id)
+        ->orWhere('recipient_id', $this->id)
         ->get();
 
     return $friendships;
@@ -123,7 +145,7 @@ trait Friendable
   public function getPendingFriendships()
   {
     $friendships = Friendship::where([
-      'recipient_id' => Auth::user()->id,
+      'recipient_id' => $this->id,
       'accepted' => false
     ])->get();
 
@@ -133,7 +155,7 @@ trait Friendable
   public function getAcceptedFriendships()
   {
     $friendships = Friendship::where([
-      'recipient_id' => Auth::user()->id,
+      'recipient_id' => $this->id,
       'accepted' => true
     ])->get();
 
@@ -142,7 +164,7 @@ trait Friendable
 
   public function getPendingFriendshipsCount()
   {
-    $friendships = Auth::user()->getPendingFriendships();
+    $friendships = $this->getPendingFriendships();
 
     return count($friendships);
   }
@@ -150,17 +172,17 @@ trait Friendable
   public function getFriends()
   {
     $friendships = Friendship::where([
-      'sender_id' => Auth::user()->id,
+      'sender_id' => $this->id,
       'accepted' => true
     ])->orWhere([
-      'recipient_id' => Auth::user()->id,
+      'recipient_id' => $this->id,
       'accepted' => true
     ])->get();
 
     $friends = collect();
 
     foreach($friendships as $key => $friendship):
-      if($friendship->sender_id != Auth::user()->id)
+      if($friendship->sender_id != $this->id)
         $friends->push(User::findOrFail($friendship->sender_id));
       else
         $friends->push(User::findOrFail($friendship->recipient_id));
@@ -171,7 +193,7 @@ trait Friendable
 
   public function getFriendsCount()
   {
-    $friendships = Auth::user()->getFriends();
+    $friendships = $this->getFriends();
 
     return count($friendships);
   }
