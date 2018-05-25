@@ -63,6 +63,9 @@ trait Friendable
     $friendship = Friendship::where([
       'sender_id' => $id,
       'recipient_id' => $this->id
+    ])->orWhere([
+      'sender_id' => $this->id,
+      'recipient_id' => $id
     ])->first();
 
     if($friendship)
@@ -77,19 +80,13 @@ trait Friendable
 
     $friendship = Friendship::where([
       'sender_id' => $this->id,
-      'recipient_id' => $id,
-      'accepted' => true
+      'recipient_id' => $id
+    ])->orWhere([
+      'sender_id' => $id,
+      'recipient_id' => $this->id
     ])->first();
 
-    if(!$friendship):
-      $friendship = Friendship::where([
-        'sender_id' => $id,
-        'recipient_id' => $this->id,
-        'accepted' => true
-      ])->first();
-    endif;
-
-    return $friendship ? true : false;
+    return $friendship and $friendship->accepted ? true : false;
   }
 
   public function hasFriendshipRequestFrom($user)
@@ -165,6 +162,13 @@ trait Friendable
   public function getPendingFriendshipsCount()
   {
     $friendships = $this->getPendingFriendships();
+
+    return count($friendships);
+  }
+
+  public function getAcceptedFriendshipsCount()
+  {
+    $friendships = $this->getAcceptedFriendships();
 
     return count($friendships);
   }
