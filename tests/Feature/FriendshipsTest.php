@@ -173,16 +173,20 @@ class FriendshipsTest extends TestCase
     /** @test */
     public function it_returns_all_user_friendships()
     {
-        $sender     = createUser();
-        $recipients = createUser([], 3);
+        Friendship::truncate();
+        $sender = User::findOrFail(1);
+        $recipients = [];
+        $recipients[] = User::findOrFail(2);
+        $recipients[] = User::findOrFail(3);
+        $recipients[] = User::findOrFail(4);
 
         foreach ($recipients as $recipient) {
-            $sender->befriend($recipient);
+            $sender->sendFriendshipRequest($recipient);
         }
 
-        $recipients[0]->acceptFriendRequest($sender);
-        $recipients[1]->acceptFriendRequest($sender);
-        $recipients[2]->denyFriendRequest($sender);
-        $this->assertCount(3, $sender->getAllFriendships());
+        $recipients[0]->acceptFriendshipRequest($sender);
+        $recipients[1]->acceptFriendshipRequest($sender);
+        $recipients[2]->denyFriendshipRequest($sender);
+        $this->assertCount(2, $sender->getAllFriendships());
     }
 }

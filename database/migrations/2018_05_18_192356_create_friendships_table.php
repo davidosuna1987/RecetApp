@@ -17,7 +17,7 @@ class CreateFriendshipsTable extends Migration
             $table->increments('id');
             $table->integer('sender_id')->unsigned();
             $table->integer('recipient_id')->unsigned();
-            $table->boolean('accepted')->default(false);
+            $table->boolean('accepted')->default(0);
             $table->timestamps();
         });
     }
