@@ -22,5 +22,8 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
-
+  Route::get('/test', function(){
+    $user = Auth::user();
+    dump($user->recipes()->find(1)->with('categories', 'tags', 'ingredients')->get());
+  });
 });
