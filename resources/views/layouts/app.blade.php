@@ -15,9 +15,11 @@
     </head>
     <body>
         <div id="app">
-            @include('partials.nabvars.main')
+            @include('partials.nabvar.main')
             @yield('content')
         </div>
+
+        @include('partials.footer.main')
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>

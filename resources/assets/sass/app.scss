@@ -10,10 +10,13 @@
 
 // Bulma, bulma extensions and variables
 @import "src/bulma";
+@import "src/vuedom";
 
 // Layouts
 @import "layouts/layout";
+@import "layouts/footer";
 @import "layouts/welcome";
+@import "layouts/recipes";
 
 // General
 @import "general/helpers";

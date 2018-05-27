@@ -3,3 +3,30 @@
     min-height: calc(100vh - 52px);
   }
 }
+
+.navbar-link::after,
+.select:not(.is-multiple):not(.is-loading)::after{
+  border-width: 1px;
+  top: 46%;
+}
+
+// .button{
+//   &.is-primary{
+//     background-color: #9C3CF5;
+//     border-color: #9C3CF5;
+
+//     &:hover,
+//     &:active,
+//     &.is-active,
+//     &.is-hovered{
+//       background-color: #9224f7;
+//       border-color: #9224f7;
+//     }
+
+//     &:focus:not(:active),
+//     &.is-focused:not(:active) {
+//         -webkit-box-shadow: 0 0 0 0.125em rgba(156, 60, 245, 0.25);
+//         box-shadow: 0 0 0 0.125em rgba(156, 60, 245, 0.25);
+//     }
+//   }
+// }
