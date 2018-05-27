@@ -5,6 +5,7 @@
                 <div class="column is-12">
                     <div class="vd-input has-label-primary">
                         <input v-model="recipe.title"
+                            @blur="titleBlur($event)"
                             v-validate.disabled="{ required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ }"
                             class="vd-input-field"
                             type="text"
@@ -42,8 +43,9 @@
 
                         <div v-for="(ingredient, index) in recipe.ingredients" class="ingredient-field">
                             <input v-model="recipe.ingredients[index]"
+                                @blur="ingredientBlur($event, index)"
                                 @keypress.enter.prevent="ingredientEnter($event)"
-                                v-validate.disabled="{ required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ }"
+                                v-validate.disabled="'required'"
                                 :name="'ingredient-'+index"
                                 :class="{'is-last': index === recipe.ingredients.length - 1}"
                                 class="ingredient-input"
@@ -55,7 +57,7 @@
                         </div>
 
                         <p class="buttons is-right m-t-20">
-                            <button type="button" @click.prevent="addIngredient()" class="button is-small is-primary">Add ingredient</button>
+                            <button tabindex="-1" type="button" @click.prevent="addIngredient()" class="button is-small is-primary">Add ingredient</button>
                         </p>
                     </div>
                 </div>
@@ -64,10 +66,11 @@
 
                     <div class="vd-textarea has-label-primary m-t-0">
                         <textarea @input="preparationInput($event)"
-                            v-validate.disabled="{ required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ }"
+                            v-validate.disabled="'required'"
                             name="preparation"
-                            class="vd-textarea-field"
+                            class="vd-textarea-field auto-expand"
                             placeholder="Preparation"
+                            data-min-rows="5"
                             rows="5"
                             v-html="recipe.preparation">
                         </textarea>
@@ -158,7 +161,7 @@
                     });
 
                     if(event.target.value && !tagFound)
-                        this.recipe.tags.push(event.target.value);
+                        this.recipe.tags.push(event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1));
 
                     event.target.value = '';
                 },
@@ -203,13 +206,22 @@
                 deleteIngredient(index) {
                     this.recipe.ingredients.splice(index, 1);
 
-                    if(this.recipe.ingredients.length === 0)
-                        this.addIngredient();
+                    // if(this.recipe.ingredients.length === 0)
+                        // this.addIngredient();
+                },
+                ingredientBlur(event, index) {
+                    this.recipe.ingredients[index] = event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1);
+
+                    if(!event.target.value && this.recipe.ingredients.length > 1)
+                        this.deleteIngredient(index);
                 },
 
             // Recipe
                 preparationInput(event) {
                     this.recipe.preparation = event.target.value;
+                },
+                titleBlur(event) {
+                    this.recipe.title = event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1);
                 },
 
             // Validation
@@ -225,8 +237,7 @@
 
                         if(validated) {
                             axios.post('/recipes', this.recipe).then(response => {
-                                console.info(response.data.recipe);return;
-                                window.location.href = '/recipes/'+response.data.recipe.id;
+                                location.href = '/recipes/'+response.data.recipe.id;
                             }).catch(error => {
                                 if(error.response && error.response.status && error.response.status === 419){
                                     location.href = '/login';

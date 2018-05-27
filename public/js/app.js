@@ -29475,6 +29475,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// Textarea auto expand
+$(document).one('focus.auto-expand', 'textarea.auto-expand', function () {
+    var savedValue = this.value;
+    this.value = '';
+    this.baseScrollHeight = this.scrollHeight;
+    this.value = savedValue;
+}).on('input.auto-expand', 'textarea.auto-expand', function () {
+    var minRows = this.getAttribute('data-min-rows') | 0,
+        rows;
+    this.rows = minRows;
+    rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 20);
+    this.rows = minRows + rows;
+});
+
 /***/ }),
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -40976,6 +40990,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -41027,7 +41044,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return tag.toLowerCase() === event.target.value.toLowerCase();
             });
 
-            if (event.target.value && !tagFound) this.recipe.tags.push(event.target.value);
+            if (event.target.value && !tagFound) this.recipe.tags.push(event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1));
 
             event.target.value = '';
         },
@@ -41065,13 +41082,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         deleteIngredient: function deleteIngredient(index) {
             this.recipe.ingredients.splice(index, 1);
 
-            if (this.recipe.ingredients.length === 0) this.addIngredient();
+            // if(this.recipe.ingredients.length === 0)
+            // this.addIngredient();
+        },
+        ingredientBlur: function ingredientBlur(event, index) {
+            this.recipe.ingredients[index] = event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1);
+
+            if (!event.target.value && this.recipe.ingredients.length > 1) this.deleteIngredient(index);
         },
 
 
         // Recipe
         preparationInput: function preparationInput(event) {
             this.recipe.preparation = event.target.value;
+        },
+        titleBlur: function titleBlur(event) {
+            this.recipe.title = event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1);
         },
 
 
@@ -41090,8 +41116,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 if (validated) {
                     axios.post('/recipes', _this2.recipe).then(function (response) {
-                        console.info(response.data.recipe);return;
-                        window.location.href = '/recipes/' + response.data.recipe.id;
+                        location.href = '/recipes/' + response.data.recipe.id;
                     }).catch(function (error) {
                         if (error.response && error.response.status && error.response.status === 419) {
                             location.href = '/login';
@@ -41171,6 +41196,9 @@ var render = function() {
                 },
                 domProps: { value: _vm.recipe.title },
                 on: {
+                  blur: function($event) {
+                    _vm.titleBlur($event)
+                  },
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -41303,12 +41331,8 @@ var render = function() {
                         {
                           name: "validate",
                           rawName: "v-validate.disabled",
-                          value: {
-                            required: true,
-                            regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/
-                          },
-                          expression:
-                            "{ required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ }",
+                          value: "required",
+                          expression: "'required'",
                           modifiers: { disabled: true }
                         }
                       ],
@@ -41323,6 +41347,9 @@ var render = function() {
                       },
                       domProps: { value: _vm.recipe.ingredients[index] },
                       on: {
+                        blur: function($event) {
+                          _vm.ingredientBlur($event, index)
+                        },
                         keypress: function($event) {
                           if (
                             !("button" in $event) &&
@@ -41376,7 +41403,7 @@ var render = function() {
                     "button",
                     {
                       staticClass: "button is-small is-primary",
-                      attrs: { type: "button" },
+                      attrs: { tabindex: "-1", type: "button" },
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -41401,16 +41428,16 @@ var render = function() {
                   {
                     name: "validate",
                     rawName: "v-validate.disabled",
-                    value: { required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ },
-                    expression:
-                      "{ required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ }",
+                    value: "required",
+                    expression: "'required'",
                     modifiers: { disabled: true }
                   }
                 ],
-                staticClass: "vd-textarea-field",
+                staticClass: "vd-textarea-field auto-expand",
                 attrs: {
                   name: "preparation",
                   placeholder: "Preparation",
+                  "data-min-rows": "5",
                   rows: "5"
                 },
                 domProps: { innerHTML: _vm._s(_vm.recipe.preparation) },

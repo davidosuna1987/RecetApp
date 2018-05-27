@@ -12,17 +12,19 @@
 
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-start">
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">Recipes</a>
+                @if(Auth::user())
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">Recipes</a>
 
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="{{ route('recipes.create') }}">Create recipe</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="{{ route('recipes.create') }}">Create recipe</a>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
 
             <div class="navbar-end">
-                @if (Auth::guest())
+                @if(Auth::guest())
                     <a class="navbar-item " href="{{ route('login') }}">Login</a>
                     <a class="navbar-item " href="{{ route('register') }}">Register</a>
                 @else
