@@ -11,11 +11,16 @@ class User extends Authenticatable
     use Notifiable, Friendable;
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password',
     ];
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 
     public function recipes()
     {

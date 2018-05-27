@@ -26,24 +26,19 @@ class RecipesTableSeeder extends Seeder
             'name' => 'Tag 2'
         ]);
 
-        $recipe = Recipe::create([
-            'user_id' => $user->id,
-            'name' => 'Receta 1',
-            'preparation' => 'Preparation'
-        ]);
+        $recipe = new Recipe();
+        $recipe->name = 'Receta 1';
+        $recipe->preparation = 'Preparation';
+        $user->recipes()->save($recipe);
 
         $recipe->categories()->sync([$category->id]);
         $recipe->tags()->sync([$tag1->id, $tag2->id]);
 
-        $ingredient1 = Ingredient::create([
-            'recipe_id' => $recipe->id,
-            'name' => 'Ingredient 1'
-        ]);
+        $ingredient1 = new Ingredient();
+        $ingredient1->name = 'Ingredient 1';
 
-        $ingredient2 = Ingredient::create([
-            'recipe_id' => $recipe->id,
-            'name' => 'Ingredient 2'
-        ]);
+        $ingredient2 = new Ingredient();
+        $ingredient2->name = 'Ingredient 2';
 
         $recipe->ingredients()->delete();
         $recipe->ingredients()->saveMany([$ingredient1, $ingredient2]);
