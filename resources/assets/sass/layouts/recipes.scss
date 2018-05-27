@@ -1,0 +1,23 @@
+.ingredients{
+  background-color: #FFFFD3;
+  padding: 20px;
+
+  .ingredient-field{
+    position: relative;
+
+    .ingredient-input{
+      border: none;
+      border-bottom: solid 1px #363636;
+      width: 100%;
+      background: transparent;
+      padding: 6px 26px 6px 4px;
+      margin-bottom: 5px;
+    }
+
+    .delete-ingredient{
+        position: absolute;
+        top: 8px;
+        right: 5px;
+    }
+  }
+}

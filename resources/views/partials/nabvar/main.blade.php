@@ -1,4 +1,4 @@
-<nav class="navbar has-shadow is-fixed-top">
+<nav class="navbar is-primary has-shadow is-fixed-top">
     <div class="container">
         <div class="navbar-brand">
             <a href="{{ url('/') }}" class="navbar-item">{{ config('app.name', 'RecetApp') }}</a>
@@ -11,7 +11,15 @@
         </div>
 
         <div class="navbar-menu" id="navMenu">
-            <div class="navbar-start"></div>
+            <div class="navbar-start">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Recipes</a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{{ route('recipes.create') }}">Create recipe</a>
+                    </div>
+                </div>
+            </div>
 
             <div class="navbar-end">
                 @if (Auth::guest())
@@ -19,7 +27,7 @@
                     <a class="navbar-item " href="{{ route('register') }}">Register</a>
                 @else
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link" href="#">Hello {{ Auth::user()->profile->first_name }}!</a>
+                        <a class="navbar-link">Hello {{ Auth::user()->profile->first_name }}!</a>
 
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="{{ route('logout') }}"

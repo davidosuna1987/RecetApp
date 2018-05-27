@@ -14,8 +14,24 @@ class RecipesTableSeeder extends Seeder
     {
         $user = User::findOrFail(1);
 
-        $category = Category::create([
+        $category1 = Category::create([
             'name' => 'Desayuno'
+        ]);
+
+        $category2 = Category::create([
+            'name' => 'Comida'
+        ]);
+
+        $category3 = Category::create([
+            'name' => 'Merienda'
+        ]);
+
+        $category4 = Category::create([
+            'name' => 'Cena'
+        ]);
+
+        $category5 = Category::create([
+            'name' => 'Entre horas'
         ]);
 
         $tag1 = Tag::create([
@@ -27,11 +43,11 @@ class RecipesTableSeeder extends Seeder
         ]);
 
         $recipe = new Recipe();
-        $recipe->name = 'Receta 1';
+        $recipe->title = 'Receta 1';
         $recipe->preparation = 'Preparation';
         $user->recipes()->save($recipe);
 
-        $recipe->categories()->sync([$category->id]);
+        $recipe->categories()->sync([$category1->id, $category2->id, $category3->id, $category4->id, $category5->id]);
         $recipe->tags()->sync([$tag1->id, $tag2->id]);
 
         $ingredient1 = new Ingredient();

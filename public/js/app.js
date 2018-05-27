@@ -967,61 +967,24 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(50);
+module.exports = __webpack_require__(42);
 
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 __webpack_require__(11);
 
-window.Vue = __webpack_require__(34);
+window.Vue = __webpack_require__(35);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', __webpack_require__(37));
+Vue.component('recipe-form', __webpack_require__(38));
 
 var app = new Vue({
     el: '#app'
 });
 
-// Bulma NavBar Burger Script
-document.addEventListener('DOMContentLoaded', function () {
-    // Get all "navbar-burger" elements
-    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-
-        // Add a click event on each of them
-        $navbarBurgers.forEach(function ($el) {
-            $el.addEventListener('click', function () {
-
-                // Get the target from the "data-target" attribute
-                var target = $el.dataset.target;
-                var $target = document.getElementById(target);
-
-                // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                $el.classList.toggle('is-active');
-                $target.classList.toggle('is-active');
-            });
-        });
-    }
-});
-
-__webpack_require__(41);
+__webpack_require__(57);
 
 /***/ }),
 /* 11 */
@@ -29481,6 +29444,34 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 34 */
+/***/ (function(module, exports) {
+
+// Bulma NavBar Burger Script
+document.addEventListener('DOMContentLoaded', function () {
+    // Get all "navbar-burger" elements
+    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(function ($el) {
+            $el.addEventListener('click', function () {
+
+                // Get the target from the "data-target" attribute
+                var target = $el.dataset.target;
+                var $target = document.getElementById(target);
+
+                // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+                $el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
+});
+
+/***/ }),
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40443,10 +40434,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(35).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(36).setImmediate))
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -40502,7 +40493,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(36);
+__webpack_require__(37);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -40516,7 +40507,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -40709,15 +40700,15 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(4)))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(38)
+var normalizeComponent = __webpack_require__(39)
 /* script */
-var __vue_script__ = __webpack_require__(39)
+var __vue_script__ = __webpack_require__(40)
 /* template */
-var __vue_template__ = __webpack_require__(40)
+var __vue_template__ = __webpack_require__(41)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40734,7 +40725,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
+Component.options.__file = "resources/assets/js/components/RecipeForm.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -40743,9 +40734,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7168fb6a", Component.options)
+    hotAPI.createRecord("data-v-145aa3e9", Component.options)
   } else {
-    hotAPI.reload("data-v-7168fb6a", Component.options)
+    hotAPI.reload("data-v-145aa3e9", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -40756,7 +40747,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -40865,7 +40856,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40886,72 +40877,511 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            recipe: {
+                title: '',
+                preparation: '',
+                categories: [],
+                tags: [],
+                ingredients: ['']
+            },
+            categories: null,
+            tags: null,
+            filteredTags: null
+        };
+    },
+
+
+    methods: {
+        // Categories
+        getCategories: function getCategories() {
+            var _this = this;
+
+            axios.get('/categories').then(function (response) {
+                _this.categories = response.data.categories;
+            }).catch(function (error) {
+                if (error.response && error.response.status && error.response.status === 419) {
+                    location.href = '/login';
+                }
+                console.info(error);
+            });
+        },
+
+
+        // Tags
+        addTag: function addTag(event) {
+            var tagFound = _.find(this.recipe.tags, function (tag) {
+                return tag.toLowerCase() === event.target.value.toLowerCase();
+            });
+
+            if (event.target.value && !tagFound) this.recipe.tags.push(event.target.value);
+
+            event.target.value = '';
+        },
+        deleteTag: function deleteTag(index) {
+            console.info(index);
+            this.recipe.tags.splice(index, 1);
+        },
+        focusTagInput: function focusTagInput(event) {
+            if (event.target.classList.contains('vd-tags__control')) event.target.firstElementChild.focus();
+
+            if (event.target.classList.contains('vd-tags-field')) event.target.focus();
+
+            if (event.target.classList.contains('vd-tag__icon')) event.target.parentElement.firstElementChild.focus();
+        },
+        getFilteredTags: function getFilteredTags(text) {
+            this.filteredTags = data.filter(function (option) {
+                return option.name.toString().toLowerCase().indexOf(text.toLowerCase()) >= 0;
+            });
+        },
+
+
+        // Ingredients
+        ingredientEnter: function ingredientEnter(event) {
+            if (event.target.classList.contains('is-last')) this.addIngredient();
+
+            return false;
+        },
+        addIngredient: function addIngredient() {
+            if (!this.recipe.ingredients.length || this.recipe.ingredients[this.recipe.ingredients.length - 1]) this.recipe.ingredients.push('');
+
+            setTimeout(function () {
+                $('.ingredient-input').last().focus();
+            }, 10);
+        },
+        deleteIngredient: function deleteIngredient(index) {
+            this.recipe.ingredients.splice(index, 1);
+
+            if (this.recipe.ingredients.length === 0) this.addIngredient();
+        },
+
+
+        // Recipe
+        preparationInput: function preparationInput(event) {
+            this.recipe.preparation = event.target.value;
+        }
+    },
+
     mounted: function mounted() {
-        console.log('Component mounted.');
+        this.getCategories();
     }
 });
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
+  return _c("section", { staticClass: "recipe-form-section" }, [
+    _c("form", { staticClass: "recipe-form" }, [
+      _c("div", { staticClass: "columns is-multiline" }, [
+        _c("div", { staticClass: "column is-12" }, [
+          _c("div", { staticClass: "vd-input has-label-primary" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.recipe.title,
+                  expression: "recipe.title"
+                }
+              ],
+              staticClass: "vd-input-field",
+              attrs: { type: "text", placeholder: "Recipe title" },
+              domProps: { value: _vm.recipe.title },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.recipe, "title", $event.target.value)
+                }
+              }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
+            _c("label", { staticClass: "vd-placeholder" }, [
+              _vm._v("Recipe title")
             ])
           ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "column is-12" },
+          [
+            _c("p", { staticClass: "m-b-15" }, [
+              _vm._v("Select recipe categories")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.categories, function(category) {
+              return _c(
+                "label",
+                {
+                  staticClass: "vd-checkbox is-primary",
+                  attrs: { for: "cat-" + category.id }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recipe.categories,
+                        expression: "recipe.categories"
+                      }
+                    ],
+                    attrs: { id: "cat-" + category.id, type: "checkbox" },
+                    domProps: {
+                      value: category.id,
+                      checked: Array.isArray(_vm.recipe.categories)
+                        ? _vm._i(_vm.recipe.categories, category.id) > -1
+                        : _vm.recipe.categories
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.recipe.categories,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = category.id,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(
+                                _vm.recipe,
+                                "categories",
+                                $$a.concat([$$v])
+                              )
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.recipe,
+                                "categories",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.recipe, "categories", $$c)
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "vd-checkbox__info" }, [
+                    _c("span", { staticClass: "vd-checkbox__check" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "vd-checkbox__label" }, [
+                      _vm._v(_vm._s(category.name))
+                    ])
+                  ])
+                ]
+              )
+            })
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-4" }, [
+          _c(
+            "div",
+            { staticClass: "ingredients" },
+            [
+              _c("p", { staticClass: "m-b-15" }, [_vm._v("Ingredients")]),
+              _vm._v(" "),
+              _vm._l(_vm.recipe.ingredients, function(ingredient, index) {
+                return _c("div", { staticClass: "ingredient-field" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.recipe.ingredients[index],
+                        expression: "recipe.ingredients[index]"
+                      }
+                    ],
+                    staticClass: "ingredient-input",
+                    class: {
+                      "is-last": index === _vm.recipe.ingredients.length - 1
+                    },
+                    attrs: { placeholder: "Type new ingredient", type: "text" },
+                    domProps: { value: _vm.recipe.ingredients[index] },
+                    on: {
+                      keypress: function($event) {
+                        if (
+                          !("button" in $event) &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          )
+                        ) {
+                          return null
+                        }
+                        $event.preventDefault()
+                        _vm.ingredientEnter($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.recipe.ingredients,
+                          index,
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("a", {
+                    staticClass: "delete is-small delete-ingredient",
+                    on: {
+                      click: function($event) {
+                        _vm.deleteIngredient(index)
+                      }
+                    }
+                  })
+                ])
+              }),
+              _vm._v(" "),
+              _c("p", { staticClass: "buttons is-right m-t-20" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button is-small is-primary",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.addIngredient()
+                      }
+                    }
+                  },
+                  [_vm._v("Add ingredient")]
+                )
+              ])
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column is-8" }, [
+          _c("p", { staticClass: "m-b-15" }, [_vm._v("Preparation")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "vd-textarea has-label-primary m-t-0" }, [
+            _c("textarea", {
+              staticClass: "vd-textarea-field",
+              attrs: { placeholder: "Preparation", rows: "5" },
+              domProps: { innerHTML: _vm._s(_vm.recipe.preparation) },
+              on: {
+                input: function($event) {
+                  _vm.preparationInput($event)
+                }
+              }
+            })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-12" }, [
+          _c("p", { staticClass: "m-t-20 m-b-15" }, [_vm._v("Tags")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "vd-tags has-label-primary" },
+            [
+              _vm._l(_vm.recipe.tags, function(tag, index) {
+                return _c("span", { staticClass: "vd-tag is-primary" }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(tag) +
+                      "\n                        "
+                  ),
+                  _c("a", {
+                    staticClass: "vd-tags__delete",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.deleteTag(index)
+                      }
+                    }
+                  })
+                ])
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "vd-tags__control",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.focusTagInput($event)
+                    }
+                  }
+                },
+                [
+                  _c("input", {
+                    staticClass: "vd-tags-field",
+                    attrs: { placeholder: "Add tag", type: "text" },
+                    on: {
+                      keypress: function($event) {
+                        if (
+                          !("button" in $event) &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          )
+                        ) {
+                          return null
+                        }
+                        $event.preventDefault()
+                        _vm.addTag($event)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("i", { staticClass: "vd-tag__icon" })
+                ]
+              )
+            ],
+            2
+          )
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-145aa3e9", module.exports)
   }
 }
 
 /***/ }),
-/* 41 */
+/* 42 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-__webpack_require__(42);
-__webpack_require__(43);
-__webpack_require__(44);
-__webpack_require__(45);
-__webpack_require__(46);
-__webpack_require__(47);
 __webpack_require__(48);
 __webpack_require__(49);
+__webpack_require__(50);
+__webpack_require__(51);
+__webpack_require__(52);
+__webpack_require__(53);
+__webpack_require__(54);
+__webpack_require__(55);
 
 /***/ }),
-/* 42 */
+/* 48 */
 /***/ (function(module, exports) {
 
 (function () {
@@ -40986,7 +41416,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 
 /***/ }),
-/* 43 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -42061,7 +42491,7 @@ return datePicker;
 
 
 /***/ }),
-/* 44 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -42559,7 +42989,7 @@ return Carousel;
 
 
 /***/ }),
-/* 45 */
+/* 51 */
 /***/ (function(module, exports) {
 
 var bulmaIconpicker = (function () {
@@ -42833,7 +43263,7 @@ return IconPicker;
 
 
 /***/ }),
-/* 46 */
+/* 52 */
 /***/ (function(module, exports) {
 
 (function () {
@@ -42902,7 +43332,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /***/ }),
-/* 47 */
+/* 53 */
 /***/ (function(module, exports) {
 
 (function () {
@@ -42987,7 +43417,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /***/ }),
-/* 48 */
+/* 54 */
 /***/ (function(module, exports) {
 
 var bulmaSteps = (function () {
@@ -43205,7 +43635,7 @@ return StepsWizard;
 
 
 /***/ }),
-/* 49 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -43580,10 +44010,12 @@ return Tagify;
 
 
 /***/ }),
-/* 50 */
-/***/ (function(module, exports) {
+/* 56 */,
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+__webpack_require__(47);
+__webpack_require__(34);
 
 /***/ })
 /******/ ]);
