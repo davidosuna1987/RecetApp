@@ -19,7 +19,7 @@ return [
     'email' => 'Email',
     'password' => 'Contraseña',
     'remember' => 'Recuérdame',
-    'forgot' => 'Has olvidado tu contraseña?',
+    'forgot' => '¿Has olvidado tu contraseña?',
     'register' => 'Registro',
     'first_name' => 'Nombre',
     'last_name' => 'Apellidos',

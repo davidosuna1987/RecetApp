@@ -20,7 +20,7 @@ return [
     'password' => 'Contrasenya',
     'remember' => 'Recorda\'m',
     'forgot' => 'Has oblidat la teva contrasenya?',
-    'register' => 'Registrarme',
+    'register' => 'Registrar\'me',
     'first_name' => 'Nom',
     'last_name' => 'Cognoms',
     'password_confirmation' => 'Confirmar contrasenya',

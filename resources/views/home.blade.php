@@ -6,13 +6,11 @@
             <div class="column is-7">
                 <nav class="card">
                     <header class="card-header">
-                        <p class="card-header-title">
-                            Dashboard
-                        </p>
+                        <p class="card-header-title">{{ trans('home.dashboard') }}</p>
                     </header>
 
                     <div class="card-content">
-                        You are logged in!
+                        {{ trans('home.welcome_message') }}
                     </div>
                 </nav>
             </div>
