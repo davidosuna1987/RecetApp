@@ -14,17 +14,35 @@
                         {{ csrf_field() }}
 
                         <div class="field">
-                            <label class="label">Name</label>
+                            <label class="label">First name</label>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
-                                        <input class="input" id="name" type="name" name="name" value="{{ old('name') }}"
+                                        <input class="input" id="first_name" type="first_name" name="first_name" value="{{ old('first_name') }}"
                                                required autofocus>
                                     </p>
 
-                                    @if ($errors->has('name'))
+                                    @if ($errors->has('first_name'))
                                         <p class="help is-danger">
-                                            {{ $errors->first('name') }}
+                                            {{ $errors->first('first_name') }}
+                                        </p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Last name</label>
+                            <div class="field-body">
+                                <div class="field">
+                                    <p class="control">
+                                        <input class="input" id="last_name" type="last_name" name="last_name" value="{{ old('last_name') }}"
+                                               required autofocus>
+                                    </p>
+
+                                    @if ($errors->has('last_name'))
+                                        <p class="help is-danger">
+                                            {{ $errors->first('last_name') }}
                                         </p>
                                     @endif
                                 </div>
