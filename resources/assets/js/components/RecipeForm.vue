@@ -1,31 +1,41 @@
 <template>
     <section class="recipe-form-section">
-        <!-- <pre>{{ recipe }}</pre> -->
-        <!-- <pre>{{ categories }}</pre> -->
-        <!-- <pre>{{ tags }}</pre> -->
-
-        <form class="recipe-form">
+        <form @submit.prevent="validateForm()" class="recipe-form">
             <div class="columns is-multiline">
                 <div class="column is-12">
                     <div class="vd-input has-label-primary">
-                        <input v-model="recipe.title" class="vd-input-field" type="text" placeholder="Recipe title" />
+                        <input v-model="recipe.title"
+                            v-validate.disabled="{ required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ }"
+                            class="vd-input-field"
+                            type="text"
+                            name="title"
+                            placeholder="Recipe title" />
+
                         <label class="vd-placeholder">Recipe title</label>
                     </div>
+                    <p v-if="errors.has('title')" class="help is-danger">{{ errors.first('title') }}</p>
                 </div>
 
-                <div class="column is-12">
+                <div class="column is-12 m-t-25">
                     <p class="m-b-15">Select recipe categories</p>
                     <label v-for="category in categories" :for="'cat-'+category.id" class="vd-checkbox is-primary">
-                        <input v-model="recipe.categories" :id="'cat-'+category.id" type="checkbox" :value="category.id">
+                        <input v-model="recipe.categories"
+                            @input="setCategoriesError()"
+                            name="categories[]"
+                            :id="'cat-'+category.id"
+                            type="checkbox"
+                            :value="category.id" />
+
                         <span class="vd-checkbox__info">
                             <span class="vd-checkbox__check"></span>
                             <span class="vd-checkbox__label">{{ category.name }}</span>
                         </span>
                     </label>
+                    <p v-if="categoriesError" class="help is-danger">{{ categoriesError }}</p>
                 </div>
             </div>
 
-            <div class="columns">
+            <div class="columns m-t-30">
                 <div class="column is-4">
                     <div class="ingredients">
                         <p class="m-b-15">Ingredients</p>
@@ -33,15 +43,19 @@
                         <div v-for="(ingredient, index) in recipe.ingredients" class="ingredient-field">
                             <input v-model="recipe.ingredients[index]"
                                 @keypress.enter.prevent="ingredientEnter($event)"
+                                v-validate.disabled="{ required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ }"
+                                :name="'ingredient-'+index"
                                 :class="{'is-last': index === recipe.ingredients.length - 1}"
                                 class="ingredient-input"
                                 placeholder="Type new ingredient"
                                 type="text" />
+
                             <a @click="deleteIngredient(index)" class="delete is-small delete-ingredient"></a>
+                            <p v-if="errors.has('ingredient-'+index)" class="help is-danger">{{ errors.first('ingredient-'+index) }}</p>
                         </div>
 
                         <p class="buttons is-right m-t-20">
-                            <button @click.prevent="addIngredient()" class="button is-small is-primary">Add ingredient</button>
+                            <button type="button" @click.prevent="addIngredient()" class="button is-small is-primary">Add ingredient</button>
                         </p>
                     </div>
                 </div>
@@ -49,8 +63,16 @@
                     <p class="m-b-15">Preparation</p>
 
                     <div class="vd-textarea has-label-primary m-t-0">
-                        <textarea @input="preparationInput($event)" class="vd-textarea-field" placeholder="Preparation" rows="5" v-html="recipe.preparation"></textarea>
+                        <textarea @input="preparationInput($event)"
+                            v-validate.disabled="{ required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ }"
+                            name="preparation"
+                            class="vd-textarea-field"
+                            placeholder="Preparation"
+                            rows="5"
+                            v-html="recipe.preparation">
+                        </textarea>
                     </div>
+                    <p v-if="errors.has('preparation')" class="help is-danger">{{ errors.first('preparation') }}</p>
                 </div>
             </div>
 
@@ -68,29 +90,20 @@
                                 class="vd-tags-field"
                                 placeholder="Add tag"
                                 type="text" />
+
                             <i class="vd-tag__icon"></i>
                         </div>
                     </div>
                 </div>
             </div>
 
-           <!--  <b-taginput
-                v-model="recipe.tags"
-                :data="filteredTags"
-                autocomplete
-                field="name"
-                icon="label"
-                placeholder="Add tag"
-                @typing="getFilteredTags()">
-
-                <template slot-scope="props">
-                    <strong>{{props.option.id}}</strong>: {{props.name}}
-                </template>
-
-                <template slot="empty">
-                    There are no tags
-                </template>
-            </b-taginput> -->
+            <div class="columns">
+                <div class="column is-12">
+                    <p class="buttons is-right m-t-20">
+                        <button type="submit" class="button is-large is-primary">Create recipe!</button>
+                    </p>
+                </div>
+            </div>
         </form>
     </section>
 </template>
@@ -109,6 +122,7 @@
                     ],
                 },
                 categories: null,
+                categoriesError: null,
                 tags: null,
                 filteredTags: null
             }
@@ -125,6 +139,16 @@
                         }
                         console.info(error);
                     });
+                },
+                setCategoriesError() {
+                    let vue = this;
+                    setTimeout(function(){
+                        if(!vue.recipe.categories.length){
+                            vue.categoriesError = 'You must select at least one category.';
+                        }else{
+                            vue.categoriesError = null;
+                        }
+                    }, 10);
                 },
 
             // Tags
@@ -186,7 +210,46 @@
             // Recipe
                 preparationInput(event) {
                     this.recipe.preparation = event.target.value;
-                }
+                },
+
+            // Validation
+                validateForm() {
+                    let vue = this;
+                    vue.$validator.validateAll().then((validated) => {
+                        if(!this.recipe.categories.length){
+                            this.categoriesError = 'You must select at least one category.';
+                            validated = false;
+                        }else{
+                            this.categoriesError = null;
+                        }
+
+                        if(validated) {
+                            axios.post('/recipes', this.recipe).then(response => {
+                                console.info(response.data.recipe);return;
+                                window.location.href = '/recipes/'+response.data.recipe.id;
+                            }).catch(error => {
+                                if(error.response && error.response.status && error.response.status === 419){
+                                    location.href = '/login';
+                                }
+                                console.info(error);
+                            });
+                        }else{
+                            let action = vue.recipe.id ? 'update' : 'create';
+                            console.info(action + ' not validated');
+                            // vue.$snackbar.open({
+                            //     duration: 5000,
+                            //     message: 'Please correct errors before ' + action + ' recipe.',
+                            //     type: 'is-danger',
+                            //     queue: false,
+                            //     position: 'is-top',
+                            //     actionText: 'OK',
+                            //     onAction: () => {
+                            //         //Do something on click button
+                            //     }
+                            // });
+                        }
+                    });
+                },
         },
 
         mounted() {
