@@ -57,7 +57,7 @@
                         </div>
 
                         <p class="buttons is-right m-t-20">
-                            <button tabindex="-1" type="button" @click.prevent="addIngredient()" class="button is-small is-primary">Add ingredient</button>
+                            <a @click.prevent="addIngredient()" class="is-size-7 vd-text-primary">Add ingredient</a>
                         </p>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
             <div class="columns">
                 <div class="column is-12">
                     <p class="buttons is-right m-t-20">
-                        <button type="submit" class="button is-large is-primary">Create recipe!</button>
+                        <button type="submit" class="button is-large is-primary">{{ submitMessage }}</button>
                     </p>
                 </div>
             </div>
@@ -113,9 +113,12 @@
 
 <script>
     export default {
+        props: ['recipeId'],
+
         data() {
             return {
                 recipe: {
+                    id: null,
                     title: '',
                     preparation: '',
                     categories: [],
@@ -128,6 +131,12 @@
                 categoriesError: null,
                 tags: null,
                 filteredTags: null
+            }
+        },
+
+        computed: {
+            submitMessage() {
+                return this.recipeId ? 'Update recipe!' : 'Create recipe!';
             }
         },
 
@@ -217,11 +226,41 @@
                 },
 
             // Recipe
+                getRecipe(id) {
+                    axios.get('/recipes/'+id+'/get').then(response => {
+                        this.recipe = response.data;
+                    }).catch(error => {
+                        if(error.response && error.response.status && error.response.status === 419){
+                            location.href = '/login';
+                        }
+                        console.info(error);
+                    });
+                },
                 preparationInput(event) {
                     this.recipe.preparation = event.target.value;
                 },
                 titleBlur(event) {
                     this.recipe.title = event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1);
+                },
+                store() {
+                    axios.post('/recipes', this.recipe).then(response => {
+                        location.href = '/recipes/'+response.data.recipe.id;
+                    }).catch(error => {
+                        if(error.response && error.response.status && error.response.status === 419){
+                            location.href = '/login';
+                        }
+                        console.info(error);
+                    });
+                },
+                update() {
+                    axios.put('/recipes/'+this.recipe.id, this.recipe).then(response => {
+                        location.href = '/recipes/'+response.data.recipe.id;
+                    }).catch(error => {
+                        if(error.response && error.response.status && error.response.status === 419){
+                            location.href = '/login';
+                        }
+                        console.info(error);
+                    });
                 },
 
             // Validation
@@ -236,14 +275,7 @@
                         }
 
                         if(validated) {
-                            axios.post('/recipes', this.recipe).then(response => {
-                                location.href = '/recipes/'+response.data.recipe.id;
-                            }).catch(error => {
-                                if(error.response && error.response.status && error.response.status === 419){
-                                    location.href = '/login';
-                                }
-                                console.info(error);
-                            });
+                            this.recipeId ? this.update() : this.store();
                         }else{
                             let action = vue.recipe.id ? 'update' : 'create';
                             console.info(action + ' not validated');
@@ -265,6 +297,9 @@
 
         mounted() {
             this.getCategories();
+
+            if(this.recipeId)
+                this.getRecipe(this.recipeId);
         }
     }
 </script>

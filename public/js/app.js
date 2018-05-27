@@ -40995,9 +40995,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['recipeId'],
+
     data: function data() {
         return {
             recipe: {
+                id: null,
                 title: '',
                 preparation: '',
                 categories: [],
@@ -41011,6 +41014,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
+
+    computed: {
+        submitMessage: function submitMessage() {
+            return this.recipeId ? 'Update recipe!' : 'Create recipe!';
+        }
+    },
 
     methods: {
         // Categories
@@ -41093,36 +41102,61 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
         // Recipe
+        getRecipe: function getRecipe(id) {
+            var _this2 = this;
+
+            axios.get('/recipes/' + id + '/get').then(function (response) {
+                _this2.recipe = response.data;
+            }).catch(function (error) {
+                if (error.response && error.response.status && error.response.status === 419) {
+                    location.href = '/login';
+                }
+                console.info(error);
+            });
+        },
         preparationInput: function preparationInput(event) {
             this.recipe.preparation = event.target.value;
         },
         titleBlur: function titleBlur(event) {
             this.recipe.title = event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1);
         },
+        store: function store() {
+            axios.post('/recipes', this.recipe).then(function (response) {
+                location.href = '/recipes/' + response.data.recipe.id;
+            }).catch(function (error) {
+                if (error.response && error.response.status && error.response.status === 419) {
+                    location.href = '/login';
+                }
+                console.info(error);
+            });
+        },
+        update: function update() {
+            axios.put('/recipes/' + this.recipe.id, this.recipe).then(function (response) {
+                location.href = '/recipes/' + response.data.recipe.id;
+            }).catch(function (error) {
+                if (error.response && error.response.status && error.response.status === 419) {
+                    location.href = '/login';
+                }
+                console.info(error);
+            });
+        },
 
 
         // Validation
         validateForm: function validateForm() {
-            var _this2 = this;
+            var _this3 = this;
 
             var vue = this;
             vue.$validator.validateAll().then(function (validated) {
-                if (!_this2.recipe.categories.length) {
-                    _this2.categoriesError = 'You must select at least one category.';
+                if (!_this3.recipe.categories.length) {
+                    _this3.categoriesError = 'You must select at least one category.';
                     validated = false;
                 } else {
-                    _this2.categoriesError = null;
+                    _this3.categoriesError = null;
                 }
 
                 if (validated) {
-                    axios.post('/recipes', _this2.recipe).then(function (response) {
-                        location.href = '/recipes/' + response.data.recipe.id;
-                    }).catch(function (error) {
-                        if (error.response && error.response.status && error.response.status === 419) {
-                            location.href = '/login';
-                        }
-                        console.info(error);
-                    });
+                    _this3.recipeId ? _this3.update() : _this3.store();
                 } else {
                     var action = vue.recipe.id ? 'update' : 'create';
                     console.info(action + ' not validated');
@@ -41144,6 +41178,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     mounted: function mounted() {
         this.getCategories();
+
+        if (this.recipeId) this.getRecipe(this.recipeId);
     }
 });
 
@@ -41400,10 +41436,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", { staticClass: "buttons is-right m-t-20" }, [
                   _c(
-                    "button",
+                    "a",
                     {
-                      staticClass: "button is-small is-primary",
-                      attrs: { tabindex: "-1", type: "button" },
+                      staticClass: "is-size-7 vd-text-primary",
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -41528,32 +41563,25 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _c("div", { staticClass: "columns" }, [
+          _c("div", { staticClass: "column is-12" }, [
+            _c("p", { staticClass: "buttons is-right m-t-20" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "button is-large is-primary",
+                  attrs: { type: "submit" }
+                },
+                [_vm._v(_vm._s(_vm.submitMessage))]
+              )
+            ])
+          ])
+        ])
       ]
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "columns" }, [
-      _c("div", { staticClass: "column is-12" }, [
-        _c("p", { staticClass: "buttons is-right m-t-20" }, [
-          _c(
-            "button",
-            {
-              staticClass: "button is-large is-primary",
-              attrs: { type: "submit" }
-            },
-            [_vm._v("Create recipe!")]
-          )
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

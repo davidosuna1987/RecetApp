@@ -28,6 +28,9 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/recipes/create', 'RecipeController@create')->name('recipes.create');
   Route::post('/recipes', 'RecipeController@store')->name('recipes.store');
   Route::get('/recipes/{id}', 'RecipeController@show')->name('recipes.show');
+  Route::get('/recipes/{id}/edit', 'RecipeController@edit')->name('recipes.edit');
+  Route::get('/recipes/{id}/get', 'RecipeController@get')->name('recipes.get');
+  Route::put('/recipes/{id}', 'RecipeController@update')->name('recipes.update');
 
   // Categories routes
   Route::get('/categories', 'CategoryController@index')->name('categories');
