@@ -5,7 +5,7 @@
         <div class="column is-5">
             <div class="card m-t-60">
                 <header class="card-header">
-                    <p class="card-header-title">Login</p>
+                    <p class="card-header-title">{{ trans('auth.login') }}</p>
                 </header>
 
                 <div class="card-content">
@@ -13,13 +13,13 @@
                         {{ csrf_field() }}
 
                         <div class="field">
-                            <label class="label">E-Mail Address</label>
+                            <label class="label">{{ trans('auth.email') }}</label>
 
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
                                         <input class="input" id="email" type="email" name="email"
-                                               value="{{ old('email') }}" required autofocus>
+                                               value="{{ old('email') }}" autofocus>
                                     </p>
 
                                     @if ($errors->has('email'))
@@ -32,11 +32,11 @@
                         </div>
 
                         <div class="field">
-                                <label class="label">Password</label>
+                                <label class="label">{{ trans('auth.password') }}</label>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
-                                        <input class="input" id="password" type="password" name="password" required>
+                                        <input class="input" id="password" type="password" name="password">
                                     </p>
 
                                     @if ($errors->has('password'))
@@ -52,9 +52,17 @@
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
-                                        <label class="checkbox">
-                                            <input type="checkbox"
-                                                   name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                        <label for="remember" class="vd-checkbox is-primary">
+                                            <input
+                                                id="remember"
+                                                {{ old('remember') ? 'checked' : '' }}
+                                                name="remember"
+                                                type="checkbox" />
+
+                                            <span class="vd-checkbox__info">
+                                                <span class="vd-checkbox__check"></span>
+                                                <span class="vd-checkbox__label">{{ trans('auth.remember') }}</span>
+                                            </span>
                                         </label>
                                     </p>
                                 </div>
@@ -65,12 +73,12 @@
                             <div class="field-body">
                                 <div class="field is-grouped">
                                     <div class="control">
-                                        <button type="submit" class="button is-primary">Login</button>
+                                        <button type="submit" class="button is-primary">{{ trans('auth.login') }}</button>
                                     </div>
 
                                     <div class="control">
-                                        <a href="{{ route('password.request') }}">
-                                            Forgot Your Password?
+                                        <a href="{{ route('password.request') }}" class="button is-text">
+                                            {{ trans('auth.forgot') }}
                                         </a>
                                     </div>
                                 </div>

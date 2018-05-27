@@ -5,7 +5,7 @@
         <div class="column is-5">
             <div class="card m-t-60">
                 <header class="card-header">
-                    <p class="card-header-title">Register</p>
+                    <p class="card-header-title">{{ trans('auth.register') }}</p>
                 </header>
 
                 <div class="card-content">
@@ -14,12 +14,12 @@
                         {{ csrf_field() }}
 
                         <div class="field">
-                            <label class="label">First name</label>
+                            <label class="label">{{ trans('auth.first_name') }}</label>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
                                         <input class="input" id="first_name" type="first_name" name="first_name" value="{{ old('first_name') }}"
-                                               required autofocus>
+                                               autofocus>
                                     </p>
 
                                     @if ($errors->has('first_name'))
@@ -32,12 +32,12 @@
                         </div>
 
                         <div class="field">
-                            <label class="label">Last name</label>
+                            <label class="label">{{ trans('auth.last_name') }}</label>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
                                         <input class="input" id="last_name" type="last_name" name="last_name" value="{{ old('last_name') }}"
-                                               required autofocus>
+                                               autofocus>
                                     </p>
 
                                     @if ($errors->has('last_name'))
@@ -50,13 +50,13 @@
                         </div>
 
                         <div class="field">
-                            <label class="label">E-mail Address</label>
+                            <label class="label">{{ trans('auth.email') }}</label>
 
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
                                         <input class="input" id="email" type="email" name="email"
-                                               value="{{ old('email') }}" required autofocus>
+                                               value="{{ old('email') }}" autofocus>
                                     </p>
 
                                     @if ($errors->has('email'))
@@ -69,11 +69,11 @@
                         </div>
 
                         <div class="field">
-                            <label class="label">Password</label>
+                            <label class="label">{{ trans('auth.password') }}</label>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
-                                        <input class="input" id="password" type="password" name="password" required>
+                                        <input class="input" id="password" type="password" name="password">
                                     </p>
 
                                     @if ($errors->has('password'))
@@ -86,12 +86,12 @@
                         </div>
 
                         <div class="field">
-                            <label class="label">Confirm Password</label>
+                            <label class="label">{{ trans('auth.password_confirmation') }}</label>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
                                         <input class="input" id="password-confirm" type="password"
-                                               name="password_confirmation" required>
+                                               name="password_confirmation">
                                     </p>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                             <div class="field-body">
                                 <div class="field is-grouped">
                                     <div class="control">
-                                        <button type="submit" class="button is-primary">Register</button>
+                                        <button type="submit" class="button is-primary">{{ trans('auth.register') }}</button>
                                     </div>
                                 </div>
                             </div>
