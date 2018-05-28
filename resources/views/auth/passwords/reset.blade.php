@@ -21,56 +21,31 @@
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
+                        <div class="vd-input has-label-primary">
+                            <input id="email" class="vd-input-field" type="text" name="email" value="{{ old('email') }}" placeholder="{{ trans('auth.email') }}" autofocus />
 
-                        <div class="field">
-                            <label class="label">{{ trans('auth.email') }}</label>
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input class="input" id="email" type="email" name="email"
-                                               value="{{ old('email') }}" autofocus>
-                                    </p>
+                            <label class="vd-placeholder">{{ trans('auth.email') }}</label>
+                        </div>
+                        @if ($errors->has('email'))
+                            <p class="help is-danger">{{ $errors->first('email') }}</p>
+                        @endif
 
-                                    @if ($errors->has('email'))
-                                        <p class="help is-danger">
-                                            {{ $errors->first('email') }}
-                                        </p>
-                                    @endif
-                                </div>
-                            </div>
+                        <div class="vd-input has-label-primary">
+                            <input id="password" class="vd-input-field" type="password" name="password" value="" placeholder="{{ trans('auth.password') }}" />
+
+                            <label class="vd-placeholder">{{ trans('auth.password') }}</label>
+                        </div>
+                        @if ($errors->has('password'))
+                            <p class="help is-danger">{{ $errors->first('password') }}</p>
+                        @endif
+
+                        <div class="vd-input has-label-primary">
+                            <input id="password_confirmation" class="vd-input-field" type="password" name="password_confirmation" value="" placeholder="{{ trans('auth.password_confirmation') }}" />
+
+                            <label class="vd-placeholder">{{ trans('auth.password_confirmation') }}</label>
                         </div>
 
-                        <div class="field">
-                            <label class="label">{{ trans('auth.password') }}</label>
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input class="input" id="password" type="password" name="password">
-                                    </p>
-
-                                    @if ($errors->has('password'))
-                                        <p class="help is-danger">
-                                            {{ $errors->first('password') }}
-                                        </p>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="field">
-                            <label class="label">{{ trans('auth.password_confirmation') }}</label>
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input class="input" id="password-confirm" type="password" name="password_confirmation">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="field">
+                        <div class="field m-t-20">
                             <div class="field-body">
                                 <div class="field is-grouped">
                                     <div class="control">

@@ -19,25 +19,16 @@
 
                         {{ csrf_field() }}
 
-                        <div class="field">
-                            <label class="label">{{ trans('auth.email') }}</label>
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input class="input" id="email" type="email" name="email"
-                                               value="{{ old('email') }}" autofocus>
-                                    </p>
+                        <div class="vd-input has-label-primary">
+                            <input id="email" class="vd-input-field" type="text" name="email" value="{{ old('email') }}" placeholder="{{ trans('auth.email') }}" autofocus />
 
-                                    @if ($errors->has('email'))
-                                        <p class="help is-danger">
-                                            {{ $errors->first('email') }}
-                                        </p>
-                                    @endif
-                                </div>
-                            </div>
+                            <label class="vd-placeholder">{{ trans('auth.email') }}</label>
                         </div>
+                        @if ($errors->has('email'))
+                            <p class="help is-danger">{{ $errors->first('email') }}</p>
+                        @endif
 
-                        <div class="field">
+                        <div class="field m-t-20">
                             <div class="field-body">
                                 <div class="field is-grouped">
                                     <div class="control">
