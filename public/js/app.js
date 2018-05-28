@@ -978,7 +978,15 @@ module.exports = __webpack_require__(53);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vee_validate__ = __webpack_require__(37);
 __webpack_require__(11);
+
 window.Vue = __webpack_require__(34);
+
+window.trans = function (string) {
+    return _.get(window.i18n, string);
+};
+Vue.prototype.trans = function (string) {
+    return _.get(window.i18n, string);
+};
 
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vee_validate__["a" /* default */]);
@@ -46060,6 +46068,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['recipeId'],
@@ -46081,12 +46090,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
-
-    computed: {
-        submitMessage: function submitMessage() {
-            return this.recipeId ? 'Update recipe!' : 'Create recipe!';
-        }
-    },
 
     methods: {
         // Categories
@@ -46295,7 +46298,7 @@ var render = function() {
                 attrs: {
                   type: "text",
                   name: "title",
-                  placeholder: "Recipe title"
+                  placeholder: _vm.trans("recipes.title")
                 },
                 domProps: { value: _vm.recipe.title },
                 on: {
@@ -46312,7 +46315,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("label", { staticClass: "vd-placeholder" }, [
-                _vm._v("Recipe title")
+                _vm._v(_vm._s(_vm.trans("recipes.title")))
               ])
             ]),
             _vm._v(" "),
@@ -46328,7 +46331,7 @@ var render = function() {
             { staticClass: "column is-12 m-t-25" },
             [
               _c("p", { staticClass: "m-b-15" }, [
-                _vm._v("Select recipe categories")
+                _vm._v(_vm._s(_vm.trans("recipes.select_categories")))
               ]),
               _vm._v(" "),
               _vm._l(_vm.categories, function(category) {
@@ -46419,7 +46422,9 @@ var render = function() {
               "div",
               { staticClass: "ingredients" },
               [
-                _c("p", { staticClass: "m-b-15" }, [_vm._v("Ingredients")]),
+                _c("p", { staticClass: "m-b-15" }, [
+                  _vm._v(_vm._s(_vm.trans("recipes.ingredients")))
+                ]),
                 _vm._v(" "),
                 _vm._l(_vm.recipe.ingredients, function(ingredient, index) {
                   return _c("div", { staticClass: "ingredient-field" }, [
@@ -46445,7 +46450,9 @@ var render = function() {
                       },
                       attrs: {
                         name: "ingredient-" + index,
-                        placeholder: "Type new ingredient",
+                        placeholder: _vm.trans(
+                          "recipes.ingredients_placeholder"
+                        ),
                         type: "text"
                       },
                       domProps: { value: _vm.recipe.ingredients[index] },
@@ -46513,7 +46520,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("Add ingredient")]
+                    [_vm._v(_vm._s(_vm.trans("recipes.add_ingredient")))]
                   )
                 ])
               ],
@@ -46522,7 +46529,9 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "column is-8" }, [
-            _c("p", { staticClass: "m-b-15" }, [_vm._v("Preparation")]),
+            _c("p", { staticClass: "m-b-15" }, [
+              _vm._v(_vm._s(_vm.trans("recipes.preparation")))
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "vd-textarea has-label-primary m-t-0" }, [
               _c("textarea", {
@@ -46538,7 +46547,7 @@ var render = function() {
                 staticClass: "vd-textarea-field auto-expand",
                 attrs: {
                   name: "preparation",
-                  placeholder: "Preparation",
+                  placeholder: _vm.trans("recipes.preparation_placeholder"),
                   "data-min-rows": "5",
                   rows: "5"
                 },
@@ -46551,7 +46560,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("label", { staticClass: "vd-placeholder is-transparent" }, [
-                _vm._v("Write the preparation here...")
+                _vm._v(_vm._s(_vm.trans("recipes.preparation_placeholder")))
               ])
             ]),
             _vm._v(" "),
@@ -46565,7 +46574,9 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "columns" }, [
           _c("div", { staticClass: "column is-12" }, [
-            _c("p", { staticClass: "m-t-20 m-b-15" }, [_vm._v("Tags")]),
+            _c("p", { staticClass: "m-t-20 m-b-15" }, [
+              _vm._v(_vm._s(_vm.trans("recipes.tags")))
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -46604,7 +46615,10 @@ var render = function() {
                   [
                     _c("input", {
                       staticClass: "vd-tags-field",
-                      attrs: { placeholder: "Add tag", type: "text" },
+                      attrs: {
+                        placeholder: _vm.trans("recipes.tags_placeholder"),
+                        type: "text"
+                      },
                       on: {
                         keypress: function($event) {
                           if (
@@ -46637,14 +46651,23 @@ var render = function() {
         _c("div", { staticClass: "columns" }, [
           _c("div", { staticClass: "column is-12" }, [
             _c("p", { staticClass: "buttons is-right m-t-20" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "button is-large is-primary",
-                  attrs: { type: "submit" }
-                },
-                [_vm._v(_vm._s(_vm.submitMessage))]
-              )
+              _vm.recipeId
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "button is-large is-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v(_vm._s(_vm.trans("recipes.update")))]
+                  )
+                : _c(
+                    "button",
+                    {
+                      staticClass: "button is-large is-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v(_vm._s(_vm.trans("recipes.create")))]
+                  )
             ])
           ])
         ])

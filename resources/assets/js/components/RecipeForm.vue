@@ -10,15 +10,15 @@
                             class="vd-input-field"
                             type="text"
                             name="title"
-                            placeholder="Recipe title" />
+                            :placeholder="trans('recipes.title')" />
 
-                        <label class="vd-placeholder">Recipe title</label>
+                        <label class="vd-placeholder">{{ trans('recipes.title') }}</label>
                     </div>
                     <p v-if="errors.has('title')" class="help is-danger">{{ errors.first('title') }}</p>
                 </div>
 
                 <div class="column is-12 m-t-25">
-                    <p class="m-b-15">Select recipe categories</p>
+                    <p class="m-b-15">{{ trans('recipes.select_categories') }}</p>
                     <label v-for="category in categories" :for="'cat-'+category.id" class="vd-checkbox is-primary">
                         <input v-model="recipe.categories"
                             @input="setCategoriesError()"
@@ -39,7 +39,7 @@
             <div class="columns m-t-30">
                 <div class="column is-4">
                     <div class="ingredients">
-                        <p class="m-b-15">Ingredients</p>
+                        <p class="m-b-15">{{ trans('recipes.ingredients') }}</p>
 
                         <div v-for="(ingredient, index) in recipe.ingredients" class="ingredient-field">
                             <input v-model="recipe.ingredients[index]"
@@ -49,7 +49,7 @@
                                 :name="'ingredient-'+index"
                                 :class="{'is-last': index === recipe.ingredients.length - 1}"
                                 class="ingredient-input"
-                                placeholder="Type new ingredient"
+                                :placeholder="trans('recipes.ingredients_placeholder')"
                                 type="text" />
 
                             <a @click="deleteIngredient(index)" class="delete is-small delete-ingredient"></a>
@@ -57,25 +57,25 @@
                         </div>
 
                         <p class="buttons is-right m-t-20">
-                            <a @click.prevent="addIngredient()" class="is-size-7 vd-text-primary">Add ingredient</a>
+                            <a @click.prevent="addIngredient()" class="is-size-7 vd-text-primary">{{ trans('recipes.add_ingredient') }}</a>
                         </p>
                     </div>
                 </div>
                 <div class="column is-8">
-                    <p class="m-b-15">Preparation</p>
+                    <p class="m-b-15">{{ trans('recipes.preparation') }}</p>
 
                     <div class="vd-textarea has-label-primary m-t-0">
                         <textarea @input="preparationInput($event)"
                             v-validate.disabled="'required'"
                             name="preparation"
                             class="vd-textarea-field auto-expand"
-                            placeholder="Preparation"
+                            :placeholder="trans('recipes.preparation_placeholder')"
                             data-min-rows="5"
                             rows="5"
                             v-html="recipe.preparation">
                         </textarea>
 
-                        <label class="vd-placeholder is-transparent">Write the preparation here...</label>
+                        <label class="vd-placeholder is-transparent">{{ trans('recipes.preparation_placeholder') }}</label>
                     </div>
                     <p v-if="errors.has('preparation')" class="help is-danger">{{ errors.first('preparation') }}</p>
                 </div>
@@ -83,7 +83,7 @@
 
             <div class="columns">
                 <div class="column is-12">
-                    <p class="m-t-20 m-b-15">Tags</p>
+                    <p class="m-t-20 m-b-15">{{ trans('recipes.tags') }}</p>
 
                     <div class="vd-tags has-label-primary">
                         <span v-for="(tag, index) in recipe.tags" class="vd-tag is-primary">
@@ -93,7 +93,7 @@
                         <div @click.prevent="focusTagInput($event)" class="vd-tags__control">
                             <input @keypress.enter.prevent="addTag($event)"
                                 class="vd-tags-field"
-                                placeholder="Add tag"
+                                :placeholder="trans('recipes.tags_placeholder')"
                                 type="text" />
 
                             <i class="vd-tag__icon"></i>
@@ -105,7 +105,8 @@
             <div class="columns">
                 <div class="column is-12">
                     <p class="buttons is-right m-t-20">
-                        <button type="submit" class="button is-large is-primary">{{ submitMessage }}</button>
+                        <button v-if="recipeId" type="submit" class="button is-large is-primary">{{ trans('recipes.update') }}</button>
+                        <button v-else type="submit" class="button is-large is-primary">{{ trans('recipes.create') }}</button>
                     </p>
                 </div>
             </div>
@@ -133,12 +134,6 @@
                 categoriesError: null,
                 tags: null,
                 filteredTags: null
-            }
-        },
-
-        computed: {
-            submitMessage() {
-                return this.recipeId ? 'Update recipe!' : 'Create recipe!';
             }
         },
 

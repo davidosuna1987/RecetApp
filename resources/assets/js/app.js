@@ -1,5 +1,10 @@
 require('./src/bootstrap');
+
+
 window.Vue = require('vue');
+
+window.trans = (string) => _.get(window.i18n, string);
+Vue.prototype.trans = string => _.get(window.i18n, string);
 
 import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate);
