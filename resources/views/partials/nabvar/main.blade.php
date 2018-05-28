@@ -14,10 +14,10 @@
             <div class="navbar-start">
                 @if(Auth::user())
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">Recipes</a>
+                        <a class="navbar-link">{{ trans('navbar.recipes') }}</a>
 
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="{{ route('recipes.create') }}">Create recipe</a>
+                            <a class="navbar-item" href="{{ route('recipes.create') }}">{{ trans('navbar.recipes_create') }}</a>
                         </div>
                     </div>
                 @endif
@@ -25,16 +25,16 @@
 
             <div class="navbar-end">
                 @if(Auth::guest())
-                    <a class="navbar-item " href="{{ route('login') }}">Login</a>
-                    <a class="navbar-item " href="{{ route('register') }}">Register</a>
+                    <a class="navbar-item " href="{{ route('login') }}">{{ trans('navbar.login') }}</a>
+                    <a class="navbar-item " href="{{ route('register') }}">{{ trans('navbar.register') }}</a>
                 @else
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">Hello {{ Auth::user()->profile->first_name }}!</a>
+                        <a class="navbar-link">{{ trans('navbar.hello') }} {{ Auth::user()->profile->first_name }}!</a>
 
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                Logout
+                                {{ trans('navbar.logout') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST"

@@ -19736,6 +19736,12 @@ h6 *,
 
 /* Forms */
 
+.vd-radio__group,
+.vd-checkbox__group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* Radio buttons */
 
 /* Defaults */
@@ -20208,7 +20214,6 @@ h6 *,
   top: 12px;
   left: 8px;
   color: #DDD;
-  z-index: -1;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
 }
@@ -20287,6 +20292,11 @@ h6 *,
 /* Colors */
 
 /* Labels */
+
+.vd-input .vd-input-field:not(:placeholder-shown) + .vd-placeholder.is-transparent,
+.vd-textarea .vd-textarea-field:not(:placeholder-shown) + .vd-placeholder.is-transparent {
+  display: none;
+}
 
 .vd-input.is-primary .vd-input-field:not(:placeholder-shown) + .vd-placeholder,
 .vd-textarea.is-primary .vd-textarea-field:not(:placeholder-shown) + .vd-placeholder,

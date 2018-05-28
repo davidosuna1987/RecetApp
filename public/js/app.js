@@ -967,7 +967,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(42);
+module.exports = __webpack_require__(53);
 
 
 /***/ }),
@@ -976,9 +976,9 @@ module.exports = __webpack_require__(42);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vee_validate__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vee_validate__ = __webpack_require__(37);
 __webpack_require__(11);
-window.Vue = __webpack_require__(35);
+window.Vue = __webpack_require__(34);
 
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vee_validate__["a" /* default */]);
@@ -989,7 +989,7 @@ var app = new Vue({
     el: '#app'
 });
 
-__webpack_require__(57);
+__webpack_require__(42);
 
 /***/ }),
 /* 11 */
@@ -29449,48 +29449,6 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 34 */
-/***/ (function(module, exports) {
-
-// Bulma NavBar Burger Script
-document.addEventListener('DOMContentLoaded', function () {
-    // Get all "navbar-burger" elements
-    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-
-        // Add a click event on each of them
-        $navbarBurgers.forEach(function ($el) {
-            $el.addEventListener('click', function () {
-
-                // Get the target from the "data-target" attribute
-                var target = $el.dataset.target;
-                var $target = document.getElementById(target);
-
-                // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                $el.classList.toggle('is-active');
-                $target.classList.toggle('is-active');
-            });
-        });
-    }
-});
-
-// Textarea auto expand
-$(document).one('focus.auto-expand', 'textarea.auto-expand', function () {
-    var savedValue = this.value;
-    this.value = '';
-    this.baseScrollHeight = this.scrollHeight;
-    this.value = savedValue;
-}).on('input.auto-expand', 'textarea.auto-expand', function () {
-    var minRows = this.getAttribute('data-min-rows') | 0,
-        rows;
-    this.rows = minRows;
-    rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 20);
-    this.rows = minRows + rows;
-});
-
-/***/ }),
-/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40453,10 +40411,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(36).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(35).setImmediate))
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -40512,7 +40470,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(37);
+__webpack_require__(36);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -40526,7 +40484,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -40719,3541 +40677,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(4)))
 
 /***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(39)
-/* script */
-var __vue_script__ = __webpack_require__(40)
-/* template */
-var __vue_template__ = __webpack_require__(41)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/RecipeForm.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-145aa3e9", Component.options)
-  } else {
-    hotAPI.reload("data-v-145aa3e9", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 40 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['recipeId'],
-
-    data: function data() {
-        return {
-            recipe: {
-                id: null,
-                title: '',
-                preparation: '',
-                categories: [],
-                tags: [],
-                ingredients: ['']
-            },
-            categories: null,
-            categoriesError: null,
-            tags: null,
-            filteredTags: null
-        };
-    },
-
-
-    computed: {
-        submitMessage: function submitMessage() {
-            return this.recipeId ? 'Update recipe!' : 'Create recipe!';
-        }
-    },
-
-    methods: {
-        // Categories
-        getCategories: function getCategories() {
-            var _this = this;
-
-            axios.get('/categories').then(function (response) {
-                _this.categories = response.data.categories;
-            }).catch(function (error) {
-                if (error.response && error.response.status && error.response.status === 419) {
-                    location.href = '/login';
-                }
-                console.info(error);
-            });
-        },
-        setCategoriesError: function setCategoriesError() {
-            var vue = this;
-            setTimeout(function () {
-                if (!vue.recipe.categories.length) {
-                    vue.categoriesError = 'You must select at least one category.';
-                } else {
-                    vue.categoriesError = null;
-                }
-            }, 10);
-        },
-
-
-        // Tags
-        addTag: function addTag(event) {
-            var tagFound = _.find(this.recipe.tags, function (tag) {
-                return tag.toLowerCase() === event.target.value.toLowerCase();
-            });
-
-            if (event.target.value && !tagFound) this.recipe.tags.push(event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1));
-
-            event.target.value = '';
-        },
-        deleteTag: function deleteTag(index) {
-            console.info(index);
-            this.recipe.tags.splice(index, 1);
-        },
-        focusTagInput: function focusTagInput(event) {
-            if (event.target.classList.contains('vd-tags__control')) event.target.firstElementChild.focus();
-
-            if (event.target.classList.contains('vd-tags-field')) event.target.focus();
-
-            if (event.target.classList.contains('vd-tag__icon')) event.target.parentElement.firstElementChild.focus();
-        },
-        getFilteredTags: function getFilteredTags(text) {
-            this.filteredTags = data.filter(function (option) {
-                return option.name.toString().toLowerCase().indexOf(text.toLowerCase()) >= 0;
-            });
-        },
-
-
-        // Ingredients
-        ingredientEnter: function ingredientEnter(event) {
-            if (event.target.classList.contains('is-last')) this.addIngredient();
-
-            return false;
-        },
-        addIngredient: function addIngredient() {
-            if (!this.recipe.ingredients.length || this.recipe.ingredients[this.recipe.ingredients.length - 1]) this.recipe.ingredients.push('');
-
-            setTimeout(function () {
-                $('.ingredient-input').last().focus();
-            }, 10);
-        },
-        deleteIngredient: function deleteIngredient(index) {
-            this.recipe.ingredients.splice(index, 1);
-
-            // if(this.recipe.ingredients.length === 0)
-            // this.addIngredient();
-        },
-        ingredientBlur: function ingredientBlur(event, index) {
-            this.recipe.ingredients[index] = event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1);
-
-            if (!event.target.value && this.recipe.ingredients.length > 1) this.deleteIngredient(index);
-        },
-
-
-        // Recipe
-        getRecipe: function getRecipe(id) {
-            var _this2 = this;
-
-            axios.get('/recipes/' + id + '/get').then(function (response) {
-                _this2.recipe = response.data;
-            }).catch(function (error) {
-                if (error.response && error.response.status && error.response.status === 419) {
-                    location.href = '/login';
-                }
-                console.info(error);
-            });
-        },
-        preparationInput: function preparationInput(event) {
-            this.recipe.preparation = event.target.value;
-        },
-        titleBlur: function titleBlur(event) {
-            this.recipe.title = event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1);
-        },
-        store: function store() {
-            axios.post('/recipes', this.recipe).then(function (response) {
-                location.href = '/recipes/' + response.data.recipe.id;
-            }).catch(function (error) {
-                if (error.response && error.response.status && error.response.status === 419) {
-                    location.href = '/login';
-                }
-                console.info(error);
-            });
-        },
-        update: function update() {
-            axios.put('/recipes/' + this.recipe.id, this.recipe).then(function (response) {
-                location.href = '/recipes/' + response.data.recipe.id;
-            }).catch(function (error) {
-                if (error.response && error.response.status && error.response.status === 419) {
-                    location.href = '/login';
-                }
-                console.info(error);
-            });
-        },
-
-
-        // Validation
-        validateForm: function validateForm() {
-            var _this3 = this;
-
-            var vue = this;
-            vue.$validator.validateAll().then(function (validated) {
-                if (!_this3.recipe.categories.length) {
-                    _this3.categoriesError = 'You must select at least one category.';
-                    validated = false;
-                } else {
-                    _this3.categoriesError = null;
-                }
-
-                if (validated) {
-                    _this3.recipeId ? _this3.update() : _this3.store();
-                } else {
-                    var action = vue.recipe.id ? 'update' : 'create';
-                    console.info(action + ' not validated');
-                    // vue.$snackbar.open({
-                    //     duration: 5000,
-                    //     message: 'Please correct errors before ' + action + ' recipe.',
-                    //     type: 'is-danger',
-                    //     queue: false,
-                    //     position: 'is-top',
-                    //     actionText: 'OK',
-                    //     onAction: () => {
-                    //         //Do something on click button
-                    //     }
-                    // });
-                }
-            });
-        }
-    },
-
-    mounted: function mounted() {
-        this.getCategories();
-
-        if (this.recipeId) this.getRecipe(this.recipeId);
-    }
-});
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "recipe-form-section" }, [
-    _c(
-      "form",
-      {
-        staticClass: "recipe-form",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            _vm.validateForm()
-          }
-        }
-      },
-      [
-        _c("div", { staticClass: "columns is-multiline" }, [
-          _c("div", { staticClass: "column is-12" }, [
-            _c("div", { staticClass: "vd-input has-label-primary" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.recipe.title,
-                    expression: "recipe.title"
-                  },
-                  {
-                    name: "validate",
-                    rawName: "v-validate.disabled",
-                    value: { required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ },
-                    expression:
-                      "{ required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ }",
-                    modifiers: { disabled: true }
-                  }
-                ],
-                staticClass: "vd-input-field",
-                attrs: {
-                  type: "text",
-                  name: "title",
-                  placeholder: "Recipe title"
-                },
-                domProps: { value: _vm.recipe.title },
-                on: {
-                  blur: function($event) {
-                    _vm.titleBlur($event)
-                  },
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.recipe, "title", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", { staticClass: "vd-placeholder" }, [
-                _vm._v("Recipe title")
-              ])
-            ]),
-            _vm._v(" "),
-            _vm.errors.has("title")
-              ? _c("p", { staticClass: "help is-danger" }, [
-                  _vm._v(_vm._s(_vm.errors.first("title")))
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "column is-12 m-t-25" },
-            [
-              _c("p", { staticClass: "m-b-15" }, [
-                _vm._v("Select recipe categories")
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.categories, function(category) {
-                return _c(
-                  "label",
-                  {
-                    staticClass: "vd-checkbox is-primary",
-                    attrs: { for: "cat-" + category.id }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.recipe.categories,
-                          expression: "recipe.categories"
-                        }
-                      ],
-                      attrs: {
-                        name: "categories[]",
-                        id: "cat-" + category.id,
-                        type: "checkbox"
-                      },
-                      domProps: {
-                        value: category.id,
-                        checked: Array.isArray(_vm.recipe.categories)
-                          ? _vm._i(_vm.recipe.categories, category.id) > -1
-                          : _vm.recipe.categories
-                      },
-                      on: {
-                        input: function($event) {
-                          _vm.setCategoriesError()
-                        },
-                        change: function($event) {
-                          var $$a = _vm.recipe.categories,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = category.id,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                _vm.$set(
-                                  _vm.recipe,
-                                  "categories",
-                                  $$a.concat([$$v])
-                                )
-                            } else {
-                              $$i > -1 &&
-                                _vm.$set(
-                                  _vm.recipe,
-                                  "categories",
-                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                )
-                            }
-                          } else {
-                            _vm.$set(_vm.recipe, "categories", $$c)
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "vd-checkbox__info" }, [
-                      _c("span", { staticClass: "vd-checkbox__check" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "vd-checkbox__label" }, [
-                        _vm._v(_vm._s(category.name))
-                      ])
-                    ])
-                  ]
-                )
-              }),
-              _vm._v(" "),
-              _vm.categoriesError
-                ? _c("p", { staticClass: "help is-danger" }, [
-                    _vm._v(_vm._s(_vm.categoriesError))
-                  ])
-                : _vm._e()
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "columns m-t-30" }, [
-          _c("div", { staticClass: "column is-4" }, [
-            _c(
-              "div",
-              { staticClass: "ingredients" },
-              [
-                _c("p", { staticClass: "m-b-15" }, [_vm._v("Ingredients")]),
-                _vm._v(" "),
-                _vm._l(_vm.recipe.ingredients, function(ingredient, index) {
-                  return _c("div", { staticClass: "ingredient-field" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.recipe.ingredients[index],
-                          expression: "recipe.ingredients[index]"
-                        },
-                        {
-                          name: "validate",
-                          rawName: "v-validate.disabled",
-                          value: "required",
-                          expression: "'required'",
-                          modifiers: { disabled: true }
-                        }
-                      ],
-                      staticClass: "ingredient-input",
-                      class: {
-                        "is-last": index === _vm.recipe.ingredients.length - 1
-                      },
-                      attrs: {
-                        name: "ingredient-" + index,
-                        placeholder: "Type new ingredient",
-                        type: "text"
-                      },
-                      domProps: { value: _vm.recipe.ingredients[index] },
-                      on: {
-                        blur: function($event) {
-                          _vm.ingredientBlur($event, index)
-                        },
-                        keypress: function($event) {
-                          if (
-                            !("button" in $event) &&
-                            _vm._k(
-                              $event.keyCode,
-                              "enter",
-                              13,
-                              $event.key,
-                              "Enter"
-                            )
-                          ) {
-                            return null
-                          }
-                          $event.preventDefault()
-                          _vm.ingredientEnter($event)
-                        },
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.recipe.ingredients,
-                            index,
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("a", {
-                      staticClass: "delete is-small delete-ingredient",
-                      on: {
-                        click: function($event) {
-                          _vm.deleteIngredient(index)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.errors.has("ingredient-" + index)
-                      ? _c("p", { staticClass: "help is-danger" }, [
-                          _vm._v(
-                            _vm._s(_vm.errors.first("ingredient-" + index))
-                          )
-                        ])
-                      : _vm._e()
-                  ])
-                }),
-                _vm._v(" "),
-                _c("p", { staticClass: "buttons is-right m-t-20" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "is-size-7 vd-text-primary",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.addIngredient()
-                        }
-                      }
-                    },
-                    [_vm._v("Add ingredient")]
-                  )
-                ])
-              ],
-              2
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "column is-8" }, [
-            _c("p", { staticClass: "m-b-15" }, [_vm._v("Preparation")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "vd-textarea has-label-primary m-t-0" }, [
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate.disabled",
-                    value: "required",
-                    expression: "'required'",
-                    modifiers: { disabled: true }
-                  }
-                ],
-                staticClass: "vd-textarea-field auto-expand",
-                attrs: {
-                  name: "preparation",
-                  placeholder: "Preparation",
-                  "data-min-rows": "5",
-                  rows: "5"
-                },
-                domProps: { innerHTML: _vm._s(_vm.recipe.preparation) },
-                on: {
-                  input: function($event) {
-                    _vm.preparationInput($event)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _vm.errors.has("preparation")
-              ? _c("p", { staticClass: "help is-danger" }, [
-                  _vm._v(_vm._s(_vm.errors.first("preparation")))
-                ])
-              : _vm._e()
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "columns" }, [
-          _c("div", { staticClass: "column is-12" }, [
-            _c("p", { staticClass: "m-t-20 m-b-15" }, [_vm._v("Tags")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "vd-tags has-label-primary" },
-              [
-                _vm._l(_vm.recipe.tags, function(tag, index) {
-                  return _c("span", { staticClass: "vd-tag is-primary" }, [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(tag) +
-                        "\n                        "
-                    ),
-                    _c("a", {
-                      staticClass: "vd-tags__delete",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.deleteTag(index)
-                        }
-                      }
-                    })
-                  ])
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "vd-tags__control",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.focusTagInput($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "vd-tags-field",
-                      attrs: { placeholder: "Add tag", type: "text" },
-                      on: {
-                        keypress: function($event) {
-                          if (
-                            !("button" in $event) &&
-                            _vm._k(
-                              $event.keyCode,
-                              "enter",
-                              13,
-                              $event.key,
-                              "Enter"
-                            )
-                          ) {
-                            return null
-                          }
-                          $event.preventDefault()
-                          _vm.addTag($event)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("i", { staticClass: "vd-tag__icon" })
-                  ]
-                )
-              ],
-              2
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "columns" }, [
-          _c("div", { staticClass: "column is-12" }, [
-            _c("p", { staticClass: "buttons is-right m-t-20" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "button is-large is-primary",
-                  attrs: { type: "submit" }
-                },
-                [_vm._v(_vm._s(_vm.submitMessage))]
-              )
-            ])
-          ])
-        ])
-      ]
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-145aa3e9", module.exports)
-  }
-}
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-__webpack_require__(48);
-__webpack_require__(49);
-__webpack_require__(50);
-__webpack_require__(51);
-__webpack_require__(52);
-__webpack_require__(53);
-__webpack_require__(54);
-__webpack_require__(55);
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports) {
-
-(function () {
-'use strict';
-
-const MOUSE_EVENTS = ['click', 'touchstart'];
-
-document.addEventListener( 'DOMContentLoaded', function () {
-  var accordions = document.querySelectorAll('.accordions');
-  [].forEach.call(accordions, function(accordion) {
-    var items = accordion.querySelectorAll('.accordion');
-    [].forEach.call(items, function(item) {
-      MOUSE_EVENTS.forEach((event) => {
-        item.querySelector('.toggle, [data-action="toggle"]').addEventListener(event, e => {
-          e.preventDefault();
-          if (!item.classList.contains('is-active')) {
-            let activeItem = accordion.querySelector('.accordion.is-active');
-            if (activeItem) {
-              activeItem.classList.remove('is-active');
-            }
-            item.classList.add('is-active');
-          } else {
-            item.classList.remove('is-active');
-          }
-        });
-      });
-    });
-  });
-});
-
-}());
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-(function (global, factory) {
-	 true ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define('bulmaCalendar', factory) :
-	(global.bulmaCalendar = factory());
-}(this, (function () { 'use strict';
-
-class EventEmitter {
-  constructor(listeners = []) {
-    this._listeners = new Map(listeners);
-    this._middlewares = new Map();
-  }
-
-  listenerCount(eventName) {
-    if (!this._listeners.has(eventName)) {
-      return 0;
-    }
-
-    const eventListeners = this._listeners.get(eventName);
-    return eventListeners.length;
-  }
-
-  removeListeners(eventName = null, middleware = false) {
-    if (eventName !== null) {
-      if (Array.isArray(eventName)) {
-        name.forEach(e => this.removeListeners(e, middleware));
-      } else {
-        this._listeners.delete(eventName);
-
-        if (middleware) {
-          this.removeMiddleware(eventName);
-        }
-      }
-    } else {
-      this._listeners = new Map();
-    }
-  }
-
-  middleware(eventName, fn) {
-    if (Array.isArray(eventName)) {
-      name.forEach(e => this.middleware(e, fn));
-    } else {
-      if (!Array.isArray(this._middlewares.get(eventName))) {
-        this._middlewares.set(eventName, []);
-      }
-
-      (this._middlewares.get(eventName)).push(fn);
-    }
-  }
-
-  removeMiddleware(eventName = null) {
-    if (eventName !== null) {
-      if (Array.isArray(eventName)) {
-        name.forEach(e => this.removeMiddleware(e));
-      } else {
-        this._middlewares.delete(eventName);
-      }
-    } else {
-      this._middlewares = new Map();
-    }
-  }
-
-  on(name, callback, once = false) {
-    if (Array.isArray(name)) {
-      name.forEach(e => this.on(e, callback));
-    } else {
-      name = name.toString();
-      const split = name.split(/,|, | /);
-
-      if (split.length > 1) {
-        split.forEach(e => this.on(e, callback));
-      } else {
-        if (!Array.isArray(this._listeners.get(name))) {
-          this._listeners.set(name, []);
-        }
-
-        (this._listeners.get(name)).push({once: once, callback: callback});
-      }
-    }
-  }
-
-  once(name, callback) {
-    this.on(name, callback, true);
-  }
-
-  emit(name, data, silent = false) {
-    name = name.toString();
-    let listeners = this._listeners.get(name);
-    let middlewares = null;
-    let doneCount = 0;
-    let execute = silent;
-
-    if (Array.isArray(listeners)) {
-      listeners.forEach((listener, index) => {
-        // Start Middleware checks unless we're doing a silent emit
-        if (!silent) {
-          middlewares = this._middlewares.get(name);
-          // Check and execute Middleware
-          if (Array.isArray(middlewares)) {
-            middlewares.forEach(middleware => {
-              middleware(data, (newData = null) => {
-                if (newData !== null) {
-                  data = newData;
-                }
-                doneCount++;
-              }, name);
-            });
-
-            if (doneCount >= middlewares.length) {
-              execute = true;
-            }
-          } else {
-            execute = true;
-          }
-        }
-
-        // If Middleware checks have been passed, execute
-        if (execute) {
-          if (listener.once) {
-            listeners[index] = null;
-          }
-          listener.callback(data);
-        }
-      });
-
-      // Dirty way of removing used Events
-      while (listeners.indexOf(null) !== -1) {
-        listeners.splice(listeners.indexOf(null), 1);
-      }
-    }
-  }
-}
-
-/**
- * Get the number of days in month
- * @method getDaysInMonth
- * @param  {Integer}       year  Year to check if we are facing a leapyear or not
- * @param  {Integer}       month Month for which we want to know the amount of days
- * @return {Integer}              Days amount
- */
-const getDaysInMonth = (year, month) => {
-  return [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
-};
-
-/**
- * Compare two dates
- * @method compareDates
- * @param  {Date}     a First date to compare
- * @param  {Date}     b Second Date to compare with
- * @return {Boolean}    True if dates are equal then false
- */
-const compareDates = (a, b) => {
-  // weak date comparison
-  a.setHours(0, 0, 0, 0);
-  b.setHours(0, 0, 0, 0);
-  return a.getTime() === b.getTime();
-};
-
-/**
- * Check if given year is LeapYear or not
- * @method isLeapYear
- * @param  {Integer}   year Year to check
- * @return {Boolean}        True if LeapYear then False
- */
-const isLeapYear = year => {
-  // solution by Matti Virkkunen: http://stackoverflow.com/a/4881951
-  return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
-};
-
-/**
- * Parse Date string based on the Date Format given
- * @method parseDate
- * @param  {String}   dateString          Date string to parse
- * @param  {[String}   [format=undefined] Date Format
- * @return {Date}                         Date Object initialized with Date String based on the Date Format
- */
-const parseDate = (dateString, format = undefined) => {
-  const date = new Date();
-  date.setHours(0, 0, 0, 0);
-
-  const formatPattern = /((?:mm?)|(?:dd?)|(?:yyy?y?))[^0-9]((?:mm?)|(?:dd?)|(?:yyy?y?))[^0-9]((?:mm?)|(?:dd?)|(?:yyy?y?))/i;
-  const datePattern = /(\d+)[^0-9](\d+)[^0-9](\d+)/i;
-
-  let matchFormat = formatPattern.exec(format);
-  if (matchFormat) {
-    let matchDate = datePattern.exec(dateString);
-    if (matchDate) {
-      switch(matchFormat[1][0]) {
-      case 'd':
-        date.setDate(matchDate[1]);
-        break;
-      case 'm':
-        date.setMonth(matchDate[1] - 1);
-        break;
-      case 'y':
-        date.setFullYear(matchDate[1]);
-        break;
-      }
-
-      switch(matchFormat[2][0]) {
-      case 'd':
-        date.setDate(matchDate[2]);
-        break;
-      case 'm':
-        date.setMonth(matchDate[2] - 1);
-        break;
-      case 'y':
-        date.setFullYear(matchDate[2]);
-        break;
-      }
-
-      switch(matchFormat[3][0]) {
-      case 'd':
-        date.setDate(matchDate[3]);
-        break;
-      case 'm':
-        date.setMonth(matchDate[3] - 1);
-        break;
-      case 'y':
-        date.setFullYear(matchDate[3]);
-        break;
-      }
-    }
-  }
-
-  return date;
-};
-
-/**
- * Returns date according to passed format
- * @method getFormatedDate
- * @param {Date}   dt     Date object
- * @param {String} format Format string
- *      d    - day of month
- *      dd   - 2-digits day of month
- *      D    - day of week
- *      m    - month number
- *      mm   - 2-digits month number
- *      M    - short month name
- *      MM   - full month name
- *      yy   - 2-digits year number
- *      yyyy - 4-digits year number
- */
-const getFormatedDate = (dt, format, lang) => {
-  var items = {
-    d: dt.getDate(),
-    dd: dt.getDate(),
-    D: dt.getDay(),
-    m: dt.getMonth() + 1,
-    mm: dt.getMonth() + 1,
-    M: dt.getMonth(),
-    MM: dt.getMonth(),
-    yy: dt.getFullYear().toString().substr(-2),
-    yyyy: dt.getFullYear()
-  };
-
-  items.dd < 10 && (items.dd = '0' + items.dd);
-  items.mm < 10 && (items.mm = '0' + items.mm);
-  items.D = lang.weekdays[items.D ? items.D - 1 : 6];
-  items.M = lang.monthsShort[items.M];
-  items.MM = lang.months[items.MM];
-
-  return format.replace(/(?:[dmM]{1,2}|D|yyyy|yy)/g, function(m) {
-    return typeof items[m] !== 'undefined' ? items[m] : m;
-  });
-};
-
-const isString = unknown => (typeof unknown === 'string' || ((!!unknown && typeof unknown === 'object') && Object.prototype.toString.call(unknown) === '[object String]'));
-
-const defaultOptions = {
-  startDate: new Date(),
-  minDate: null,
-  maxDate: null,
-  disabledDates: null,
-  dateFormat: 'yyyy-mm-dd', // the default data format `field` value
-  lang: 'en', // internationalization
-  overlay: false,
-  closeOnOverlayClick: true,
-  closeOnSelect: true
-};
-
-const datepicker_langs = {
-  ar: {
-    weekStart: 0,
-    previousMonth: 'الشهر الماضي',
-    nextMonth: 'الشهر القادم',
-    months: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
-    monthsShort: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
-    weekdays: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'],
-    weekdaysShort: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة']
-  },
-  bn: {
-    weekStart: 1,
-    months: ['জানুয়ারী', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'অগাস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'],
-    monthsShort: ['জানুয়ারী', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'অগাস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'],
-    weekdays: ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার'],
-    weekdaysShort: ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার']
-  },
-  de: {
-    weekStart: 1,
-    previousMonth: 'Vorheriger Monat',
-    nextMonth: 'Nächster Monat',
-    months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-    monthsShort: ['Jan', 'Febr', 'März', 'Apr', 'Mai', 'Juni', 'Juli', 'Aug', 'Sept', 'Okt', 'Nov', 'Dez'],
-    weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
-    weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
-  },
-  en: {
-    weekStart: 1,
-    previousMonth: 'Previous Month',
-    nextMonth: 'Next Month',
-    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-  },
-  es: {
-    weekStart: 1,
-    previousMonth: 'Mes anterior',
-    nextMonth: 'Próximo mes',
-    months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-    monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-    weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-    weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
-  },
-  fa: {
-    weekStart: 1,
-    months: ['ژانویه', 'فوریه', 'مارس', 'آوریل', 'مه', 'ژوئن', 'ژوئیه', 'اوت', 'سپتامبر', 'اکتبر', 'نوامبر', 'دسامبر'],
-    monthsShort: ['ژان', 'فور', 'مار', 'آور', 'مه', 'ژون', 'ژوی', 'اوت', 'سپت', 'اکت', 'نوا', 'دسا'],
-    weekdays: ['یک‌شنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنج‌شنبه', 'جمعه', 'شنبه', 'یک‌شنبه'],
-    weekdaysShort: ['یک', 'دو', 'سه', 'چهار', 'پنج', 'جمعه', 'شنبه', 'یک']
-  },
-  fr: {
-    weekStart: 1,
-    previousMonth: 'Mois précédent',
-    nextMonth: 'Mois suivant',
-    months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-    monthsShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Auo', 'Sep', 'Oct', 'Nov', 'Déc'],
-    weekdays: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-    weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
-  },
-  hi: {
-    weekStart: 1,
-    months: ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितम्बर', 'अक्टूबर', 'नवंबर', 'दिसम्बर'],
-    monthsShort: ['जन', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितं', 'अक्टूबर', 'नवं', 'दिसम्बर'],
-    weekdays: ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'],
-    weekdaysShort: ['सूर्य', 'सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि']
-  },
-  hr: {
-    weekStart: 2,
-    previousMonth: 'Prošli mjesec',
-    nextMonth: 'Slijedeći mjesec',
-    months: ['siječanj', 'veljača', 'ožujak', 'travanj', 'svibanj', 'lipanj', 'srpanj', 'kolovoz', 'rujan', 'listopad', 'studeni', 'prosinac'],
-    monthsShort: ['sij', 'velj', 'ožu', 'tra', 'svi', 'lip', 'srp', 'kol', 'ruj', 'lis', 'stu', 'pro'],
-    weekdays: ['nedjelja', 'ponedjeljak', 'utorak', 'srijeda', 'četvrtak', 'petak', 'subota'],
-    weekdaysShort: ['ned', 'pon', 'uto', 'sri', 'čet', 'pet', 'sub']
-  },
-  hu: {
-    weekStart: 1,
-    previousMonth: 'Előző hónap',
-    nextMonth: 'Következő hónap',
-    months: ['Január', 'Február', 'Március', 'Április', 'Május', 'Június', 'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
-    monthsShort: ['Jan', 'Feb', 'Már', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Szept', 'Okt', 'Nov', 'Dec'],
-    weekdays: ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
-    weekdaysShort: ['V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo'],
-  },
-  id: {
-    weekStart: 1,
-    months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des'],
-    weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
-    weekdaysShort: ['Mgu', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
-  },
-  it: {
-    weekStart: 1,
-    previousMonth: 'Mese Precedente',
-    nextMonth: 'Prossimo Mese',
-    months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-    monthsShort: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
-    weekdays: ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
-    weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab']
-  },
-  ja: {
-    weekStart: 1,
-    months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-    monthsShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-    weekdays: ['日曜', '月曜', '火曜', '水曜', '木曜', '金曜', '土曜'],
-    weekdaysShort: ['日', '月', '火', '水', '木', '金', '土']
-  },
-  nl: {
-    weekStart: 1,
-    previousMonth: 'Vorige Maand',
-    nextMonth: 'Volgende Maand',
-    months: ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'],
-    monthsShort: ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
-    weekdays: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
-    weekdaysShort: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za']
-  },
-  pt: {
-    weekStart: 1,
-    months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-    monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-    weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
-  },
-  'pt-BR': {
-    weekStart: 1,
-    previousMonth: 'Mês anterior',
-    nextMonth: 'Próximo mês',
-    months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-    monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-    weekdays: ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'],
-    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
-  },
-  ru: {
-    weekStart: 1,
-    previousMonth: 'Предыдущий месяц',
-    nextMonth: 'Следующий месяц',
-    months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-    monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-    weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-    weekdaysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
-  },
-  sr: {
-    weekStart: 2,
-    previousMonth: 'Prošli mesec',
-    nextMonth: 'Sledeći mesec',
-    months: ['januar', 'februar', 'mart', 'april', 'maj', 'jun', 'jul', 'avgust', 'septembar', 'oktobar', 'novembar', 'decembar'],
-    monthsShort: ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'avg', 'sep', 'okt', 'nov', 'dec'],
-    weekdays: ['nedelja', 'ponedeljak', 'utorak', 'sreda', 'četvrtak', 'petak', 'subota'],
-    weekdaysShort: ['ned', 'pon', 'uto', 'sre', 'čet', 'pet', 'sub']
-  },
-  th: {
-    weekStart: 1,
-    previousMonth: 'เดือนก่อนหน้า',
-    nextMonth: 'เดือนถัดไป',
-    months: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
-    monthsShort: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'],
-    weekdays: ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'],
-    weekdaysShort: ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.']
-  },
-  tr: {
-    weekStart: 1,
-    previousMonth: 'Önceki Ay',
-    nextMonth: 'Gelecek Ay',
-    months: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
-    monthsShort: ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
-    weekdays: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
-    weekdaysShort: ['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt']
-  },
-  'zh-cn': {
-    weekStart: 1,
-    previousMonth: '上个月',
-    nextMonth: '下个月',
-    months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-    monthsShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-    weekdays: ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
-    weekdaysShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
-  }
-};
-
-Element.prototype.addEventsListener = function(events, listener = void 0) {
-  if (!Array.isArray(events)) {
-    events = [events];
-  }
-
-  events.forEach(event => {
-    this.addEventListener(event, listener);
-  });
-};
-
-class datePicker extends EventEmitter {
-  constructor(selector, options = {}) {
-    super();
-
-    // Determine click event depending on if we are on Touch device or not
-    this._clickEvent = ['touchstart' , 'click'];
-
-    this.datepicker = typeof selector === 'string' ? document.querySelector(selector) : selector;
-    // An invalid selector or non-DOM node has been provided.
-    if (!this.datepicker) {
-      throw new Error('An invalid selector or non-DOM node has been provided.');
-    }
-
-    /// Set default options and merge with instance defined
-    this.options = Object.assign({}, defaultOptions, options);
-
-    // Initiate plugin
-    this._init();
-  }
-
-  /**
-   * Initiate all DOM element containing datePicker class
-   * @method
-   * @return {Array} Array of all datePicker instances
-   */
-  static attach(selector = 'input[type="date"]', options = {}) {
-    let datepickerInstances = new Array();
-
-    const datepickers = document.querySelectorAll(selector);
-    [].forEach.call(datepickers, datepicker => {
-      setTimeout(() => {
-        datepickerInstances.push(new datePicker(datepicker, options));
-      }, 100);
-    });
-    return datepickerInstances;
-  }
-
-  get id() {
-    return this._id;
-  }
-
-  get lang() {
-    return this.options.lang;
-  }
-
-  set lang(lang = 'en') {
-    this._lang = typeof datepicker_langs[lang] !== 'undefined' ? lang : 'en';
-  }
-
-  get date() {
-    return this._date;
-  }
-
-  set date(date = new Date()) {
-    if (isString(date)) {
-      this.options.startDate = parseDate(date, this.dateFormat);
-    } else {
-      this.options.startDate = parseDate(getFormatedDate(date, this.dateFormat, datepicker_langs[this.options.lang]));
-      this._date = {
-        month: this.options.startDate.getMonth(),
-        year: this.options.startDate.getFullYear(),
-        day: this.options.startDate.getDate()
-      };
-    }
-  }
-
-  get minDate() {
-    return this.options.minDate;
-  }
-
-  set minDate(minDate = '1970-01-01') {
-    if (isString(minDate)) {
-      this.options.minDate = parseDate(minDate, this.dateFormat);
-    } else {
-      this.options.minDate = parseDate(getFormatedDate(minDate, this.dateFormat, datepicker_langs[this.options.lang]));
-    }
-  }
-
-  get maxDate() {
-    return this.options.maxDate;
-  }
-
-  set maxDate(maxDate = '9999-12-31') {
-    if (isString(maxDate)) {
-      this.options.maxDate = parseDate(maxDate, this.dateFormat);
-    } else {
-      this.options.maxDate = parseDate(getFormatedDate(maxDate, this.dateFormat, datepicker_langs[this.options.lang]));
-    }
-  }
-
-  get dateFormat() {
-    return this.options.dateFormat;
-  }
-
-  set dateFormat(dateFormat = 'yyyy-mm-dd') {
-    this.options.dateFormat = dateFormat;
-    this._initDates();
-    return this;
-  }
-
-  /**
-   * Initiate plugin instance
-   * @method _init
-   * @return {datePicker} Current plugin instance
-   */
-  _init() {
-    this._id = 'datePicker' + (new Date()).getTime() + Math.floor(Math.random() * Math.floor(9999));
-    this.lang = this.options.lang;
-    this._open = false;
-
-    this._initDates();
-    this._build();
-    this._bindEvents();
-
-    this.emit('datepicker:ready', this._date);
-
-    return this;
-  }
-
-  _initDates() {
-    // Set the startDate to the input value
-    if (this.datepicker.value) {
-      this.options.startDate = parseDate(this.datepicker.value);
-    }
-    // Transform start date according to dateFormat option
-    this.date = this.options.startDate;
-    this.minDate = this.options.minDate ? this.options.minDate : '1970-01-01';
-    this.maxDate = this.options.maxDate ? this.options.maxDate : '9999-12-31';
-
-    if (this.options.disabledDates) {
-      for (var i=0; i < this.options.disabledDates.length; i++) {
-        this.options.disabledDates[i] = parseDate(getFormatedDate(new Date(this.options.disabledDates[i]), this.dateFormat, datepicker_langs[this.options.lang]));
-      }
-    }
-  }
-
-  /**
-   * Build datePicker HTML component and append it to the DOM
-   * @method _build
-   * @return {datePicker} Current plugin instance
-   */
-  _build() {
-    // Define datePicker Template
-    const datePickerFragment = document.createRange().createContextualFragment(`
-      <div id='${this.id}' class="datepicker ${this.options.overlay ? 'modal' : ''}">
-        ${this.options.overlay ? '<div class="modal-background"></div>' : ''}
-        <div class="calendar">
-          <div class="calendar-nav">
-            <div class="calendar-nav-month">
-              <button class="calendar-nav-previous-month button is-small is-text">
-                <svg viewBox="0 0 50 80" xml:space="preserve">
-                  <polyline fill="none" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "/>
-                </svg>
-              </button>
-              <div class="calendar-month">${datepicker_langs[this.lang].months[this.date.month]}</div>
-              <button class="calendar-nav-next-month button is-small is-text">
-                <svg viewBox="0 0 50 80" xml:space="preserve">
-                  <polyline fill="none" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "/>
-              </button>
-            </div>
-            <div class="calendar-nav-day">
-              <div class="calendar-day">${this.date.day}</div>
-            </div>
-            <div class="calendar-nav-year">
-              <button class="calendar-nav-previous-year button is-small is-text">
-                <svg viewBox="0 0 50 80" xml:space="preserve">
-                  <polyline fill="none" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "/>
-                </svg>
-              </button>
-              <div class="calendar-year">${this.date.year}</div>
-              <button class="calendar-nav-next-year button is-small is-text">
-                <svg viewBox="0 0 50 80" xml:space="preserve">
-                  <polyline fill="none" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "/>
-              </button>
-            </div>
-          </div>
-          <div class="calendar-container">
-            <div class="calendar-header">
-              <div class="calendar-date">${this._getDayName(0, true)}</div>
-              <div class="calendar-date">${this._getDayName(1, true)}</div>
-              <div class="calendar-date">${this._getDayName(2, true)}</div>
-              <div class="calendar-date">${this._getDayName(3, true)}</div>
-              <div class="calendar-date">${this._getDayName(4, true)}</div>
-              <div class="calendar-date">${this._getDayName(5, true)}</div>
-              <div class="calendar-date">${this._getDayName(6, true)}</div>
-            </div>
-            <div class="calendar-body"></div>
-          </div>
-        </div>
-      </div>
-    `);
-
-    // Save pointer to each datePicker element for later use
-    this.datePickerContainer = datePickerFragment.querySelector('#' + this.id);
-    this.datePickerCalendar = this.datePickerContainer.querySelector('.calendar');
-    if (this.options.overlay) {
-      this.datePickerOverlay = this.datePickerContainer.querySelector('.modal-background');
-      this.datePickerCloseButton = this.datePickerContainer.querySelector('.modal-close');
-    }
-    this.datePickerCalendarNav = this.datePickerCalendar.querySelector('.calendar-nav');
-    this.datePickerCalendarNavMonth = this.datePickerCalendar.querySelector('.calendar-month');
-    this.datePickerCalendarNavYear = this.datePickerCalendar.querySelector('.calendar-year');
-    this.datePickerCalendarNavDay = this.datePickerCalendar.querySelector('.calendar-day');
-    this.datePickerCalendarNavPreviousMonth = this.datePickerCalendarNav.querySelector('.calendar-nav-previous-month');
-    this.datePickerCalendarNavNextMonth = this.datePickerCalendarNav.querySelector('.calendar-nav-next-month');
-    this.datePickerCalendarNavPreviousYear = this.datePickerCalendarNav.querySelector('.calendar-nav-previous-year');
-    this.datePickerCalendarNavNextYear = this.datePickerCalendarNav.querySelector('.calendar-nav-next-year');
-    this.datePickerCalendarHeader = this.datePickerCalendar.querySelector('.calendar-header');
-    this.datePickerCalendarBody = this.datePickerCalendar.querySelector('.calendar-body');
-
-    // Add datepicker HTML element to Document Body
-    document.body.appendChild(datePickerFragment);
-  }
-
-  /**
-   * Bind all events
-   * @method _bindEvents
-   * @return {void}
-   */
-  _bindEvents() {
-    // Bind event to element in order to display/hide datePicker on click
-    this.datepicker.addEventsListener(this._clickEvent, e => {
-      e.preventDefault();
-
-      this._open ? this.hide() : this.show();
-    });
-
-    if (this.options.overlay) {
-      // Bind close event on Close button
-      if (this.datePickerCloseButton) {
-        this.datePickerCloseButton.addEventsListener(this._clickEvent, e => {
-          e.preventDefault();
-          this.hide();
-        });
-      }
-      // Bind close event on overlay based on options
-      if (this.options.closeOnOverlayClick && this.datePickerOverlay) {
-        this.datePickerOverlay.addEventsListener(this._clickEvent, e => {
-          e.preventDefault();
-          this.hide();
-        });
-      }
-    }
-
-    // Bind year navigation events
-    if (this.datePickerCalendarNavPreviousYear) {
-      this.datePickerCalendarNavPreviousYear.addEventsListener(this._clickEvent, e => {
-        e.preventDefault();
-        this.prevYear();
-      });
-    }
-    if (this.datePickerCalendarNavNextYear) {
-      this.datePickerCalendarNavNextYear.addEventsListener(this._clickEvent, e => {
-        e.preventDefault();
-        this.nextYear();
-      });
-    }
-
-    // Bind month navigation events
-    if (this.datePickerCalendarNavPreviousMonth) {
-      this.datePickerCalendarNavPreviousMonth.addEventsListener(this._clickEvent, e => {
-        e.preventDefault();
-        this.prevMonth();
-      });
-    }
-    if (this.datePickerCalendarNavNextMonth) {
-      this.datePickerCalendarNavNextMonth.addEventsListener(this._clickEvent, e => {
-        e.preventDefault();
-        this.nextMonth();
-      });
-    }
-  }
-
-  /**
-   * Bind events on each Day item
-   * @method _bindDaysEvents
-   * @return {void}
-   */
-  _bindDaysEvents() {
-    [].forEach.call(this.datePickerCalendarDays, (calendarDay) => {
-      calendarDay.addEventsListener(this._clickEvent, e => {
-        e.preventDefault();
-        if (!e.currentTarget.classList.contains('is-disabled')) {
-          let date = e.currentTarget.dataset.date.split('-');
-          let [year, month, day] = date;
-          this._date = {
-            year: year,
-            month: month,
-            day: day
-          };
-
-          this.emit('datepicker:date:selected', this);
-
-          this.datepicker.value = getFormatedDate((new Date(year, month, day)), this.options.dateFormat, datepicker_langs[this.options.lang]);
-          if (this.options.closeOnSelect) {
-            this.hide();
-          }
-        }
-      });
-    });
-  }
-
-  /**
-   * Get localized day name
-   * @method renderDayName
-   * @param  {[type]}      day          [description]
-   * @param  {Boolean}     [abbr=false] [description]
-   * @return {[type]}                   [description]
-   */
-  _getDayName(day, abbr = false) {
-    day += datepicker_langs[this.options.lang].weekStart;
-    while (day >= 7) {
-      day -= 7;
-    }
-
-    return abbr ? datepicker_langs[this.options.lang].weekdaysShort[day] : datepicker_langs[this.options.lang].weekdays[day];
-  }
-
-  _renderDay(day, month, year, isSelected, isToday, isDisabled, isEmpty, isBetween, isSelectedIn, isSelectedOut) {
-    return `
-      <div data-date="${`${year}-${month}-${day}`}" class="calendar-date${isDisabled ? ' is-disabled' : ''}${isBetween ? ' calendar-range' : ''}${isSelectedIn ? ' calendar-range-start' : ''}${isSelectedOut ? ' calendar-range-end' : ''}">
-        <button class="date-item${isToday ? ' is-today' : ''}${isSelected ? ' is-active' : ''}">${day}</button>
-      </div>
-    `;
-  }
-
-  _renderDays() {
-    const now = new Date();
-    let days = '';
-
-    let numberOfDays = getDaysInMonth(this.date.year, this.date.month),
-      before = new Date(this.date.year, this.date.month, 1).getDay();
-
-    this.emit('datepicker:rendered', this);
-
-    // Get start day from options
-    if (datepicker_langs[this.options.lang].weekStart > 0) {
-      before -= datepicker_langs[this.options.lang].weekStart;
-      if (before < 0) {
-        before += 7;
-      }
-    }
-
-    let cells = numberOfDays + before,
-      after = cells;
-    while (after > 7) {
-      after -= 7;
-    }
-
-    cells += 7 - after;
-    for (var i = 0; i < cells; i++) {
-      var day = new Date(this.date.year, this.date.month, 1 + (i - before)),
-        isBetween = false,
-        isSelected = compareDates(day, this.options.startDate),
-        isSelectedIn = false,
-        isSelectedOut = false,
-        isToday = compareDates(day, now),
-        isEmpty = i < before || i >= (numberOfDays + before),
-        isDisabled = false;
-
-      day.setHours(0, 0, 0, 0);
-
-      if (!isSelected) {
-        isSelectedIn = false;
-        isSelectedOut = false;
-      }
-
-      if (day.getMonth() !== this.date.month || (this.minDate && day.getTime() < this.minDate.getTime()) || (this.maxDate && day.getTime() > this.maxDate.getTime())) {
-        isDisabled = true;
-      }
-
-      if (this.options.disabledDates) {
-        for (var j=0; j < this.options.disabledDates.length; j++) {
-          if (day.getTime() == this.options.disabledDates[j].getTime()) {
-            isDisabled = true;
-          }
-        }
-      }
-
-      days += this._renderDay(day.getDate(), this.date.month, this.date.year, isSelected, isToday, isDisabled, isEmpty, isBetween, isSelectedIn, isSelectedOut);
-    }
-
-    this.datePickerCalendarBody.insertAdjacentHTML('beforeend', days);
-    this.datePickerCalendarDays = this.datePickerCalendarBody.querySelectorAll('.calendar-date');
-    this._bindDaysEvents();
-  }
-
-  /**
-   * Navigate to the previous month and regenerate calendar
-   * @method prevMonth
-   * @return {void}
-   */
-  prevMonth() {
-    this.date.month -= 1;
-    this._refreshCalendar();
-  }
-
-  _disablePrevMonth() {
-    this.datePickerCalendarNavPreviousMonth.setAttribute('disabled', 'disabled');
-  }
-
-  _enablePrevMonth() {
-    this.datePickerCalendarNavPreviousMonth.removeAttribute('disabled');
-  }
-
-  /**
-   * Navigate to the next month and regenerate calendar
-   * @method nextMonth
-   * @return {}
-   */
-  nextMonth() {
-    this.date.month += 1;
-    this._refreshCalendar();
-  }
-
-  _disableNextMonth() {
-    this.datePickerCalendarNavNextMonth.setAttribute('disabled', 'disabled');
-  }
-
-  _enableNextMonth() {
-    this.datePickerCalendarNavNextMonth.removeAttribute('disabled');
-  }
-
-  /**
-   * Navigate to the previous year and regenerate calendar
-   * @method prevYear
-   * @return {void}
-   */
-  prevYear() {
-    this.date.year -= 1;
-    this._refreshCalendar();
-  }
-
-  _disablePrevYear() {
-    this.datePickerCalendarNavPreviousYear.setAttribute('disabled', 'disabled');
-  }
-
-  _enablePrevYear() {
-    this.datePickerCalendarNavPreviousYear.removeAttribute('disabled');
-  }
-
-  /**
-   * Navigate to the previous year and regenerate calendar
-   * @method nextYear
-   * @return {}
-   */
-  nextYear() {
-    this.date.year += 1;
-    this._refreshCalendar();
-  }
-
-  _disableNextYear() {
-    this.datePickerCalendarNavNextYear.setAttribute('disabled', 'disabled');
-  }
-
-  _enableNextYear() {
-    this.datePickerCalendarNavNextYear.removeAttribute('disabled');
-  }
-
-  /**
-   * Show datePicker HTML Component
-   * @method show
-   * @return {void}
-   */
-  show() {
-    // Set the startDate to the input value
-    if (this.datepicker.value) {
-      this.options.startDate = parseDate(this.datepicker.value);
-    }
-    this.date.month = this.options.startDate.getMonth();
-    this.date.year = this.options.startDate.getFullYear();
-    this.date.day = this.options.startDate.getDate();
-    this._refreshCalendar();
-
-    this.emit('datepicker:show', this);
-
-    this.datePickerContainer.classList.add('is-active');
-    if (!this.options.overlay) {
-      this._adjustPosition();
-    }
-    this._open = true;
-  }
-
-  /**
-   * Hide datePicker HTML Component
-   * @method hide
-   * @return {void}
-   */
-  hide() {
-    this._open = false;
-    this.emit('datepicker:hide', this);
-    this.datePickerContainer.classList.remove('is-active');
-  }
-
-  /**
-   * Refresh calendar with new year/month days
-   * @method _refreshCalendar
-   * @return {[type]}        [description]
-   */
-  _refreshCalendar() {
-    if (this.date.month < 0) {
-      this.date.year -= Math.ceil(Math.abs(this.date.month) / 12);
-      this.date.month += 12;
-    }
-    if (this.date.month > 11) {
-      this.date.year += Math.floor(Math.abs(this.date.month) / 12);
-      this.date.month -= 12;
-    }
-    this.datePickerCalendarNavMonth.innerHTML = datepicker_langs[this.options.lang].months[this.date.month];
-    this.datePickerCalendarNavYear.innerHTML = this.date.year;
-    this.datePickerCalendarNavDay.innerHTML = this.date.day;
-    this.datePickerCalendarBody.innerHTML = '';
-
-    let minMonth = 0,
-      minYear = 0,
-      maxMonth = 12,
-      maxYear = 9999;
-
-    if (this.options.minDate) {
-      minMonth = this.options.minDate.getMonth();
-      minYear = this.options.minDate.getFullYear();
-    }
-    if (this.options.maxDate) {
-      maxMonth = this.options.maxDate.getMonth();
-      maxYear = this.options.maxDate.getFullYear();
-    }
-
-    if (this.date.year <= minYear) {
-      this._disablePrevYear();
-    } else {
-      this._enablePrevYear();
-    }
-
-    if (this.date.year >= maxYear) {
-      this._disableNextYear();
-    } else {
-      this._enableNextYear();
-    }
-
-    if (this.date.year <= minYear && this.date.month <= minMonth) {
-      this._disablePrevMonth();
-    } else {
-      this._enablePrevMonth();
-    }
-
-    if (this.date.year >= maxYear && this.date.month >= maxMonth) {
-      this._disableNextMonth();
-    } else {
-      this._enableNextMonth();
-    }
-
-    this._renderDays();
-    return this;
-  }
-
-  /**
-   * Recalculate calendar position
-   * @method _adjustPosition
-   * @return {void}
-   */
-  _adjustPosition() {
-    //var width = this.datePickerCalendar.offsetWidth,
-    // height = this.datePickerCalendar.offsetHeight,
-    // viewportWidth = window.innerWidth || document.documentElement.clientWidth,
-    // viewportHeight = window.innerHeight || document.documentElement.clientHeight,
-    // scrollTop = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
-    let left, top, clientRect;
-
-    if (typeof this.datepicker.getBoundingClientRect === 'function') {
-      clientRect = this.datepicker.getBoundingClientRect();
-      left = clientRect.left + window.pageXOffset;
-      top = clientRect.bottom + window.pageYOffset;
-    } else {
-      left = this.datepicker.offsetLeft;
-      top = this.datepicker.offsetTop + this.datepicker.offsetHeight;
-      while ((this.datepicker = this.datepicker.offsetParent)) {
-        left += this.datepicker.offsetLeft;
-        top += this.datepicker.offsetTop;
-      }
-    }
-
-    this.datePickerCalendar.style.position = 'absolute';
-    this.datePickerCalendar.style.left = left + 'px';
-    this.datePickerCalendar.style.top = top + 'px';
-  }
-
-  /**
-   * Destroy datePicker
-   * @method destroy
-   * @return {[type]} [description]
-   */
-  destroy() {
-    this.datePickerCalendar.remove();
-  }
-}
-
-return datePicker;
-
-})));
-
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-(function (global, factory) {
-	 true ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define('bulmaCarousel', factory) :
-	(global.bulmaCarousel = factory());
-}(this, (function () { 'use strict';
-
-class EventEmitter {
-  constructor(listeners = []) {
-    this._listeners = new Map(listeners);
-    this._middlewares = new Map();
-  }
-
-  listenerCount(eventName) {
-    if (!this._listeners.has(eventName)) {
-      return 0;
-    }
-
-    const eventListeners = this._listeners.get(eventName);
-    return eventListeners.length;
-  }
-
-  removeListeners(eventName = null, middleware = false) {
-    if (eventName !== null) {
-      if (Array.isArray(eventName)) {
-        name.forEach(e => this.removeListeners(e, middleware));
-      } else {
-        this._listeners.delete(eventName);
-
-        if (middleware) {
-          this.removeMiddleware(eventName);
-        }
-      }
-    } else {
-      this._listeners = new Map();
-    }
-  }
-
-  middleware(eventName, fn) {
-    if (Array.isArray(eventName)) {
-      name.forEach(e => this.middleware(e, fn));
-    } else {
-      if (!Array.isArray(this._middlewares.get(eventName))) {
-        this._middlewares.set(eventName, []);
-      }
-
-      (this._middlewares.get(eventName)).push(fn);
-    }
-  }
-
-  removeMiddleware(eventName = null) {
-    if (eventName !== null) {
-      if (Array.isArray(eventName)) {
-        name.forEach(e => this.removeMiddleware(e));
-      } else {
-        this._middlewares.delete(eventName);
-      }
-    } else {
-      this._middlewares = new Map();
-    }
-  }
-
-  on(name, callback, once = false) {
-    if (Array.isArray(name)) {
-      name.forEach(e => this.on(e, callback));
-    } else {
-      name = name.toString();
-      const split = name.split(/,|, | /);
-
-      if (split.length > 1) {
-        split.forEach(e => this.on(e, callback));
-      } else {
-        if (!Array.isArray(this._listeners.get(name))) {
-          this._listeners.set(name, []);
-        }
-
-        (this._listeners.get(name)).push({once: once, callback: callback});
-      }
-    }
-  }
-
-  once(name, callback) {
-    this.on(name, callback, true);
-  }
-
-  emit(name, data, silent = false) {
-    name = name.toString();
-    let listeners = this._listeners.get(name);
-    let middlewares = null;
-    let doneCount = 0;
-    let execute = silent;
-
-    if (Array.isArray(listeners)) {
-      listeners.forEach((listener, index) => {
-        // Start Middleware checks unless we're doing a silent emit
-        if (!silent) {
-          middlewares = this._middlewares.get(name);
-          // Check and execute Middleware
-          if (Array.isArray(middlewares)) {
-            middlewares.forEach(middleware => {
-              middleware(data, (newData = null) => {
-                if (newData !== null) {
-                  data = newData;
-                }
-                doneCount++;
-              }, name);
-            });
-
-            if (doneCount >= middlewares.length) {
-              execute = true;
-            }
-          } else {
-            execute = true;
-          }
-        }
-
-        // If Middleware checks have been passed, execute
-        if (execute) {
-          if (listener.once) {
-            listeners[index] = null;
-          }
-          listener.callback(data);
-        }
-      });
-
-      // Dirty way of removing used Events
-      while (listeners.indexOf(null) !== -1) {
-        listeners.splice(listeners.indexOf(null), 1);
-      }
-    }
-  }
-}
-
-var supportsPassive = false;
-try {
-  var opts = Object.defineProperty({}, 'passive', {
-    get: function() {
-      supportsPassive = true;
-    }
-  });
-  window.addEventListener("testPassive", null, opts);
-  window.removeEventListener("testPassive", null, opts);
-} catch (e) {}
-
-class Carousel extends EventEmitter {
-  constructor(selector) {
-    super();
-
-    this._clickEvents = ['touchstart', 'click'];
-
-    this.carousel = typeof selector === 'string'
-      ? document.querySelector(selector)
-      : selector;
-    // An invalid selector or non-DOM node has been provided.
-    if (!this.carousel) {
-      throw new Error('An invalid selector or non-DOM node has been provided.');
-    }
-
-    /// Set default options and merge with instance defined
-    this.options = Object.assign({}, {
-      threshold: 50, //required min distance traveled to be considered swipe
-      restraint: 100, // maximum distance allowed at the same time in perpendicular direction
-      allowedTime: 500 // maximum time allowed to travel that distance
-    });
-
-    this.init();
-  }
-
-  /**
-   * Initiate all DOM element containing carousel class
-   * @method
-   * @return {Array} Array of all Carousel instances
-   */
-  static attach(selector = '.carousel, .hero-carousel') {
-    let carouselInstances = new Array();
-
-    const carousels = document.querySelectorAll(selector);
-    [].forEach.call(carousels, carousel => {
-      setTimeout(() => {
-        carouselInstances.push(new Carousel(carousel));
-      }, 100);
-    });
-    return carouselInstances;
-  }
-
-  /**
-   * Initiate plugin
-   * @method init
-   * @return {void}
-   */
-  init() {
-    let forceHiddenNavigation = false;
-
-    this.computedStyle = window.getComputedStyle(this.carousel);
-    this.carouselWidth = parseInt(this.computedStyle.getPropertyValue('width'), 10);
-
-    this.carouselContainer = this.carousel.querySelector('.carousel-container');
-    this.carouselItems = this.carousel.querySelectorAll('.carousel-item');
-    this.carouselItemsArray = Array.from(this.carouselItems);
-
-    // Detect which animation is setup and auto-calculate size and transformation
-    if (this.carousel.dataset.size && !this.carousel.classList.contains('carousel-animate-fade')) {
-      if (this.carousel.dataset.size >= this.carouselItemsArray.length) {
-        this.offset = 0;
-        forceHiddenNavigation = true;
-      } else {
-        this.offset = this.carouselWidth / this.carousel.dataset.size;
-      }
-
-      this.carouselContainer.style.left = 0 - this.offset + 'px';
-      this.carouselContainer.style.transform = `translateX(${this.offset}px)`;
-      [].forEach.call(this.carouselItems, carouselItem => {
-        carouselItem.style.flexBasis = `${this.offset}px`;
-      });
-    }
-
-    this._initNavigation(forceHiddenNavigation);
-
-    // If animation is fade then force carouselContainer size (due to the position: absolute)
-    if (this.carousel.classList.contains('carousel-animate-fade') && this.carouselItems.length) {
-      let img = this.carouselItems[0].querySelector('img');
-      let scale = 1;
-      if (img.naturalWidth) {
-        scale = this.carouselWidth / img.naturalWidth;
-        this.carouselContainer.style.height = (img.naturalHeight * scale) + 'px';
-      } else {
-        img.onload = () => {
-          scale = this.carouselWidth / img.naturalWidth;
-          this.carouselContainer.style.height = (img.naturalHeight * scale) + 'px';
-        };
-      }
-    }
-
-    this.currentItem = {
-      carousel: this.carousel,
-      node: null,
-      pos: -1
-    };
-    this.currentItem.node = this.carousel.querySelector('.carousel-item.is-active'), this.currentItem.pos = this.currentItem.node
-      ? this.carouselItemsArray.indexOf(this.currentItem.node)
-      : -1;
-    if (!this.currentItem.node) {
-      this.currentItem.node = this.carouselItems[0];
-      this.currentItem.node.classList.add('is-active');
-      this.currentItem.pos = 0;
-    }
-
-    this._setOrder();
-
-    if (this.carousel.dataset.autoplay && this.carousel.dataset.autoplay == 'true') {
-      this._autoPlay(this.carousel.dataset.delay || 5000);
-    }
-
-    this._bindEvents();
-
-    this.emit('carousel:ready', this.currentItem);
-  }
-
-  /**
-   * Initiate Navigation area and Previous/Next buttons
-   * @method _initNavigation
-   * @return {[type]}        [description]
-   */
-  _initNavigation(forceHidden = false) {
-    this.previousControl = this.carousel.querySelector('.carousel-nav-left');
-    this.nextControl = this.carousel.querySelector('.carousel-nav-right');
-
-    if (this.carouselItems.length <= 1 || forceHidden) {
-      if (this.carouselContainer) {
-        this.carouselContainer.style.left = '0';
-      }
-      if (this.previousControl) {
-        this.previousControl.style.display = 'none';
-      }
-      if (this.nextControl) {
-        this.nextControl.style.display = 'none';
-      }
-    }
-  }
-
-  /**
-   * Bind all events
-   * @method _bindEvents
-   * @return {void}
-   */
-  _bindEvents() {
-    if (this.previousControl) {
-      this._clickEvents.forEach(clickEvent => {
-        this.previousControl.addEventListener(clickEvent, e => {
-          e.preventDefault();
-          this._slide('previous');
-          if (this._autoPlayInterval) {
-            clearInterval(this._autoPlayInterval);
-            this._autoPlay(this.carousel.dataset.delay || 5000);
-          }
-        }, supportsPassive ? { passive: true } : false);
-      });
-    }
-
-    if (this.nextControl) {
-      this._clickEvents.forEach(clickEvent => {
-        this.nextControl.addEventListener(clickEvent, e => {
-          e.preventDefault();
-          this._slide('next');
-          if (this._autoPlayInterval) {
-            clearInterval(this._autoPlayInterval);
-            this._autoPlay(this.carousel.dataset.delay || 5000);
-          }
-        }, supportsPassive ? { passive: true } : false);
-      });
-    }
-
-    // Bind swipe events
-    this.carousel.addEventListener('touchstart', e => {
-      this._swipeStart(e);
-    }, supportsPassive ? { passive: true } : false);
-    this.carousel.addEventListener('touchmove', e => {
-      if (!supportsPassive) {
-        e.preventDefault();
-      }
-    }, supportsPassive ? { passive: true } : false);
-    this.carousel.addEventListener('touchend', e => {
-      this._swipeEnd(e);
-    }, supportsPassive ? { passive: true } : false);
-  }
-
-  /**
-   * Find next item to display
-   * @method _next
-   * @param  {Node} element Current Node element
-   * @return {Node}         Next Node element
-   */
-  _next(element) {
-    if (element.nextElementSibling) {
-      return element.nextElementSibling;
-    } else {
-      return this.carouselItems[0];
-    }
-  }
-
-  /**
-   * Find previous item to display
-   * @method _previous
-   * @param  {Node}  element Current Node element
-   * @return {Node}          Previous Node element
-   */
-  _previous(element) {
-    if (element.previousElementSibling) {
-      return element.previousElementSibling;
-    } else {
-      return this.carouselItems[this.carouselItems.length - 1];
-    }
-  }
-
-  /**
-   * Update each item order
-   * @method _setOrder
-   */
-  _setOrder() {
-    this.currentItem.node.style.order = '1';
-    this.currentItem.node.style.zIndex = '1';
-    let item = this.currentItem.node;
-    let i,
-      j,
-      ref;
-    for (
-      i = j = 2, ref = this.carouselItemsArray.length; (
-        2 <= ref
-        ? j <= ref
-        : j >= ref); i = 2 <= ref
-      ? ++j
-      : --j) {
-      item = this._next(item);
-      item.style.order = '' + i % this.carouselItemsArray.length;
-      item.style.zIndex = '0';
-    }
-  }
-
-  /**
-   * Save current position on start swiping
-   * @method _swipeStart
-   * @param  {Event}    e Swipe event
-   * @return {void}
-   */
-  _swipeStart(e) {
-    e.preventDefault();
-
-    e = e ? e : window.event;
-    e = ('changedTouches' in e) ? e.changedTouches[0] : e;
-    this._touch = {
-      start: {
-        time: new Date().getTime(), // record time when finger first makes contact with surface
-        x: e.pageX,
-        y: e.pageY
-      },
-      dist: {
-        x: 0,
-        y: 0
-      }
-    };
-  }
-
-  /**
-   * Save current position on end swiping
-   * @method _swipeEnd
-   * @param  {Event}  e swipe event
-   * @return {void}
-   */
-  _swipeEnd(e) {
-    e.preventDefault();
-
-    e = e ? e : window.event;
-    e = ('changedTouches' in e) ? e.changedTouches[0] : e;
-    this._touch.dist = {
-      x: e.pageX - this._touch.start.x, // get horizontal dist traveled by finger while in contact with surface
-      y: e.pageY - this._touch.start.y // get vertical dist traveled by finger while in contact with surface
-    };
-
-    this._handleGesture();
-  }
-
-  /**
-   * Identify the gestureand slide if necessary
-   * @method _handleGesture
-   * @return {void}
-   */
-  _handleGesture() {
-    const elapsedTime = new Date().getTime() - this._touch.start.time; // get time elapsed
-    if (elapsedTime <= this.options.allowedTime) { // first condition for awipe met
-      if (Math.abs(this._touch.dist.x) >= this.options.threshold && Math.abs(this._touch.dist.y) <= this.options.restraint) { // 2nd condition for horizontal swipe met
-        (this._touch.dist.x < 0)
-          ? this._slide('next')
-          : this._slide('previous'); // if dist traveled is negative, it indicates left swipe
-      }
-    }
-  }
-
-  /**
-   * Update slides to display the wanted one
-   * @method _slide
-   * @param  {String} [direction='next'] Direction in which items need to move
-   * @return {void}
-   */
-  _slide(direction = 'next') {
-    if (this.carouselItems.length) {
-      this.oldItemNode = this.currentItem.node;
-      this.emit('carousel:slide:before', this.currentItem);
-      // initialize direction to change order
-      if (direction === 'previous') {
-        this.currentItem.node = this._previous(this.currentItem.node);
-        // add reverse class
-        if (!this.carousel.classList.contains('carousel-animate-fade')) {
-          this.carousel.classList.add('is-reversing');
-          this.carouselContainer.style.transform = `translateX(${ - Math.abs(this.offset)}px)`;
-        }
-      } else {
-        // Reorder items
-        this.currentItem.node = this._next(this.currentItem.node);
-        // re_slide reverse class
-        this.carousel.classList.remove('is-reversing');
-        this.carouselContainer.style.transform = `translateX(${Math.abs(this.offset)}px)`;
-      }
-      this.currentItem.node.classList.add('is-active');
-      this.oldItemNode.classList.remove('is-active');
-
-      // Disable transition to instant change order
-      this.carousel.classList.remove('carousel-animated');
-      // Enable transition to animate order 1 to order 2
-      setTimeout(() => {
-        this.carousel.classList.add('carousel-animated');
-      }, 50);
-
-      this._setOrder();
-      this.emit('carousel:slide:after', this.currentItem);
-    }
-  }
-
-  /**
-   * Initiate autoplay system
-   * @method _autoPlay
-   * @param  {Number}  [delay=5000] Delay between slides in milliseconds
-   * @return {void}
-   */
-  _autoPlay(delay = 5000) {
-    this._autoPlayInterval = setInterval(() => {
-      this._slide('next');
-    }, delay);
-  }
-}
-
-return Carousel;
-
-})));
-
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports) {
-
-var bulmaIconpicker = (function () {
-'use strict';
-
-const MOUSE_EVENTS = ['click', 'touchstart'];
-
-let fetchStyle = function(url) {
-  return new Promise((resolve, reject) => {
-    let link = document.createElement('link');
-    link.type = 'text/css';
-    link.rel = 'stylesheet';
-    link.onload = function() { resolve(); };
-    link.href = url;
-
-    if (!document.querySelector('link[href="' + url + '"]')) {
-      let headScript = document.querySelector('head');
-      headScript.append(link);
-    }
-  });
-};
-
-class IconPicker {
-  constructor(element, options = {}) {
-    const defaultOptions = {
-      iconSets: [ {
-        name: 'simpleLine', // Name displayed on tab
-        css: 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css', // CSS url containing icons rules
-        prefix: 'icon-', // CSS rules prefix to identify icons
-        displayPrefix: ''
-      },{
-        name: 'fontAwesome', // Name displayed on tab
-        css: 'https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css', // CSS url containing icons rules
-        prefix: 'fa-', // CSS rules prefix to identify icons
-        displayPrefix: 'fa fa-icon'
-      } ]
-    };
-
-
-    this.element = element;
-    this.options = Object.assign({}, defaultOptions, options);
-    this.icons = [];
-    this.id = 'iconPicker' + ( new Date ).getTime();
-    this.init();
-  }
-
-  init() {
-    this.createModal();
-    this.createPreview();
-
-    this.options.iconSets.forEach( iconSet => {
-      fetchStyle(iconSet.css);
-      // Parse CSS file to get array of all available icons
-      fetch(iconSet.css, {mode: 'cors'})
-        .then(res => {
-          return res.text();
-        })
-        .then(css => {
-          this.icons[iconSet.name] = this.parseCSS(css, iconSet.prefix || 'fa-', iconSet.displayPrefix || '');
-          this.modalSetTabs.querySelector('a').click();
-          var touchEvent = new Event('touchstart');
-          this.modalSetTabs.querySelector('a').dispatchEvent(touchEvent);
-        })
-        ;
-    } );
-  }
-
-  createPreview() {
-    this.preview = document.createElement('div');
-    this.preview.className = 'icon is-large';
-    this.preview.classList.add('iconpicker-preview');
-    let iconPreview = document.createElement('i');
-    iconPreview.className = 'iconpicker-icon-preview';
-    if (this.element.value.length) {
-      let classes = this.element.value.split(' ');
-      classes.forEach( cls => {
-        iconPreview.classList.add( cls );
-      });
-    }
-    this.preview.appendChild(iconPreview);
-
-    MOUSE_EVENTS.forEach((event) => {
-      this.preview.addEventListener(event, e => {
-        e.preventDefault();
-
-        this.modal.classList.add('is-active');
-      });
-    });
-
-    this.element.parentNode.insertBefore(this.preview, this.element.nextSibling);
-  }
-
-  parseCSS( css, prefix = 'fa-', displayPrefix = '' ) {
-    const iconPattern = new RegExp('\\.' + prefix + '([^\\.!:]*)::?before\\s*{\\s*content:\\s*["|\']\\\\[^\'|"]*["|\'];?\\s*}', 'g');
-    const index = 1;
-    let icons = [], icon, match;
-
-    while ( match = iconPattern.exec(css)) {
-      icon = {
-        prefix: prefix,
-        selector: prefix + match[index].trim(':'),
-        name: this.ucwords(match[index]).trim(':'),
-        filter: match[index].trim(':'),
-        displayPrefix: displayPrefix
-      };
-      icons[match[index]] = icon;
-    }
-
-    if (Object.getOwnPropertyNames(this.icons).length == 0) {
-      console.warn( "No icons found in CSS file" );
-    }
-    return icons;
-  }
-
-  ucwords (str) {
-    return (str + '').replace(/^(.)|\s+(.)/g, function ($1) {
-      return $1.toUpperCase();
-    });
-  }
-
-  drawIcons(iconSet) {
-    this.iconsList.innerHTML = '';
-
-    if (iconSet) {
-      for (let [iconName, icon] of Object.entries(iconSet)) {
-        this.iconsList.appendChild(this.createIconPreview(icon));
-      }
-    }
-  }
-
-  createIconPreview(icon, prefix = 'fa-') {
-    let iconLink = document.createElement('a');
-    iconLink.dataset.title = icon['name'];
-    iconLink.setAttribute('title', icon['name']);
-    iconLink.dataset.icon = icon['selector'];
-    iconLink.dataset.filter = icon['filter'];
-    let iconPreview = document.createElement('i');
-    iconPreview.className = 'iconpicker-icon-preview';
-    if (icon['displayPrefix'].length) {
-      prefix = icon['displayPrefix'].split(' ');
-      prefix.forEach( pfx => {
-        iconPreview.classList.add( pfx );
-      });
-    }
-    iconPreview.classList.add( icon['selector'] );
-    iconLink.appendChild(iconPreview);
-    MOUSE_EVENTS.forEach((event) => {
-      iconLink.addEventListener(event, e => {
-        e.preventDefault();
-        this.preview.innerHTML = '';
-        this.element.value = e.target.classList;
-        this.preview.appendChild(e.target.cloneNode(true));
-        this.modal.classList.remove('is-active');
-      });
-    });
-    return iconLink;
-  }
-
-  createModal() {
-    this.modal = document.createElement('div');
-    this.modal.className = 'modal';
-    this.modal.classList.add( 'iconpicker-modal' );
-    this.modal.id = this.id;
-    let modalBackground = document.createElement('div');
-    modalBackground.className = 'modal-background';
-    let modalCard = document.createElement('div');
-    modalCard.className = 'modal-card';
-
-    let modalHeader = document.createElement('header');
-    modalHeader.className = 'modal-card-head';
-    let modalHeaderTitle = document.createElement('p');
-    modalHeaderTitle.className = 'modal-card-title';
-    modalHeaderTitle.innerHTML = 'iconPicker';
-    this.modalHeaderSearch = document.createElement('input');
-    this.modalHeaderSearch.setAttribute('type', 'search');
-    this.modalHeaderSearch.setAttribute('placeholder', 'Search');
-    this.modalHeaderSearch.className = 'iconpicker-search';
-    this.modalHeaderSearch.addEventListener('input', e => {
-      this.filter(e.target.value);
-    });
-    let modalHeaderClose = document.createElement('button');
-    modalHeaderClose.className = 'delete';
-    MOUSE_EVENTS.forEach((event) => {
-      modalHeaderClose.addEventListener(event, e => {
-        e.preventDefault();
-
-        this.modal.classList.remove('is-active');
-      });
-    });
-
-    modalCard.appendChild(modalHeader);
-
-    this.modalBody = document.createElement('section');
-    this.modalBody.className = 'modal-card-body';
-
-    if (this.options.iconSets.length >= 1) {
-      let modalSets = document.createElement('div');
-      modalSets.className = 'iconpicker-sets';
-      modalSets.classList.add('tabs');
-      this.modalSetTabs = document.createElement('ul');
-      this.options.iconSets.forEach(iconSet => {
-        let modalSetTab = document.createElement('li');
-        let modalSetTabLink = document.createElement('a');
-        modalSetTabLink.dataset.iconset = iconSet.name;
-        modalSetTabLink.innerHTML = iconSet.name;
-        MOUSE_EVENTS.forEach((event) => {
-          modalSetTabLink.addEventListener(event, e => {
-            e.preventDefault();
-
-            var activeModalTabs = this.modalSetTabs.querySelectorAll('.is-active');
-            [].forEach.call(activeModalTabs, function(activeModalTab) {
-              activeModalTab.classList.remove('is-active');
-            });
-
-            e.target.parentNode.classList.add('is-active');
-            this.drawIcons(this.icons[e.target.dataset.iconset]);
-            this.filter(this.modalHeaderSearch.value);
-          });
-        });
-        modalSetTab.appendChild(modalSetTabLink);
-        this.modalSetTabs.appendChild(modalSetTab);
-      });
-      modalSets.appendChild(this.modalSetTabs);
-      modalCard.appendChild(modalSets);
-    }
-
-    this.iconsList = document.createElement('div');
-    this.iconsList.className = 'iconpicker-icons';
-
-    modalHeader.appendChild(modalHeaderTitle);
-    modalHeader.appendChild(this.modalHeaderSearch);
-    modalHeader.appendChild(modalHeaderClose);
-
-    this.modalBody.appendChild(this.iconsList);
-    modalCard.appendChild(this.modalBody);
-
-    this.modal.appendChild(modalBackground);
-    this.modal.appendChild(modalCard);
-    document.body.appendChild(this.modal);
-  }
-
-  filter(value = '') {
-    if (value === '') {
-      this.iconsList.querySelectorAll('[data-filter]').forEach( el => {
-        el.classList.remove('is-hidden');
-      });
-      return;
-    }
-    this.iconsList.querySelectorAll('[data-filter]').forEach( el => {
-      el.classList.remove('is-hidden');
-    });
-    this.iconsList.querySelectorAll('[data-filter]:not([data-filter*="' + value + '"])').forEach( el => {
-      el.classList.add('is-hidden');
-    });
-  }
-}
-
-document.addEventListener( 'DOMContentLoaded', function () {
-  let iconPickers = document.querySelectorAll('[data-action="iconPicker"]');
-  let iconPickerOptions = {};
-  [].forEach.call(iconPickers, function(iconPicker) {
-    if (!iconPicker.dataset.iconPicker) {
-      iconPicker.dataset.iconPicker = new IconPicker(iconPicker, iconPickerOptions);
-    }
-  });
-});
-
-return IconPicker;
-
-}());
-
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-(function () {
-'use strict';
-
-const MOUSE_EVENTS = ['click', 'touchstart'];
-
-function closest(el, selector) {
-  var matchesFn;
-
-  // find vendor prefix
-  ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'].some(function(fn) {
-    if (typeof document.body[fn] == 'function') {
-      matchesFn = fn;
-      return true;
-    }
-    return false;
-  });
-
-  var parent;
-
-  // traverse parents
-  while (el) {
-    parent = el.parentElement;
-    if (parent && parent[matchesFn](selector)) {
-      return parent;
-    }
-    el = parent;
-  }
-
-  return null;
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Get all document sliders
-  var showQuickview = document.querySelectorAll('[data-show="quickview"]');
-  [].forEach.call(showQuickview, function(show) {
-    var quickview = document.getElementById(show.dataset['target']);
-    if (quickview) {
-      // Add event listener to update output when slider value change
-      MOUSE_EVENTS.forEach((event) => {
-        show.addEventListener(event, function(e) {
-          e.preventDefault();
-          quickview.classList.add('is-active');
-        });
-      });
-    }
-  });
-
-  // Get all document sliders
-  var dismissQuickView = document.querySelectorAll('[data-dismiss="quickview"]');
-  [].forEach.call(dismissQuickView, function(dismiss) {
-    var quickview = closest(dismiss, '.quickview');
-    if (quickview) {
-      // Add event listener to update output when slider value change
-      MOUSE_EVENTS.forEach((event) => {
-        dismiss.addEventListener(event, function(e) {
-          quickview.classList.remove('is-active');
-        });
-      });
-    }
-  });
-});
-
-}());
-
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports) {
-
-(function () {
-'use strict';
-
-// Find output DOM associated to the DOM element passed as parameter
-function findOutputForSlider(element) {
-  var idVal = element.id;
-  var outputs = document.getElementsByTagName('output');
-  for (var i = 0; i < outputs.length; i++) {
-    if (outputs[i].htmlFor == idVal)
-      return outputs[i];
-    }
-  }
-
-function getSliderOutputPosition(slider) {
-  // Update output position
-  var newPlace, minValue;
-
-  var style = window.getComputedStyle(slider, null);
-  // Measure width of range input
-  var sliderWidth = parseInt(style.getPropertyValue('width'), 10);
-
-  // Figure out placement percentage between left and right of input
-  if (!slider.getAttribute('min')) {
-    minValue = 0;
-  } else {
-    minValue = slider.getAttribute('min');
-  }
-  var newPoint = (slider.value - minValue) / (slider.getAttribute('max') - minValue);
-
-  // Prevent bubble from going beyond left or right (unsupported browsers)
-  if (newPoint < 0) {
-    newPlace = 0;
-  } else if (newPoint > 1) {
-    newPlace = sliderWidth;
-  } else {
-    newPlace = sliderWidth * newPoint;
-  }
-
-  return {
-    'position': newPlace + 'px'
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Get all document sliders
-  var sliders = document.querySelectorAll('input[type="range"].slider');
-  [].forEach.call(sliders, function(slider) {
-    var output = findOutputForSlider(slider);
-    if (output) {
-      if (slider.classList.contains('has-output-tooltip')) {
-        // Get new output position
-        var newPosition = getSliderOutputPosition(slider);
-
-        // Set output position
-        output.style['left'] = newPosition.position;
-      }
-
-      // Add event listener to update output when slider value change
-      slider.addEventListener('input', function(event) {
-        if (event.target.classList.contains('has-output-tooltip')) {
-          // Get new output position
-          var newPosition = getSliderOutputPosition(event.target);
-
-          // Set output position
-          output.style['left'] = newPosition.position;
-        }
-
-        // Check for prefix and postfix
-        var prefix = (output.hasAttribute('data-prefix') ? output.getAttribute('data-prefix') : '');
-        var postfix = (output.hasAttribute('data-postfix') ? output.getAttribute('data-postfix') : '');
-        
-        // Update output with slider value
-        output.value = prefix + event.target.value + postfix;
-      });
-    }
-  });
-});
-
-}());
-
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-var bulmaSteps = (function () {
-'use strict';
-
-const MOUSE_EVENTS = ['click', 'touchstart'];
-
-class StepsWizard {
-  constructor(element = null, options = {}) {
-    this.options = Object.assign({}, {
-      'selector': '.step-item',
-      'selector_content': '.step-content',
-      'previous_selector': '[data-nav="previous"]',
-      'next_selector': '[data-nav="next"]',
-      'active_class': 'is-active',
-      'completed_class': 'is-completed',
-      'beforeNext': null,
-      'onShow': null,
-      'onFinish': null,
-      'onError': null
-    }, options);
-
-    this.element = element;
-    this.steps = element.querySelectorAll(this.options.selector);
-    this.contents = element.querySelectorAll(this.options.selector_content);
-    this.previous_btn = element.querySelector(this.options.previous_selector);
-    this.next_btn = element.querySelector(this.options.next_selector);
-
-    this.init();
-  }
-
-  init() {
-    for (var i = 0; i < this.steps.length; i++) {
-      var step = this.steps[i];
-
-      step.setAttribute('data-step-id', i);
-    }
-
-    this.bind();
-
-    this.start();
-  }
-
-  bind() {
-    var _this = this;
-
-    if (this.previous_btn != null) {
-      MOUSE_EVENTS.forEach((event) => {
-        this.previous_btn.addEventListener(event, function(e) {
-          e.preventDefault();
-          if (!e.target.getAttribute('disabled')) {
-            _this.previous_step();
-          }
-        });
-      });
-    }
-
-    if (this.next_btn != null) {
-      MOUSE_EVENTS.forEach((event) => {
-        this.next_btn.addEventListener(event, function(e) {
-          e.preventDefault();
-          if (!e.target.getAttribute('disabled')) {
-            _this.next_step();
-          }
-        });
-      });
-    }
-  }
-
-  start() {
-    this.activate_step(0);
-    this.updateActions(this.steps[0]);
-  }
-
-  get_current_step_id() {
-    for (var i = 0; i < this.steps.length; i++) {
-      var step = this.steps[i];
-
-      if (step.classList.contains(this.options.active_class)) {
-        return parseInt(step.getAttribute('data-step-id'));
-      }
-    }
-
-    return null;
-  }
-
-  updateActions(step) {
-    var stepId = parseInt(step.getAttribute('data-step-id'));
-    if (stepId == 0) {
-      if (this.previous_btn != null) {
-        this.previous_btn.setAttribute('disabled', 'disabled');
-      }
-      if (this.next_btn != null) {
-        this.next_btn.removeAttribute('disabled', 'disabled');
-      }
-    } else if (stepId == (this.steps.length - 1)) {
-      if (this.previous_btn != null) {
-        this.previous_btn.removeAttribute('disabled', 'disabled');
-      }
-      if (this.next_btn != null) {
-        this.next_btn.setAttribute('disabled', 'disabled');
-      }
-    } else {
-      if (this.previous_btn != null) {
-        this.previous_btn.removeAttribute('disabled', 'disabled');
-      }
-      if (this.next_btn != null) {
-        this.next_btn.removeAttribute('disabled', 'disabled');
-      }
-    }
-  }
-
-  next_step() {
-    var current_id = this.get_current_step_id();
-
-    if (current_id == null) {
-      return;
-    }
-
-    var next_id = current_id + 1,
-      errors = [];
-
-    if (typeof this.options.beforeNext != 'undefined' && this.options.beforeNext != null && this.options.beforeNext) {
-      errors = this.options.beforeNext(current_id);
-    }
-
-    if (typeof errors == 'undefined') {
-      errors = [];
-    }
-
-    if (errors.length > 0) {
-      for (var i = 0; i < errors.length; i++) {
-        if (typeof this.options.onError != 'undefined' && this.options.onError != null && this.options.onError) {
-          this.options.onError(errors[i]);
-        }
-      }
-
-      return;
-    }
-
-    if (next_id >= this.steps.length) {
-      if (typeof this.options.onFinish != 'undefined' && this.options.onFinish != null && this.options.onFinish) {
-        this.options.onFinish(current_id);
-      }
-      this.deactivate_step(current_id);
-    } else {
-      this.complete_step(current_id);
-      this.activate_step(next_id);
-    }
-  }
-
-  previous_step() {
-    var current_id = this.get_current_step_id();
-    if (current_id == null) {
-      return;
-    }
-
-    this.uncomplete_step(current_id - 1);
-    this.activate_step(current_id - 1);
-  }
-
-  /**
-   * Activate a single step,
-   * will deactivate all other steps.
-   */
-  activate_step(step_id) {
-    this.updateActions(this.steps[step_id]);
-
-    for (var i = 0; i < this.steps.length; i++) {
-      var _step = this.steps[i];
-
-      if (_step == this.steps[step_id]) {
-        continue;
-      }
-
-      this.deactivate_step(i);
-    }
-
-    this.steps[step_id].classList.add(this.options.active_class);
-    if (typeof this.contents[step_id] !== 'undefined') {
-      this.contents[step_id].classList.add(this.options.active_class);
-    }
-
-    if (typeof this.options.onShow != 'undefined' && this.options.onShow != null && this.options.onShow) {
-      this.options.onShow(step_id);
-    }
-  }
-
-  complete_step(step_id) {
-    this.steps[step_id].classList.add(this.options.completed_class);
-  }
-
-  uncomplete_step(step_id) {
-    this.steps[step_id].classList.remove(this.options.completed_class);
-  }
-
-  deactivate_step(step_id) {
-    this.steps[step_id].classList.remove(this.options.active_class);
-    if (typeof this.contents[step_id] !== 'undefined') {
-      this.contents[step_id].classList.remove(this.options.active_class);
-    }
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  var stepsContainers = document.querySelectorAll('.steps');
-  [].forEach.call(stepsContainers, (stepsContainer) => {
-    var stepsWizard = new StepsWizard(stepsContainer);
-  });
-});
-
-return StepsWizard;
-
-}());
-
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-(function (global, factory) {
-	 true ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define('bulmaTagsinput', factory) :
-	(global.bulmaTagsinput = factory());
-}(this, (function () { 'use strict';
-
-if (typeof Object.assign != 'function') {
-  // Must be writable: true, enumerable: false, configurable: true
-  Object.defineProperty(Object, "assign", {
-    value: function assign(target, varArgs) { // .length of function is 2
-      'use strict';
-      if (target == null) { // TypeError if undefined or null
-        throw new TypeError('Cannot convert undefined or null to object');
-      }
-
-      var to = Object(target);
-
-      for (var index = 1; index < arguments.length; index++) {
-        var nextSource = arguments[index];
-
-        if (nextSource != null) { // Skip over if undefined or null
-          for (var nextKey in nextSource) {
-            // Avoid bugs when hasOwnProperty is shadowed
-            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-              to[nextKey] = nextSource[nextKey];
-            }
-          }
-        }
-      }
-      return to;
-    },
-    writable: true,
-    configurable: true
-  });
-}
-
-const MOUSE_EVENTS = ['click', 'touchstart'];
-
-const KEY_BACKSPACE = 8;
-const KEY_TAB = 9;
-const KEY_ENTER = 13;
-const KEY_LEFT = 37;
-const KEY_RIGHT = 39;
-const KEY_DELETE = 46;
-const KEY_COMMA = 188;
-
-class Tagify {
-  constructor(element, options = {}) {
-    let defaultOptions = {
-      disabled: false,
-      delimiter: ',',
-      allowDelete: true,
-      lowercase: false,
-      uppercase: false,
-      duplicates: true
-    };
-    this.element = element;
-    this.options = Object.assign({}, defaultOptions, options);
-
-    this.init();
-  }
-
-  init() {
-    if (!this.options.disabled) {
-      this.tags = [];
-      // The container will visually looks like an input
-      this.container = document.createElement('div');
-      this.container.className = 'tagsinput';
-      this.container.classList.add('field');
-      this.container.classList.add('is-grouped');
-      this.container.classList.add('is-grouped-multiline');
-      this.container.classList.add('input');
-
-      let inputType = this.element.getAttribute('type');
-    	if (!inputType || inputType === 'tags') {
-    		inputType = 'text';
-      }
-      // Create an invisible input element so user will be able to enter value
-      this.input = document.createElement('input');
-      this.input.setAttribute('type', inputType);
-      if (this.element.getAttribute('placeholder')) {
-        this.input.setAttribute('placeholder', this.element.getAttribute('placeholder'));
-      } else {
-        this.input.setAttribute('placeholder', 'Add a Tag');
-      }
-      this.container.appendChild(this.input);
-
-      let sib = this.element.nextSibling;
-      this.element.parentNode[sib ? 'insertBefore':'appendChild'](this.container, sib);
-      this.element.style.cssText = 'position:absolute;left:0;top:0;width:1px;height:1px;opacity:0.01;';
-      this.element.tabIndex = -1;
-
-      this.enable();
-    }
-  }
-
-  enable() {
-    if (!this.enabled && !this.options.disabled) {
-
-      this.element.addEventListener('focus', () => {
-        this.container.classList.add('is-focused');
-        this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
-      });
-
-      this.input.addEventListener('focus', () => {
-    		this.container.classList.add('is-focused');
-    		this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
-      });
-      this.input.addEventListener('blur', () => {
-    		this.container.classList.remove('is-focused');
-    		this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
-    		this.savePartial();
-      });
-      this.input.addEventListener('keydown', (e) => {
-        let key = e.charCode || e.keyCode || e.which,
-          selectedTag,
-          activeTag = this.container.querySelector('.tag.is-active'),
-          last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop(),
-          atStart = this.caretAtStart(this.input);
-
-        if (activeTag) {
-          selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerHTML.trim() + '"]');
-        }
-        this.setInputWidth();
-
-        if (key === KEY_ENTER || key === this.options.delimiter.charCodeAt(0) || key === KEY_COMMA || key === KEY_TAB) {
-          if (!this.input.value && (key !== this.options.delimiter.charCodeAt(0) || key === KEY_COMMA)) {
-            return;
-          }
-          this.savePartial();
-        } else if (key === KEY_DELETE && selectedTag) {
-    			if (selectedTag.nextSibling) {
-            this.select(selectedTag.nextSibling.querySelector('.tag'));
-          } else if (selectedTag.previousSibling) {
-            this.select(selectedTag.previousSibling.querySelector('.tag'));
-          }
-    			this.container.removeChild(selectedTag);
-          this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
-    			this.setInputWidth();
-    			this.save();
-        } else if (key === KEY_BACKSPACE) {
-          if (selectedTag) {
-            if (selectedTag.previousSibling) {
-    				  this.select(selectedTag.previousSibling.querySelector('.tag'));
-            } else if (selectedTag.nextSibling) {
-    				  this.select(selectedTag.nextSibling.querySelector('.tag'));
-            }
-    				this.container.removeChild(selectedTag);
-            this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
-    				this.setInputWidth();
-    				this.save();
-    			} else if (last && atStart) {
-    				this.select(last);
-    			} else {
-    				return;
-          }
-        } else if (key === KEY_LEFT) {
-    			if (selectedTag) {
-    				if (selectedTag.previousSibling) {
-    					this.select(selectedTag.previousSibling.querySelector('.tag'));
-    				}
-    			} else if (!atStart) {
-    				return;
-    			} else {
-    				this.select(last);
-    			}
-    		}
-    		else if (key === KEY_RIGHT) {
-    			if (!selectedTag) {
-            return;
-          }
-    			this.select(selectedTag.nextSibling.querySelector('.tag'));
-    		}
-    		else {
-    			return this.select();
-        }
-
-        e.preventDefault();
-        return false;
-      });
-      this.input.addEventListener('input', () => {
-        this.element.value = this.getValue();
-        this.element.dispatchEvent(new Event('input'));
-      });
-      this.input.addEventListener('paste', () => setTimeout(savePartial, 0));
-
-      this.container.addEventListener('mousedown', (e) => { this.refocus(e); });
-      this.container.addEventListener('touchstart', (e) => { this.refocus(e); });
-
-      this.savePartial(this.element.value);
-
-      this.enabled = true;
-    }
-  }
-
-  disable() {
-    if (this.enabled && !this.options.disabled) {
-      this.reset();
-
-      this.enabled = false;
-    }
-  }
-
-  select(el) {
-		let sel = this.container.querySelector('.is-active');
-		if (sel) {
-      sel.classList.remove('is-active');
-    }
-		if (el) {
-      el.classList.add('is-active');
-    }
-  }
-
-  addTag(text) {
-    if (~text.indexOf(this.options.delimiter)) {
-      text = text.split(this.options.delimiter);
-    }
-    if (Array.isArray(text)) {
-      return text.forEach((text) => {
-        this.addTag(text);
-      });
-    }
-
-    let tag = text && text.trim();
-    if (!tag) {
-      return false;
-    }
-
-    if (this.element.getAttribute('lowercase') || this.options['lowercase'] == 'true') {
-      tag = tag.toLowerCase();
-    }
-    if (this.element.getAttribute('uppercase') || this.options['uppercase'] == 'true') {
-      tag = tag.toUpperCase();
-    }
-    if (this.element.getAttribute('duplicates') == 'true' || this.options['duplicates'] || this.tags.indexOf(tag) === -1) {
-      this.tags.push(tag);
-
-      let newTagWrapper = document.createElement('div');
-      newTagWrapper.className = 'control';
-      newTagWrapper.setAttribute('data-tag', tag);
-
-      let newTag = document.createElement('div');
-      newTag.className = 'tags';
-      newTag.classList.add('has-addons');
-
-      let newTagContent = document.createElement('span');
-      newTagContent.className = 'tag';
-      newTagContent.classList.add('is-active');
-      this.select(newTagContent);
-      newTagContent.innerHTML = tag;
-
-      newTag.appendChild(newTagContent);
-      if (this.options.allowDelete) {
-        let newTagDeleteButton = document.createElement('a');
-        newTagDeleteButton.className = 'tag';
-        newTagDeleteButton.classList.add('is-delete');
-        MOUSE_EVENTS.forEach((event) => {
-          newTagDeleteButton.addEventListener(event, (e) => {
-          let selectedTag,
-            activeTag = e.target.parentNode,
-            last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).pop(),
-            atStart = this.caretAtStart(this.input);
-
-          if (activeTag) {
-            selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerText.trim() + '"]');
-          }
-
-          if (selectedTag) {
-    				this.select(selectedTag.previousSibling);
-    				this.container.removeChild(selectedTag);
-            this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
-    				this.setInputWidth();
-    				this.save();
-    			}
-    			else if (last && atStart) {
-    				this.select(last);
-    			}
-    			else {
-    				return;
-          }
-        });
-      });
-        newTag.appendChild(newTagDeleteButton);
-      }
-      newTagWrapper.appendChild(newTag);
-
-      this.container.insertBefore(newTagWrapper, this.input);
-    }
-  }
-
-  getValue() {
-    return this.tags.join(this.options.delimiter);
-  }
-
-  setValue(value) {
-    (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).forEach((tag) => {
-      this.tags.splice(this.tags.indexOf(tag.innerHTML), 1);
-      this.container.removeChild(tag);
-    });
-    this.savePartial(value);
-  }
-
-  setInputWidth() {
-    let last = (Array.prototype.slice.call(this.container.querySelectorAll('.control'))).pop();
-
-    if (!this.container.offsetWidth) {
-      return;
-    }
-    this.input.style.width = Math.max(this.container.offsetWidth - (last ? (last.offsetLeft + last.offsetWidth) : 30) - 30, this.container.offsetWidth / 4) + 'px';
-  }
-
-  savePartial(value) {
-    if (typeof value !== 'string' && !Array.isArray(value)) {
-      value = this.input.value;
-    }
-    if (this.addTag(value) !== false) {
-			this.input.value = '';
-			this.save();
-			this.setInputWidth();
-    }
-  }
-
-  save() {
-    this.element.value = this.tags.join(this.options.delimiter);
-    this.element.dispatchEvent(new Event('change'));
-  }
-
-  caretAtStart(el) {
-		try {
-			return el.selectionStart === 0 && el.selectionEnd === 0;
-		}
-		catch(e) {
-			return el.value === '';
-		}
-  }
-
-  refocus(e) {
-		if (e.target.classList.contains('tag')) {
-      this.select(e.target);
-    }
-		if (e.target === this.input) {
-      return this.select();
-    }
-		this.input.focus();
-		e.preventDefault();
-		return false;
-  }
-
-  reset() {
-    this.tags = [];
-  }
-
-  destroy() {
-    this.disable();
-    this.reset();
-    this.element = null;
-  }
-}
-
-document.addEventListener( 'DOMContentLoaded', function () {
-  let tagInputs = document.querySelectorAll('input[type="tags"]');
-  [].forEach.call(tagInputs, function(tagInput) {
-      new Tagify(tagInput);
-  });
-});
-
-return Tagify;
-
-})));
-
-
-/***/ }),
-/* 56 */,
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(47);
-__webpack_require__(34);
-
-/***/ }),
-/* 58 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49358,6 +45782,3583 @@ var index_esm = {
 /* harmony default export */ __webpack_exports__["a"] = (index_esm);
 
 
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(39)
+/* script */
+var __vue_script__ = __webpack_require__(40)
+/* template */
+var __vue_template__ = __webpack_require__(41)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/RecipeForm.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-145aa3e9", Component.options)
+  } else {
+    hotAPI.reload("data-v-145aa3e9", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['recipeId'],
+
+    data: function data() {
+        return {
+            recipe: {
+                id: null,
+                title: '',
+                preparation: '',
+                categories: [],
+                tags: [],
+                ingredients: ['']
+            },
+            categories: null,
+            categoriesError: null,
+            tags: null,
+            filteredTags: null
+        };
+    },
+
+
+    computed: {
+        submitMessage: function submitMessage() {
+            return this.recipeId ? 'Update recipe!' : 'Create recipe!';
+        }
+    },
+
+    methods: {
+        // Categories
+        getCategories: function getCategories() {
+            var _this = this;
+
+            axios.get('/categories').then(function (response) {
+                _this.categories = response.data.categories;
+            }).catch(function (error) {
+                if (error.response && error.response.status && error.response.status === 419) {
+                    location.href = '/login';
+                }
+                console.info(error);
+            });
+        },
+        setCategoriesError: function setCategoriesError() {
+            var vue = this;
+            setTimeout(function () {
+                if (!vue.recipe.categories.length) {
+                    vue.categoriesError = 'You must select at least one category.';
+                } else {
+                    vue.categoriesError = null;
+                }
+            }, 10);
+        },
+
+
+        // Tags
+        addTag: function addTag(event) {
+            var tagFound = _.find(this.recipe.tags, function (tag) {
+                return tag.toLowerCase() === event.target.value.toLowerCase();
+            });
+
+            if (event.target.value && !tagFound) this.recipe.tags.push(event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1));
+
+            event.target.value = '';
+        },
+        deleteTag: function deleteTag(index) {
+            console.info(index);
+            this.recipe.tags.splice(index, 1);
+        },
+        focusTagInput: function focusTagInput(event) {
+            if (event.target.classList.contains('vd-tags__control')) event.target.firstElementChild.focus();
+
+            if (event.target.classList.contains('vd-tags-field')) event.target.focus();
+
+            if (event.target.classList.contains('vd-tag__icon')) event.target.parentElement.firstElementChild.focus();
+        },
+        getFilteredTags: function getFilteredTags(text) {
+            this.filteredTags = data.filter(function (option) {
+                return option.name.toString().toLowerCase().indexOf(text.toLowerCase()) >= 0;
+            });
+        },
+
+
+        // Ingredients
+        ingredientEnter: function ingredientEnter(event) {
+            if (event.target.classList.contains('is-last')) this.addIngredient();
+
+            return false;
+        },
+        addIngredient: function addIngredient() {
+            if (!this.recipe.ingredients.length || this.recipe.ingredients[this.recipe.ingredients.length - 1]) this.recipe.ingredients.push('');
+
+            setTimeout(function () {
+                $('.ingredient-input').last().focus();
+            }, 10);
+        },
+        deleteIngredient: function deleteIngredient(index) {
+            this.recipe.ingredients.splice(index, 1);
+
+            // if(this.recipe.ingredients.length === 0)
+            // this.addIngredient();
+        },
+        ingredientBlur: function ingredientBlur(event, index) {
+            this.recipe.ingredients[index] = event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1);
+
+            if (!event.target.value && this.recipe.ingredients.length > 1) this.deleteIngredient(index);
+        },
+
+
+        // Recipe
+        getRecipe: function getRecipe(id) {
+            var _this2 = this;
+
+            axios.get('/recipes/' + id + '/get').then(function (response) {
+                _this2.recipe = response.data;
+            }).catch(function (error) {
+                if (error.response && error.response.status && error.response.status === 419) {
+                    location.href = '/login';
+                }
+                console.info(error);
+            });
+        },
+        preparationInput: function preparationInput(event) {
+            this.recipe.preparation = event.target.value;
+        },
+        titleBlur: function titleBlur(event) {
+            this.recipe.title = event.target.value.trim().charAt(0).toUpperCase() + event.target.value.trim().slice(1);
+        },
+        store: function store() {
+            axios.post('/recipes', this.recipe).then(function (response) {
+                location.href = '/recipes/' + response.data.recipe.id;
+            }).catch(function (error) {
+                if (error.response && error.response.status && error.response.status === 419) {
+                    location.href = '/login';
+                }
+                console.info(error);
+            });
+        },
+        update: function update() {
+            axios.put('/recipes/' + this.recipe.id, this.recipe).then(function (response) {
+                location.href = '/recipes/' + response.data.recipe.id;
+            }).catch(function (error) {
+                if (error.response && error.response.status && error.response.status === 419) {
+                    location.href = '/login';
+                }
+                console.info(error);
+            });
+        },
+
+
+        // Validation
+        validateForm: function validateForm() {
+            var _this3 = this;
+
+            var vue = this;
+            vue.$validator.validateAll().then(function (validated) {
+                if (!_this3.recipe.categories.length) {
+                    _this3.categoriesError = 'You must select at least one category.';
+                    validated = false;
+                } else {
+                    _this3.categoriesError = null;
+                }
+
+                if (validated) {
+                    _this3.recipeId ? _this3.update() : _this3.store();
+                } else {
+                    var action = vue.recipe.id ? 'update' : 'create';
+                    console.info(action + ' not validated');
+                    // vue.$snackbar.open({
+                    //     duration: 5000,
+                    //     message: 'Please correct errors before ' + action + ' recipe.',
+                    //     type: 'is-danger',
+                    //     queue: false,
+                    //     position: 'is-top',
+                    //     actionText: 'OK',
+                    //     onAction: () => {
+                    //         //Do something on click button
+                    //     }
+                    // });
+                }
+            });
+        }
+    },
+
+    mounted: function mounted() {
+        this.getCategories();
+
+        if (this.recipeId) this.getRecipe(this.recipeId);
+    }
+});
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "recipe-form-section" }, [
+    _c(
+      "form",
+      {
+        staticClass: "recipe-form",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            _vm.validateForm()
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "columns is-multiline" }, [
+          _c("div", { staticClass: "column is-12" }, [
+            _c("div", { staticClass: "vd-input has-label-primary" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.recipe.title,
+                    expression: "recipe.title"
+                  },
+                  {
+                    name: "validate",
+                    rawName: "v-validate.disabled",
+                    value: { required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ },
+                    expression:
+                      "{ required: true, regex: /^([A-zÀ-ÿ0-9 ,.-/]+)$/ }",
+                    modifiers: { disabled: true }
+                  }
+                ],
+                staticClass: "vd-input-field",
+                attrs: {
+                  type: "text",
+                  name: "title",
+                  placeholder: "Recipe title"
+                },
+                domProps: { value: _vm.recipe.title },
+                on: {
+                  blur: function($event) {
+                    _vm.titleBlur($event)
+                  },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.recipe, "title", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { staticClass: "vd-placeholder" }, [
+                _vm._v("Recipe title")
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.errors.has("title")
+              ? _c("p", { staticClass: "help is-danger" }, [
+                  _vm._v(_vm._s(_vm.errors.first("title")))
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "column is-12 m-t-25" },
+            [
+              _c("p", { staticClass: "m-b-15" }, [
+                _vm._v("Select recipe categories")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.categories, function(category) {
+                return _c(
+                  "label",
+                  {
+                    staticClass: "vd-checkbox is-primary",
+                    attrs: { for: "cat-" + category.id }
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recipe.categories,
+                          expression: "recipe.categories"
+                        }
+                      ],
+                      attrs: {
+                        name: "categories[]",
+                        id: "cat-" + category.id,
+                        type: "checkbox"
+                      },
+                      domProps: {
+                        value: category.id,
+                        checked: Array.isArray(_vm.recipe.categories)
+                          ? _vm._i(_vm.recipe.categories, category.id) > -1
+                          : _vm.recipe.categories
+                      },
+                      on: {
+                        input: function($event) {
+                          _vm.setCategoriesError()
+                        },
+                        change: function($event) {
+                          var $$a = _vm.recipe.categories,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = category.id,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                _vm.$set(
+                                  _vm.recipe,
+                                  "categories",
+                                  $$a.concat([$$v])
+                                )
+                            } else {
+                              $$i > -1 &&
+                                _vm.$set(
+                                  _vm.recipe,
+                                  "categories",
+                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                )
+                            }
+                          } else {
+                            _vm.$set(_vm.recipe, "categories", $$c)
+                          }
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "vd-checkbox__info" }, [
+                      _c("span", { staticClass: "vd-checkbox__check" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "vd-checkbox__label" }, [
+                        _vm._v(_vm._s(category.name))
+                      ])
+                    ])
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _vm.categoriesError
+                ? _c("p", { staticClass: "help is-danger" }, [
+                    _vm._v(_vm._s(_vm.categoriesError))
+                  ])
+                : _vm._e()
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "columns m-t-30" }, [
+          _c("div", { staticClass: "column is-4" }, [
+            _c(
+              "div",
+              { staticClass: "ingredients" },
+              [
+                _c("p", { staticClass: "m-b-15" }, [_vm._v("Ingredients")]),
+                _vm._v(" "),
+                _vm._l(_vm.recipe.ingredients, function(ingredient, index) {
+                  return _c("div", { staticClass: "ingredient-field" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.recipe.ingredients[index],
+                          expression: "recipe.ingredients[index]"
+                        },
+                        {
+                          name: "validate",
+                          rawName: "v-validate.disabled",
+                          value: "required",
+                          expression: "'required'",
+                          modifiers: { disabled: true }
+                        }
+                      ],
+                      staticClass: "ingredient-input",
+                      class: {
+                        "is-last": index === _vm.recipe.ingredients.length - 1
+                      },
+                      attrs: {
+                        name: "ingredient-" + index,
+                        placeholder: "Type new ingredient",
+                        type: "text"
+                      },
+                      domProps: { value: _vm.recipe.ingredients[index] },
+                      on: {
+                        blur: function($event) {
+                          _vm.ingredientBlur($event, index)
+                        },
+                        keypress: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          $event.preventDefault()
+                          _vm.ingredientEnter($event)
+                        },
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.recipe.ingredients,
+                            index,
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("a", {
+                      staticClass: "delete is-small delete-ingredient",
+                      on: {
+                        click: function($event) {
+                          _vm.deleteIngredient(index)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.has("ingredient-" + index)
+                      ? _c("p", { staticClass: "help is-danger" }, [
+                          _vm._v(
+                            _vm._s(_vm.errors.first("ingredient-" + index))
+                          )
+                        ])
+                      : _vm._e()
+                  ])
+                }),
+                _vm._v(" "),
+                _c("p", { staticClass: "buttons is-right m-t-20" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "is-size-7 vd-text-primary",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.addIngredient()
+                        }
+                      }
+                    },
+                    [_vm._v("Add ingredient")]
+                  )
+                ])
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "column is-8" }, [
+            _c("p", { staticClass: "m-b-15" }, [_vm._v("Preparation")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "vd-textarea has-label-primary m-t-0" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate.disabled",
+                    value: "required",
+                    expression: "'required'",
+                    modifiers: { disabled: true }
+                  }
+                ],
+                staticClass: "vd-textarea-field auto-expand",
+                attrs: {
+                  name: "preparation",
+                  placeholder: "Preparation",
+                  "data-min-rows": "5",
+                  rows: "5"
+                },
+                domProps: { innerHTML: _vm._s(_vm.recipe.preparation) },
+                on: {
+                  input: function($event) {
+                    _vm.preparationInput($event)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { staticClass: "vd-placeholder is-transparent" }, [
+                _vm._v("Write the preparation here...")
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.errors.has("preparation")
+              ? _c("p", { staticClass: "help is-danger" }, [
+                  _vm._v(_vm._s(_vm.errors.first("preparation")))
+                ])
+              : _vm._e()
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "columns" }, [
+          _c("div", { staticClass: "column is-12" }, [
+            _c("p", { staticClass: "m-t-20 m-b-15" }, [_vm._v("Tags")]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "vd-tags has-label-primary" },
+              [
+                _vm._l(_vm.recipe.tags, function(tag, index) {
+                  return _c("span", { staticClass: "vd-tag is-primary" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(tag) +
+                        "\n                        "
+                    ),
+                    _c("a", {
+                      staticClass: "vd-tags__delete",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.deleteTag(index)
+                        }
+                      }
+                    })
+                  ])
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "vd-tags__control",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.focusTagInput($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "vd-tags-field",
+                      attrs: { placeholder: "Add tag", type: "text" },
+                      on: {
+                        keypress: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          $event.preventDefault()
+                          _vm.addTag($event)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "vd-tag__icon" })
+                  ]
+                )
+              ],
+              2
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "columns" }, [
+          _c("div", { staticClass: "column is-12" }, [
+            _c("p", { staticClass: "buttons is-right m-t-20" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "button is-large is-primary",
+                  attrs: { type: "submit" }
+                },
+                [_vm._v(_vm._s(_vm.submitMessage))]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-145aa3e9", module.exports)
+  }
+}
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(43);
+__webpack_require__(52);
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+__webpack_require__(44);
+__webpack_require__(45);
+__webpack_require__(46);
+__webpack_require__(47);
+__webpack_require__(48);
+__webpack_require__(49);
+__webpack_require__(50);
+__webpack_require__(51);
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+(function () {
+'use strict';
+
+const MOUSE_EVENTS = ['click', 'touchstart'];
+
+document.addEventListener( 'DOMContentLoaded', function () {
+  var accordions = document.querySelectorAll('.accordions');
+  [].forEach.call(accordions, function(accordion) {
+    var items = accordion.querySelectorAll('.accordion');
+    [].forEach.call(items, function(item) {
+      MOUSE_EVENTS.forEach((event) => {
+        item.querySelector('.toggle, [data-action="toggle"]').addEventListener(event, e => {
+          e.preventDefault();
+          if (!item.classList.contains('is-active')) {
+            let activeItem = accordion.querySelector('.accordion.is-active');
+            if (activeItem) {
+              activeItem.classList.remove('is-active');
+            }
+            item.classList.add('is-active');
+          } else {
+            item.classList.remove('is-active');
+          }
+        });
+      });
+    });
+  });
+});
+
+}());
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function (global, factory) {
+	 true ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define('bulmaCalendar', factory) :
+	(global.bulmaCalendar = factory());
+}(this, (function () { 'use strict';
+
+class EventEmitter {
+  constructor(listeners = []) {
+    this._listeners = new Map(listeners);
+    this._middlewares = new Map();
+  }
+
+  listenerCount(eventName) {
+    if (!this._listeners.has(eventName)) {
+      return 0;
+    }
+
+    const eventListeners = this._listeners.get(eventName);
+    return eventListeners.length;
+  }
+
+  removeListeners(eventName = null, middleware = false) {
+    if (eventName !== null) {
+      if (Array.isArray(eventName)) {
+        name.forEach(e => this.removeListeners(e, middleware));
+      } else {
+        this._listeners.delete(eventName);
+
+        if (middleware) {
+          this.removeMiddleware(eventName);
+        }
+      }
+    } else {
+      this._listeners = new Map();
+    }
+  }
+
+  middleware(eventName, fn) {
+    if (Array.isArray(eventName)) {
+      name.forEach(e => this.middleware(e, fn));
+    } else {
+      if (!Array.isArray(this._middlewares.get(eventName))) {
+        this._middlewares.set(eventName, []);
+      }
+
+      (this._middlewares.get(eventName)).push(fn);
+    }
+  }
+
+  removeMiddleware(eventName = null) {
+    if (eventName !== null) {
+      if (Array.isArray(eventName)) {
+        name.forEach(e => this.removeMiddleware(e));
+      } else {
+        this._middlewares.delete(eventName);
+      }
+    } else {
+      this._middlewares = new Map();
+    }
+  }
+
+  on(name, callback, once = false) {
+    if (Array.isArray(name)) {
+      name.forEach(e => this.on(e, callback));
+    } else {
+      name = name.toString();
+      const split = name.split(/,|, | /);
+
+      if (split.length > 1) {
+        split.forEach(e => this.on(e, callback));
+      } else {
+        if (!Array.isArray(this._listeners.get(name))) {
+          this._listeners.set(name, []);
+        }
+
+        (this._listeners.get(name)).push({once: once, callback: callback});
+      }
+    }
+  }
+
+  once(name, callback) {
+    this.on(name, callback, true);
+  }
+
+  emit(name, data, silent = false) {
+    name = name.toString();
+    let listeners = this._listeners.get(name);
+    let middlewares = null;
+    let doneCount = 0;
+    let execute = silent;
+
+    if (Array.isArray(listeners)) {
+      listeners.forEach((listener, index) => {
+        // Start Middleware checks unless we're doing a silent emit
+        if (!silent) {
+          middlewares = this._middlewares.get(name);
+          // Check and execute Middleware
+          if (Array.isArray(middlewares)) {
+            middlewares.forEach(middleware => {
+              middleware(data, (newData = null) => {
+                if (newData !== null) {
+                  data = newData;
+                }
+                doneCount++;
+              }, name);
+            });
+
+            if (doneCount >= middlewares.length) {
+              execute = true;
+            }
+          } else {
+            execute = true;
+          }
+        }
+
+        // If Middleware checks have been passed, execute
+        if (execute) {
+          if (listener.once) {
+            listeners[index] = null;
+          }
+          listener.callback(data);
+        }
+      });
+
+      // Dirty way of removing used Events
+      while (listeners.indexOf(null) !== -1) {
+        listeners.splice(listeners.indexOf(null), 1);
+      }
+    }
+  }
+}
+
+/**
+ * Get the number of days in month
+ * @method getDaysInMonth
+ * @param  {Integer}       year  Year to check if we are facing a leapyear or not
+ * @param  {Integer}       month Month for which we want to know the amount of days
+ * @return {Integer}              Days amount
+ */
+const getDaysInMonth = (year, month) => {
+  return [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+};
+
+/**
+ * Compare two dates
+ * @method compareDates
+ * @param  {Date}     a First date to compare
+ * @param  {Date}     b Second Date to compare with
+ * @return {Boolean}    True if dates are equal then false
+ */
+const compareDates = (a, b) => {
+  // weak date comparison
+  a.setHours(0, 0, 0, 0);
+  b.setHours(0, 0, 0, 0);
+  return a.getTime() === b.getTime();
+};
+
+/**
+ * Check if given year is LeapYear or not
+ * @method isLeapYear
+ * @param  {Integer}   year Year to check
+ * @return {Boolean}        True if LeapYear then False
+ */
+const isLeapYear = year => {
+  // solution by Matti Virkkunen: http://stackoverflow.com/a/4881951
+  return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+};
+
+/**
+ * Parse Date string based on the Date Format given
+ * @method parseDate
+ * @param  {String}   dateString          Date string to parse
+ * @param  {[String}   [format=undefined] Date Format
+ * @return {Date}                         Date Object initialized with Date String based on the Date Format
+ */
+const parseDate = (dateString, format = undefined) => {
+  const date = new Date();
+  date.setHours(0, 0, 0, 0);
+
+  const formatPattern = /((?:mm?)|(?:dd?)|(?:yyy?y?))[^0-9]((?:mm?)|(?:dd?)|(?:yyy?y?))[^0-9]((?:mm?)|(?:dd?)|(?:yyy?y?))/i;
+  const datePattern = /(\d+)[^0-9](\d+)[^0-9](\d+)/i;
+
+  let matchFormat = formatPattern.exec(format);
+  if (matchFormat) {
+    let matchDate = datePattern.exec(dateString);
+    if (matchDate) {
+      switch(matchFormat[1][0]) {
+      case 'd':
+        date.setDate(matchDate[1]);
+        break;
+      case 'm':
+        date.setMonth(matchDate[1] - 1);
+        break;
+      case 'y':
+        date.setFullYear(matchDate[1]);
+        break;
+      }
+
+      switch(matchFormat[2][0]) {
+      case 'd':
+        date.setDate(matchDate[2]);
+        break;
+      case 'm':
+        date.setMonth(matchDate[2] - 1);
+        break;
+      case 'y':
+        date.setFullYear(matchDate[2]);
+        break;
+      }
+
+      switch(matchFormat[3][0]) {
+      case 'd':
+        date.setDate(matchDate[3]);
+        break;
+      case 'm':
+        date.setMonth(matchDate[3] - 1);
+        break;
+      case 'y':
+        date.setFullYear(matchDate[3]);
+        break;
+      }
+    }
+  }
+
+  return date;
+};
+
+/**
+ * Returns date according to passed format
+ * @method getFormatedDate
+ * @param {Date}   dt     Date object
+ * @param {String} format Format string
+ *      d    - day of month
+ *      dd   - 2-digits day of month
+ *      D    - day of week
+ *      m    - month number
+ *      mm   - 2-digits month number
+ *      M    - short month name
+ *      MM   - full month name
+ *      yy   - 2-digits year number
+ *      yyyy - 4-digits year number
+ */
+const getFormatedDate = (dt, format, lang) => {
+  var items = {
+    d: dt.getDate(),
+    dd: dt.getDate(),
+    D: dt.getDay(),
+    m: dt.getMonth() + 1,
+    mm: dt.getMonth() + 1,
+    M: dt.getMonth(),
+    MM: dt.getMonth(),
+    yy: dt.getFullYear().toString().substr(-2),
+    yyyy: dt.getFullYear()
+  };
+
+  items.dd < 10 && (items.dd = '0' + items.dd);
+  items.mm < 10 && (items.mm = '0' + items.mm);
+  items.D = lang.weekdays[items.D ? items.D - 1 : 6];
+  items.M = lang.monthsShort[items.M];
+  items.MM = lang.months[items.MM];
+
+  return format.replace(/(?:[dmM]{1,2}|D|yyyy|yy)/g, function(m) {
+    return typeof items[m] !== 'undefined' ? items[m] : m;
+  });
+};
+
+const isString = unknown => (typeof unknown === 'string' || ((!!unknown && typeof unknown === 'object') && Object.prototype.toString.call(unknown) === '[object String]'));
+
+const defaultOptions = {
+  startDate: new Date(),
+  minDate: null,
+  maxDate: null,
+  disabledDates: null,
+  dateFormat: 'yyyy-mm-dd', // the default data format `field` value
+  lang: 'en', // internationalization
+  overlay: false,
+  closeOnOverlayClick: true,
+  closeOnSelect: true
+};
+
+const datepicker_langs = {
+  ar: {
+    weekStart: 0,
+    previousMonth: 'الشهر الماضي',
+    nextMonth: 'الشهر القادم',
+    months: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+    monthsShort: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+    weekdays: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'],
+    weekdaysShort: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة']
+  },
+  bn: {
+    weekStart: 1,
+    months: ['জানুয়ারী', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'অগাস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'],
+    monthsShort: ['জানুয়ারী', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'অগাস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'],
+    weekdays: ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার'],
+    weekdaysShort: ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার']
+  },
+  de: {
+    weekStart: 1,
+    previousMonth: 'Vorheriger Monat',
+    nextMonth: 'Nächster Monat',
+    months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+    monthsShort: ['Jan', 'Febr', 'März', 'Apr', 'Mai', 'Juni', 'Juli', 'Aug', 'Sept', 'Okt', 'Nov', 'Dez'],
+    weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+    weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+  },
+  en: {
+    weekStart: 1,
+    previousMonth: 'Previous Month',
+    nextMonth: 'Next Month',
+    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  },
+  es: {
+    weekStart: 1,
+    previousMonth: 'Mes anterior',
+    nextMonth: 'Próximo mes',
+    months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+    weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+    weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+  },
+  fa: {
+    weekStart: 1,
+    months: ['ژانویه', 'فوریه', 'مارس', 'آوریل', 'مه', 'ژوئن', 'ژوئیه', 'اوت', 'سپتامبر', 'اکتبر', 'نوامبر', 'دسامبر'],
+    monthsShort: ['ژان', 'فور', 'مار', 'آور', 'مه', 'ژون', 'ژوی', 'اوت', 'سپت', 'اکت', 'نوا', 'دسا'],
+    weekdays: ['یک‌شنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنج‌شنبه', 'جمعه', 'شنبه', 'یک‌شنبه'],
+    weekdaysShort: ['یک', 'دو', 'سه', 'چهار', 'پنج', 'جمعه', 'شنبه', 'یک']
+  },
+  fr: {
+    weekStart: 1,
+    previousMonth: 'Mois précédent',
+    nextMonth: 'Mois suivant',
+    months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+    monthsShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Auo', 'Sep', 'Oct', 'Nov', 'Déc'],
+    weekdays: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+    weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
+  },
+  hi: {
+    weekStart: 1,
+    months: ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितम्बर', 'अक्टूबर', 'नवंबर', 'दिसम्बर'],
+    monthsShort: ['जन', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितं', 'अक्टूबर', 'नवं', 'दिसम्बर'],
+    weekdays: ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'],
+    weekdaysShort: ['सूर्य', 'सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि']
+  },
+  hr: {
+    weekStart: 2,
+    previousMonth: 'Prošli mjesec',
+    nextMonth: 'Slijedeći mjesec',
+    months: ['siječanj', 'veljača', 'ožujak', 'travanj', 'svibanj', 'lipanj', 'srpanj', 'kolovoz', 'rujan', 'listopad', 'studeni', 'prosinac'],
+    monthsShort: ['sij', 'velj', 'ožu', 'tra', 'svi', 'lip', 'srp', 'kol', 'ruj', 'lis', 'stu', 'pro'],
+    weekdays: ['nedjelja', 'ponedjeljak', 'utorak', 'srijeda', 'četvrtak', 'petak', 'subota'],
+    weekdaysShort: ['ned', 'pon', 'uto', 'sri', 'čet', 'pet', 'sub']
+  },
+  hu: {
+    weekStart: 1,
+    previousMonth: 'Előző hónap',
+    nextMonth: 'Következő hónap',
+    months: ['Január', 'Február', 'Március', 'Április', 'Május', 'Június', 'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
+    monthsShort: ['Jan', 'Feb', 'Már', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Szept', 'Okt', 'Nov', 'Dec'],
+    weekdays: ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
+    weekdaysShort: ['V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo'],
+  },
+  id: {
+    weekStart: 1,
+    months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des'],
+    weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+    weekdaysShort: ['Mgu', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
+  },
+  it: {
+    weekStart: 1,
+    previousMonth: 'Mese Precedente',
+    nextMonth: 'Prossimo Mese',
+    months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+    monthsShort: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+    weekdays: ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
+    weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab']
+  },
+  ja: {
+    weekStart: 1,
+    months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+    monthsShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+    weekdays: ['日曜', '月曜', '火曜', '水曜', '木曜', '金曜', '土曜'],
+    weekdaysShort: ['日', '月', '火', '水', '木', '金', '土']
+  },
+  nl: {
+    weekStart: 1,
+    previousMonth: 'Vorige Maand',
+    nextMonth: 'Volgende Maand',
+    months: ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'],
+    monthsShort: ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+    weekdays: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
+    weekdaysShort: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za']
+  },
+  pt: {
+    weekStart: 1,
+    months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+    monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+    weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
+  },
+  'pt-BR': {
+    weekStart: 1,
+    previousMonth: 'Mês anterior',
+    nextMonth: 'Próximo mês',
+    months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+    monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+    weekdays: ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'],
+    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
+  },
+  ru: {
+    weekStart: 1,
+    previousMonth: 'Предыдущий месяц',
+    nextMonth: 'Следующий месяц',
+    months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+    monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+    weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+    weekdaysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
+  },
+  sr: {
+    weekStart: 2,
+    previousMonth: 'Prošli mesec',
+    nextMonth: 'Sledeći mesec',
+    months: ['januar', 'februar', 'mart', 'april', 'maj', 'jun', 'jul', 'avgust', 'septembar', 'oktobar', 'novembar', 'decembar'],
+    monthsShort: ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'avg', 'sep', 'okt', 'nov', 'dec'],
+    weekdays: ['nedelja', 'ponedeljak', 'utorak', 'sreda', 'četvrtak', 'petak', 'subota'],
+    weekdaysShort: ['ned', 'pon', 'uto', 'sre', 'čet', 'pet', 'sub']
+  },
+  th: {
+    weekStart: 1,
+    previousMonth: 'เดือนก่อนหน้า',
+    nextMonth: 'เดือนถัดไป',
+    months: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
+    monthsShort: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'],
+    weekdays: ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'],
+    weekdaysShort: ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.']
+  },
+  tr: {
+    weekStart: 1,
+    previousMonth: 'Önceki Ay',
+    nextMonth: 'Gelecek Ay',
+    months: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
+    monthsShort: ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
+    weekdays: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
+    weekdaysShort: ['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt']
+  },
+  'zh-cn': {
+    weekStart: 1,
+    previousMonth: '上个月',
+    nextMonth: '下个月',
+    months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+    monthsShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+    weekdays: ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+    weekdaysShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+  }
+};
+
+Element.prototype.addEventsListener = function(events, listener = void 0) {
+  if (!Array.isArray(events)) {
+    events = [events];
+  }
+
+  events.forEach(event => {
+    this.addEventListener(event, listener);
+  });
+};
+
+class datePicker extends EventEmitter {
+  constructor(selector, options = {}) {
+    super();
+
+    // Determine click event depending on if we are on Touch device or not
+    this._clickEvent = ['touchstart' , 'click'];
+
+    this.datepicker = typeof selector === 'string' ? document.querySelector(selector) : selector;
+    // An invalid selector or non-DOM node has been provided.
+    if (!this.datepicker) {
+      throw new Error('An invalid selector or non-DOM node has been provided.');
+    }
+
+    /// Set default options and merge with instance defined
+    this.options = Object.assign({}, defaultOptions, options);
+
+    // Initiate plugin
+    this._init();
+  }
+
+  /**
+   * Initiate all DOM element containing datePicker class
+   * @method
+   * @return {Array} Array of all datePicker instances
+   */
+  static attach(selector = 'input[type="date"]', options = {}) {
+    let datepickerInstances = new Array();
+
+    const datepickers = document.querySelectorAll(selector);
+    [].forEach.call(datepickers, datepicker => {
+      setTimeout(() => {
+        datepickerInstances.push(new datePicker(datepicker, options));
+      }, 100);
+    });
+    return datepickerInstances;
+  }
+
+  get id() {
+    return this._id;
+  }
+
+  get lang() {
+    return this.options.lang;
+  }
+
+  set lang(lang = 'en') {
+    this._lang = typeof datepicker_langs[lang] !== 'undefined' ? lang : 'en';
+  }
+
+  get date() {
+    return this._date;
+  }
+
+  set date(date = new Date()) {
+    if (isString(date)) {
+      this.options.startDate = parseDate(date, this.dateFormat);
+    } else {
+      this.options.startDate = parseDate(getFormatedDate(date, this.dateFormat, datepicker_langs[this.options.lang]));
+      this._date = {
+        month: this.options.startDate.getMonth(),
+        year: this.options.startDate.getFullYear(),
+        day: this.options.startDate.getDate()
+      };
+    }
+  }
+
+  get minDate() {
+    return this.options.minDate;
+  }
+
+  set minDate(minDate = '1970-01-01') {
+    if (isString(minDate)) {
+      this.options.minDate = parseDate(minDate, this.dateFormat);
+    } else {
+      this.options.minDate = parseDate(getFormatedDate(minDate, this.dateFormat, datepicker_langs[this.options.lang]));
+    }
+  }
+
+  get maxDate() {
+    return this.options.maxDate;
+  }
+
+  set maxDate(maxDate = '9999-12-31') {
+    if (isString(maxDate)) {
+      this.options.maxDate = parseDate(maxDate, this.dateFormat);
+    } else {
+      this.options.maxDate = parseDate(getFormatedDate(maxDate, this.dateFormat, datepicker_langs[this.options.lang]));
+    }
+  }
+
+  get dateFormat() {
+    return this.options.dateFormat;
+  }
+
+  set dateFormat(dateFormat = 'yyyy-mm-dd') {
+    this.options.dateFormat = dateFormat;
+    this._initDates();
+    return this;
+  }
+
+  /**
+   * Initiate plugin instance
+   * @method _init
+   * @return {datePicker} Current plugin instance
+   */
+  _init() {
+    this._id = 'datePicker' + (new Date()).getTime() + Math.floor(Math.random() * Math.floor(9999));
+    this.lang = this.options.lang;
+    this._open = false;
+
+    this._initDates();
+    this._build();
+    this._bindEvents();
+
+    this.emit('datepicker:ready', this._date);
+
+    return this;
+  }
+
+  _initDates() {
+    // Set the startDate to the input value
+    if (this.datepicker.value) {
+      this.options.startDate = parseDate(this.datepicker.value);
+    }
+    // Transform start date according to dateFormat option
+    this.date = this.options.startDate;
+    this.minDate = this.options.minDate ? this.options.minDate : '1970-01-01';
+    this.maxDate = this.options.maxDate ? this.options.maxDate : '9999-12-31';
+
+    if (this.options.disabledDates) {
+      for (var i=0; i < this.options.disabledDates.length; i++) {
+        this.options.disabledDates[i] = parseDate(getFormatedDate(new Date(this.options.disabledDates[i]), this.dateFormat, datepicker_langs[this.options.lang]));
+      }
+    }
+  }
+
+  /**
+   * Build datePicker HTML component and append it to the DOM
+   * @method _build
+   * @return {datePicker} Current plugin instance
+   */
+  _build() {
+    // Define datePicker Template
+    const datePickerFragment = document.createRange().createContextualFragment(`
+      <div id='${this.id}' class="datepicker ${this.options.overlay ? 'modal' : ''}">
+        ${this.options.overlay ? '<div class="modal-background"></div>' : ''}
+        <div class="calendar">
+          <div class="calendar-nav">
+            <div class="calendar-nav-month">
+              <button class="calendar-nav-previous-month button is-small is-text">
+                <svg viewBox="0 0 50 80" xml:space="preserve">
+                  <polyline fill="none" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "/>
+                </svg>
+              </button>
+              <div class="calendar-month">${datepicker_langs[this.lang].months[this.date.month]}</div>
+              <button class="calendar-nav-next-month button is-small is-text">
+                <svg viewBox="0 0 50 80" xml:space="preserve">
+                  <polyline fill="none" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "/>
+              </button>
+            </div>
+            <div class="calendar-nav-day">
+              <div class="calendar-day">${this.date.day}</div>
+            </div>
+            <div class="calendar-nav-year">
+              <button class="calendar-nav-previous-year button is-small is-text">
+                <svg viewBox="0 0 50 80" xml:space="preserve">
+                  <polyline fill="none" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "/>
+                </svg>
+              </button>
+              <div class="calendar-year">${this.date.year}</div>
+              <button class="calendar-nav-next-year button is-small is-text">
+                <svg viewBox="0 0 50 80" xml:space="preserve">
+                  <polyline fill="none" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "/>
+              </button>
+            </div>
+          </div>
+          <div class="calendar-container">
+            <div class="calendar-header">
+              <div class="calendar-date">${this._getDayName(0, true)}</div>
+              <div class="calendar-date">${this._getDayName(1, true)}</div>
+              <div class="calendar-date">${this._getDayName(2, true)}</div>
+              <div class="calendar-date">${this._getDayName(3, true)}</div>
+              <div class="calendar-date">${this._getDayName(4, true)}</div>
+              <div class="calendar-date">${this._getDayName(5, true)}</div>
+              <div class="calendar-date">${this._getDayName(6, true)}</div>
+            </div>
+            <div class="calendar-body"></div>
+          </div>
+        </div>
+      </div>
+    `);
+
+    // Save pointer to each datePicker element for later use
+    this.datePickerContainer = datePickerFragment.querySelector('#' + this.id);
+    this.datePickerCalendar = this.datePickerContainer.querySelector('.calendar');
+    if (this.options.overlay) {
+      this.datePickerOverlay = this.datePickerContainer.querySelector('.modal-background');
+      this.datePickerCloseButton = this.datePickerContainer.querySelector('.modal-close');
+    }
+    this.datePickerCalendarNav = this.datePickerCalendar.querySelector('.calendar-nav');
+    this.datePickerCalendarNavMonth = this.datePickerCalendar.querySelector('.calendar-month');
+    this.datePickerCalendarNavYear = this.datePickerCalendar.querySelector('.calendar-year');
+    this.datePickerCalendarNavDay = this.datePickerCalendar.querySelector('.calendar-day');
+    this.datePickerCalendarNavPreviousMonth = this.datePickerCalendarNav.querySelector('.calendar-nav-previous-month');
+    this.datePickerCalendarNavNextMonth = this.datePickerCalendarNav.querySelector('.calendar-nav-next-month');
+    this.datePickerCalendarNavPreviousYear = this.datePickerCalendarNav.querySelector('.calendar-nav-previous-year');
+    this.datePickerCalendarNavNextYear = this.datePickerCalendarNav.querySelector('.calendar-nav-next-year');
+    this.datePickerCalendarHeader = this.datePickerCalendar.querySelector('.calendar-header');
+    this.datePickerCalendarBody = this.datePickerCalendar.querySelector('.calendar-body');
+
+    // Add datepicker HTML element to Document Body
+    document.body.appendChild(datePickerFragment);
+  }
+
+  /**
+   * Bind all events
+   * @method _bindEvents
+   * @return {void}
+   */
+  _bindEvents() {
+    // Bind event to element in order to display/hide datePicker on click
+    this.datepicker.addEventsListener(this._clickEvent, e => {
+      e.preventDefault();
+
+      this._open ? this.hide() : this.show();
+    });
+
+    if (this.options.overlay) {
+      // Bind close event on Close button
+      if (this.datePickerCloseButton) {
+        this.datePickerCloseButton.addEventsListener(this._clickEvent, e => {
+          e.preventDefault();
+          this.hide();
+        });
+      }
+      // Bind close event on overlay based on options
+      if (this.options.closeOnOverlayClick && this.datePickerOverlay) {
+        this.datePickerOverlay.addEventsListener(this._clickEvent, e => {
+          e.preventDefault();
+          this.hide();
+        });
+      }
+    }
+
+    // Bind year navigation events
+    if (this.datePickerCalendarNavPreviousYear) {
+      this.datePickerCalendarNavPreviousYear.addEventsListener(this._clickEvent, e => {
+        e.preventDefault();
+        this.prevYear();
+      });
+    }
+    if (this.datePickerCalendarNavNextYear) {
+      this.datePickerCalendarNavNextYear.addEventsListener(this._clickEvent, e => {
+        e.preventDefault();
+        this.nextYear();
+      });
+    }
+
+    // Bind month navigation events
+    if (this.datePickerCalendarNavPreviousMonth) {
+      this.datePickerCalendarNavPreviousMonth.addEventsListener(this._clickEvent, e => {
+        e.preventDefault();
+        this.prevMonth();
+      });
+    }
+    if (this.datePickerCalendarNavNextMonth) {
+      this.datePickerCalendarNavNextMonth.addEventsListener(this._clickEvent, e => {
+        e.preventDefault();
+        this.nextMonth();
+      });
+    }
+  }
+
+  /**
+   * Bind events on each Day item
+   * @method _bindDaysEvents
+   * @return {void}
+   */
+  _bindDaysEvents() {
+    [].forEach.call(this.datePickerCalendarDays, (calendarDay) => {
+      calendarDay.addEventsListener(this._clickEvent, e => {
+        e.preventDefault();
+        if (!e.currentTarget.classList.contains('is-disabled')) {
+          let date = e.currentTarget.dataset.date.split('-');
+          let [year, month, day] = date;
+          this._date = {
+            year: year,
+            month: month,
+            day: day
+          };
+
+          this.emit('datepicker:date:selected', this);
+
+          this.datepicker.value = getFormatedDate((new Date(year, month, day)), this.options.dateFormat, datepicker_langs[this.options.lang]);
+          if (this.options.closeOnSelect) {
+            this.hide();
+          }
+        }
+      });
+    });
+  }
+
+  /**
+   * Get localized day name
+   * @method renderDayName
+   * @param  {[type]}      day          [description]
+   * @param  {Boolean}     [abbr=false] [description]
+   * @return {[type]}                   [description]
+   */
+  _getDayName(day, abbr = false) {
+    day += datepicker_langs[this.options.lang].weekStart;
+    while (day >= 7) {
+      day -= 7;
+    }
+
+    return abbr ? datepicker_langs[this.options.lang].weekdaysShort[day] : datepicker_langs[this.options.lang].weekdays[day];
+  }
+
+  _renderDay(day, month, year, isSelected, isToday, isDisabled, isEmpty, isBetween, isSelectedIn, isSelectedOut) {
+    return `
+      <div data-date="${`${year}-${month}-${day}`}" class="calendar-date${isDisabled ? ' is-disabled' : ''}${isBetween ? ' calendar-range' : ''}${isSelectedIn ? ' calendar-range-start' : ''}${isSelectedOut ? ' calendar-range-end' : ''}">
+        <button class="date-item${isToday ? ' is-today' : ''}${isSelected ? ' is-active' : ''}">${day}</button>
+      </div>
+    `;
+  }
+
+  _renderDays() {
+    const now = new Date();
+    let days = '';
+
+    let numberOfDays = getDaysInMonth(this.date.year, this.date.month),
+      before = new Date(this.date.year, this.date.month, 1).getDay();
+
+    this.emit('datepicker:rendered', this);
+
+    // Get start day from options
+    if (datepicker_langs[this.options.lang].weekStart > 0) {
+      before -= datepicker_langs[this.options.lang].weekStart;
+      if (before < 0) {
+        before += 7;
+      }
+    }
+
+    let cells = numberOfDays + before,
+      after = cells;
+    while (after > 7) {
+      after -= 7;
+    }
+
+    cells += 7 - after;
+    for (var i = 0; i < cells; i++) {
+      var day = new Date(this.date.year, this.date.month, 1 + (i - before)),
+        isBetween = false,
+        isSelected = compareDates(day, this.options.startDate),
+        isSelectedIn = false,
+        isSelectedOut = false,
+        isToday = compareDates(day, now),
+        isEmpty = i < before || i >= (numberOfDays + before),
+        isDisabled = false;
+
+      day.setHours(0, 0, 0, 0);
+
+      if (!isSelected) {
+        isSelectedIn = false;
+        isSelectedOut = false;
+      }
+
+      if (day.getMonth() !== this.date.month || (this.minDate && day.getTime() < this.minDate.getTime()) || (this.maxDate && day.getTime() > this.maxDate.getTime())) {
+        isDisabled = true;
+      }
+
+      if (this.options.disabledDates) {
+        for (var j=0; j < this.options.disabledDates.length; j++) {
+          if (day.getTime() == this.options.disabledDates[j].getTime()) {
+            isDisabled = true;
+          }
+        }
+      }
+
+      days += this._renderDay(day.getDate(), this.date.month, this.date.year, isSelected, isToday, isDisabled, isEmpty, isBetween, isSelectedIn, isSelectedOut);
+    }
+
+    this.datePickerCalendarBody.insertAdjacentHTML('beforeend', days);
+    this.datePickerCalendarDays = this.datePickerCalendarBody.querySelectorAll('.calendar-date');
+    this._bindDaysEvents();
+  }
+
+  /**
+   * Navigate to the previous month and regenerate calendar
+   * @method prevMonth
+   * @return {void}
+   */
+  prevMonth() {
+    this.date.month -= 1;
+    this._refreshCalendar();
+  }
+
+  _disablePrevMonth() {
+    this.datePickerCalendarNavPreviousMonth.setAttribute('disabled', 'disabled');
+  }
+
+  _enablePrevMonth() {
+    this.datePickerCalendarNavPreviousMonth.removeAttribute('disabled');
+  }
+
+  /**
+   * Navigate to the next month and regenerate calendar
+   * @method nextMonth
+   * @return {}
+   */
+  nextMonth() {
+    this.date.month += 1;
+    this._refreshCalendar();
+  }
+
+  _disableNextMonth() {
+    this.datePickerCalendarNavNextMonth.setAttribute('disabled', 'disabled');
+  }
+
+  _enableNextMonth() {
+    this.datePickerCalendarNavNextMonth.removeAttribute('disabled');
+  }
+
+  /**
+   * Navigate to the previous year and regenerate calendar
+   * @method prevYear
+   * @return {void}
+   */
+  prevYear() {
+    this.date.year -= 1;
+    this._refreshCalendar();
+  }
+
+  _disablePrevYear() {
+    this.datePickerCalendarNavPreviousYear.setAttribute('disabled', 'disabled');
+  }
+
+  _enablePrevYear() {
+    this.datePickerCalendarNavPreviousYear.removeAttribute('disabled');
+  }
+
+  /**
+   * Navigate to the previous year and regenerate calendar
+   * @method nextYear
+   * @return {}
+   */
+  nextYear() {
+    this.date.year += 1;
+    this._refreshCalendar();
+  }
+
+  _disableNextYear() {
+    this.datePickerCalendarNavNextYear.setAttribute('disabled', 'disabled');
+  }
+
+  _enableNextYear() {
+    this.datePickerCalendarNavNextYear.removeAttribute('disabled');
+  }
+
+  /**
+   * Show datePicker HTML Component
+   * @method show
+   * @return {void}
+   */
+  show() {
+    // Set the startDate to the input value
+    if (this.datepicker.value) {
+      this.options.startDate = parseDate(this.datepicker.value);
+    }
+    this.date.month = this.options.startDate.getMonth();
+    this.date.year = this.options.startDate.getFullYear();
+    this.date.day = this.options.startDate.getDate();
+    this._refreshCalendar();
+
+    this.emit('datepicker:show', this);
+
+    this.datePickerContainer.classList.add('is-active');
+    if (!this.options.overlay) {
+      this._adjustPosition();
+    }
+    this._open = true;
+  }
+
+  /**
+   * Hide datePicker HTML Component
+   * @method hide
+   * @return {void}
+   */
+  hide() {
+    this._open = false;
+    this.emit('datepicker:hide', this);
+    this.datePickerContainer.classList.remove('is-active');
+  }
+
+  /**
+   * Refresh calendar with new year/month days
+   * @method _refreshCalendar
+   * @return {[type]}        [description]
+   */
+  _refreshCalendar() {
+    if (this.date.month < 0) {
+      this.date.year -= Math.ceil(Math.abs(this.date.month) / 12);
+      this.date.month += 12;
+    }
+    if (this.date.month > 11) {
+      this.date.year += Math.floor(Math.abs(this.date.month) / 12);
+      this.date.month -= 12;
+    }
+    this.datePickerCalendarNavMonth.innerHTML = datepicker_langs[this.options.lang].months[this.date.month];
+    this.datePickerCalendarNavYear.innerHTML = this.date.year;
+    this.datePickerCalendarNavDay.innerHTML = this.date.day;
+    this.datePickerCalendarBody.innerHTML = '';
+
+    let minMonth = 0,
+      minYear = 0,
+      maxMonth = 12,
+      maxYear = 9999;
+
+    if (this.options.minDate) {
+      minMonth = this.options.minDate.getMonth();
+      minYear = this.options.minDate.getFullYear();
+    }
+    if (this.options.maxDate) {
+      maxMonth = this.options.maxDate.getMonth();
+      maxYear = this.options.maxDate.getFullYear();
+    }
+
+    if (this.date.year <= minYear) {
+      this._disablePrevYear();
+    } else {
+      this._enablePrevYear();
+    }
+
+    if (this.date.year >= maxYear) {
+      this._disableNextYear();
+    } else {
+      this._enableNextYear();
+    }
+
+    if (this.date.year <= minYear && this.date.month <= minMonth) {
+      this._disablePrevMonth();
+    } else {
+      this._enablePrevMonth();
+    }
+
+    if (this.date.year >= maxYear && this.date.month >= maxMonth) {
+      this._disableNextMonth();
+    } else {
+      this._enableNextMonth();
+    }
+
+    this._renderDays();
+    return this;
+  }
+
+  /**
+   * Recalculate calendar position
+   * @method _adjustPosition
+   * @return {void}
+   */
+  _adjustPosition() {
+    //var width = this.datePickerCalendar.offsetWidth,
+    // height = this.datePickerCalendar.offsetHeight,
+    // viewportWidth = window.innerWidth || document.documentElement.clientWidth,
+    // viewportHeight = window.innerHeight || document.documentElement.clientHeight,
+    // scrollTop = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+    let left, top, clientRect;
+
+    if (typeof this.datepicker.getBoundingClientRect === 'function') {
+      clientRect = this.datepicker.getBoundingClientRect();
+      left = clientRect.left + window.pageXOffset;
+      top = clientRect.bottom + window.pageYOffset;
+    } else {
+      left = this.datepicker.offsetLeft;
+      top = this.datepicker.offsetTop + this.datepicker.offsetHeight;
+      while ((this.datepicker = this.datepicker.offsetParent)) {
+        left += this.datepicker.offsetLeft;
+        top += this.datepicker.offsetTop;
+      }
+    }
+
+    this.datePickerCalendar.style.position = 'absolute';
+    this.datePickerCalendar.style.left = left + 'px';
+    this.datePickerCalendar.style.top = top + 'px';
+  }
+
+  /**
+   * Destroy datePicker
+   * @method destroy
+   * @return {[type]} [description]
+   */
+  destroy() {
+    this.datePickerCalendar.remove();
+  }
+}
+
+return datePicker;
+
+})));
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function (global, factory) {
+	 true ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define('bulmaCarousel', factory) :
+	(global.bulmaCarousel = factory());
+}(this, (function () { 'use strict';
+
+class EventEmitter {
+  constructor(listeners = []) {
+    this._listeners = new Map(listeners);
+    this._middlewares = new Map();
+  }
+
+  listenerCount(eventName) {
+    if (!this._listeners.has(eventName)) {
+      return 0;
+    }
+
+    const eventListeners = this._listeners.get(eventName);
+    return eventListeners.length;
+  }
+
+  removeListeners(eventName = null, middleware = false) {
+    if (eventName !== null) {
+      if (Array.isArray(eventName)) {
+        name.forEach(e => this.removeListeners(e, middleware));
+      } else {
+        this._listeners.delete(eventName);
+
+        if (middleware) {
+          this.removeMiddleware(eventName);
+        }
+      }
+    } else {
+      this._listeners = new Map();
+    }
+  }
+
+  middleware(eventName, fn) {
+    if (Array.isArray(eventName)) {
+      name.forEach(e => this.middleware(e, fn));
+    } else {
+      if (!Array.isArray(this._middlewares.get(eventName))) {
+        this._middlewares.set(eventName, []);
+      }
+
+      (this._middlewares.get(eventName)).push(fn);
+    }
+  }
+
+  removeMiddleware(eventName = null) {
+    if (eventName !== null) {
+      if (Array.isArray(eventName)) {
+        name.forEach(e => this.removeMiddleware(e));
+      } else {
+        this._middlewares.delete(eventName);
+      }
+    } else {
+      this._middlewares = new Map();
+    }
+  }
+
+  on(name, callback, once = false) {
+    if (Array.isArray(name)) {
+      name.forEach(e => this.on(e, callback));
+    } else {
+      name = name.toString();
+      const split = name.split(/,|, | /);
+
+      if (split.length > 1) {
+        split.forEach(e => this.on(e, callback));
+      } else {
+        if (!Array.isArray(this._listeners.get(name))) {
+          this._listeners.set(name, []);
+        }
+
+        (this._listeners.get(name)).push({once: once, callback: callback});
+      }
+    }
+  }
+
+  once(name, callback) {
+    this.on(name, callback, true);
+  }
+
+  emit(name, data, silent = false) {
+    name = name.toString();
+    let listeners = this._listeners.get(name);
+    let middlewares = null;
+    let doneCount = 0;
+    let execute = silent;
+
+    if (Array.isArray(listeners)) {
+      listeners.forEach((listener, index) => {
+        // Start Middleware checks unless we're doing a silent emit
+        if (!silent) {
+          middlewares = this._middlewares.get(name);
+          // Check and execute Middleware
+          if (Array.isArray(middlewares)) {
+            middlewares.forEach(middleware => {
+              middleware(data, (newData = null) => {
+                if (newData !== null) {
+                  data = newData;
+                }
+                doneCount++;
+              }, name);
+            });
+
+            if (doneCount >= middlewares.length) {
+              execute = true;
+            }
+          } else {
+            execute = true;
+          }
+        }
+
+        // If Middleware checks have been passed, execute
+        if (execute) {
+          if (listener.once) {
+            listeners[index] = null;
+          }
+          listener.callback(data);
+        }
+      });
+
+      // Dirty way of removing used Events
+      while (listeners.indexOf(null) !== -1) {
+        listeners.splice(listeners.indexOf(null), 1);
+      }
+    }
+  }
+}
+
+var supportsPassive = false;
+try {
+  var opts = Object.defineProperty({}, 'passive', {
+    get: function() {
+      supportsPassive = true;
+    }
+  });
+  window.addEventListener("testPassive", null, opts);
+  window.removeEventListener("testPassive", null, opts);
+} catch (e) {}
+
+class Carousel extends EventEmitter {
+  constructor(selector) {
+    super();
+
+    this._clickEvents = ['touchstart', 'click'];
+
+    this.carousel = typeof selector === 'string'
+      ? document.querySelector(selector)
+      : selector;
+    // An invalid selector or non-DOM node has been provided.
+    if (!this.carousel) {
+      throw new Error('An invalid selector or non-DOM node has been provided.');
+    }
+
+    /// Set default options and merge with instance defined
+    this.options = Object.assign({}, {
+      threshold: 50, //required min distance traveled to be considered swipe
+      restraint: 100, // maximum distance allowed at the same time in perpendicular direction
+      allowedTime: 500 // maximum time allowed to travel that distance
+    });
+
+    this.init();
+  }
+
+  /**
+   * Initiate all DOM element containing carousel class
+   * @method
+   * @return {Array} Array of all Carousel instances
+   */
+  static attach(selector = '.carousel, .hero-carousel') {
+    let carouselInstances = new Array();
+
+    const carousels = document.querySelectorAll(selector);
+    [].forEach.call(carousels, carousel => {
+      setTimeout(() => {
+        carouselInstances.push(new Carousel(carousel));
+      }, 100);
+    });
+    return carouselInstances;
+  }
+
+  /**
+   * Initiate plugin
+   * @method init
+   * @return {void}
+   */
+  init() {
+    let forceHiddenNavigation = false;
+
+    this.computedStyle = window.getComputedStyle(this.carousel);
+    this.carouselWidth = parseInt(this.computedStyle.getPropertyValue('width'), 10);
+
+    this.carouselContainer = this.carousel.querySelector('.carousel-container');
+    this.carouselItems = this.carousel.querySelectorAll('.carousel-item');
+    this.carouselItemsArray = Array.from(this.carouselItems);
+
+    // Detect which animation is setup and auto-calculate size and transformation
+    if (this.carousel.dataset.size && !this.carousel.classList.contains('carousel-animate-fade')) {
+      if (this.carousel.dataset.size >= this.carouselItemsArray.length) {
+        this.offset = 0;
+        forceHiddenNavigation = true;
+      } else {
+        this.offset = this.carouselWidth / this.carousel.dataset.size;
+      }
+
+      this.carouselContainer.style.left = 0 - this.offset + 'px';
+      this.carouselContainer.style.transform = `translateX(${this.offset}px)`;
+      [].forEach.call(this.carouselItems, carouselItem => {
+        carouselItem.style.flexBasis = `${this.offset}px`;
+      });
+    }
+
+    this._initNavigation(forceHiddenNavigation);
+
+    // If animation is fade then force carouselContainer size (due to the position: absolute)
+    if (this.carousel.classList.contains('carousel-animate-fade') && this.carouselItems.length) {
+      let img = this.carouselItems[0].querySelector('img');
+      let scale = 1;
+      if (img.naturalWidth) {
+        scale = this.carouselWidth / img.naturalWidth;
+        this.carouselContainer.style.height = (img.naturalHeight * scale) + 'px';
+      } else {
+        img.onload = () => {
+          scale = this.carouselWidth / img.naturalWidth;
+          this.carouselContainer.style.height = (img.naturalHeight * scale) + 'px';
+        };
+      }
+    }
+
+    this.currentItem = {
+      carousel: this.carousel,
+      node: null,
+      pos: -1
+    };
+    this.currentItem.node = this.carousel.querySelector('.carousel-item.is-active'), this.currentItem.pos = this.currentItem.node
+      ? this.carouselItemsArray.indexOf(this.currentItem.node)
+      : -1;
+    if (!this.currentItem.node) {
+      this.currentItem.node = this.carouselItems[0];
+      this.currentItem.node.classList.add('is-active');
+      this.currentItem.pos = 0;
+    }
+
+    this._setOrder();
+
+    if (this.carousel.dataset.autoplay && this.carousel.dataset.autoplay == 'true') {
+      this._autoPlay(this.carousel.dataset.delay || 5000);
+    }
+
+    this._bindEvents();
+
+    this.emit('carousel:ready', this.currentItem);
+  }
+
+  /**
+   * Initiate Navigation area and Previous/Next buttons
+   * @method _initNavigation
+   * @return {[type]}        [description]
+   */
+  _initNavigation(forceHidden = false) {
+    this.previousControl = this.carousel.querySelector('.carousel-nav-left');
+    this.nextControl = this.carousel.querySelector('.carousel-nav-right');
+
+    if (this.carouselItems.length <= 1 || forceHidden) {
+      if (this.carouselContainer) {
+        this.carouselContainer.style.left = '0';
+      }
+      if (this.previousControl) {
+        this.previousControl.style.display = 'none';
+      }
+      if (this.nextControl) {
+        this.nextControl.style.display = 'none';
+      }
+    }
+  }
+
+  /**
+   * Bind all events
+   * @method _bindEvents
+   * @return {void}
+   */
+  _bindEvents() {
+    if (this.previousControl) {
+      this._clickEvents.forEach(clickEvent => {
+        this.previousControl.addEventListener(clickEvent, e => {
+          e.preventDefault();
+          this._slide('previous');
+          if (this._autoPlayInterval) {
+            clearInterval(this._autoPlayInterval);
+            this._autoPlay(this.carousel.dataset.delay || 5000);
+          }
+        }, supportsPassive ? { passive: true } : false);
+      });
+    }
+
+    if (this.nextControl) {
+      this._clickEvents.forEach(clickEvent => {
+        this.nextControl.addEventListener(clickEvent, e => {
+          e.preventDefault();
+          this._slide('next');
+          if (this._autoPlayInterval) {
+            clearInterval(this._autoPlayInterval);
+            this._autoPlay(this.carousel.dataset.delay || 5000);
+          }
+        }, supportsPassive ? { passive: true } : false);
+      });
+    }
+
+    // Bind swipe events
+    this.carousel.addEventListener('touchstart', e => {
+      this._swipeStart(e);
+    }, supportsPassive ? { passive: true } : false);
+    this.carousel.addEventListener('touchmove', e => {
+      if (!supportsPassive) {
+        e.preventDefault();
+      }
+    }, supportsPassive ? { passive: true } : false);
+    this.carousel.addEventListener('touchend', e => {
+      this._swipeEnd(e);
+    }, supportsPassive ? { passive: true } : false);
+  }
+
+  /**
+   * Find next item to display
+   * @method _next
+   * @param  {Node} element Current Node element
+   * @return {Node}         Next Node element
+   */
+  _next(element) {
+    if (element.nextElementSibling) {
+      return element.nextElementSibling;
+    } else {
+      return this.carouselItems[0];
+    }
+  }
+
+  /**
+   * Find previous item to display
+   * @method _previous
+   * @param  {Node}  element Current Node element
+   * @return {Node}          Previous Node element
+   */
+  _previous(element) {
+    if (element.previousElementSibling) {
+      return element.previousElementSibling;
+    } else {
+      return this.carouselItems[this.carouselItems.length - 1];
+    }
+  }
+
+  /**
+   * Update each item order
+   * @method _setOrder
+   */
+  _setOrder() {
+    this.currentItem.node.style.order = '1';
+    this.currentItem.node.style.zIndex = '1';
+    let item = this.currentItem.node;
+    let i,
+      j,
+      ref;
+    for (
+      i = j = 2, ref = this.carouselItemsArray.length; (
+        2 <= ref
+        ? j <= ref
+        : j >= ref); i = 2 <= ref
+      ? ++j
+      : --j) {
+      item = this._next(item);
+      item.style.order = '' + i % this.carouselItemsArray.length;
+      item.style.zIndex = '0';
+    }
+  }
+
+  /**
+   * Save current position on start swiping
+   * @method _swipeStart
+   * @param  {Event}    e Swipe event
+   * @return {void}
+   */
+  _swipeStart(e) {
+    e.preventDefault();
+
+    e = e ? e : window.event;
+    e = ('changedTouches' in e) ? e.changedTouches[0] : e;
+    this._touch = {
+      start: {
+        time: new Date().getTime(), // record time when finger first makes contact with surface
+        x: e.pageX,
+        y: e.pageY
+      },
+      dist: {
+        x: 0,
+        y: 0
+      }
+    };
+  }
+
+  /**
+   * Save current position on end swiping
+   * @method _swipeEnd
+   * @param  {Event}  e swipe event
+   * @return {void}
+   */
+  _swipeEnd(e) {
+    e.preventDefault();
+
+    e = e ? e : window.event;
+    e = ('changedTouches' in e) ? e.changedTouches[0] : e;
+    this._touch.dist = {
+      x: e.pageX - this._touch.start.x, // get horizontal dist traveled by finger while in contact with surface
+      y: e.pageY - this._touch.start.y // get vertical dist traveled by finger while in contact with surface
+    };
+
+    this._handleGesture();
+  }
+
+  /**
+   * Identify the gestureand slide if necessary
+   * @method _handleGesture
+   * @return {void}
+   */
+  _handleGesture() {
+    const elapsedTime = new Date().getTime() - this._touch.start.time; // get time elapsed
+    if (elapsedTime <= this.options.allowedTime) { // first condition for awipe met
+      if (Math.abs(this._touch.dist.x) >= this.options.threshold && Math.abs(this._touch.dist.y) <= this.options.restraint) { // 2nd condition for horizontal swipe met
+        (this._touch.dist.x < 0)
+          ? this._slide('next')
+          : this._slide('previous'); // if dist traveled is negative, it indicates left swipe
+      }
+    }
+  }
+
+  /**
+   * Update slides to display the wanted one
+   * @method _slide
+   * @param  {String} [direction='next'] Direction in which items need to move
+   * @return {void}
+   */
+  _slide(direction = 'next') {
+    if (this.carouselItems.length) {
+      this.oldItemNode = this.currentItem.node;
+      this.emit('carousel:slide:before', this.currentItem);
+      // initialize direction to change order
+      if (direction === 'previous') {
+        this.currentItem.node = this._previous(this.currentItem.node);
+        // add reverse class
+        if (!this.carousel.classList.contains('carousel-animate-fade')) {
+          this.carousel.classList.add('is-reversing');
+          this.carouselContainer.style.transform = `translateX(${ - Math.abs(this.offset)}px)`;
+        }
+      } else {
+        // Reorder items
+        this.currentItem.node = this._next(this.currentItem.node);
+        // re_slide reverse class
+        this.carousel.classList.remove('is-reversing');
+        this.carouselContainer.style.transform = `translateX(${Math.abs(this.offset)}px)`;
+      }
+      this.currentItem.node.classList.add('is-active');
+      this.oldItemNode.classList.remove('is-active');
+
+      // Disable transition to instant change order
+      this.carousel.classList.remove('carousel-animated');
+      // Enable transition to animate order 1 to order 2
+      setTimeout(() => {
+        this.carousel.classList.add('carousel-animated');
+      }, 50);
+
+      this._setOrder();
+      this.emit('carousel:slide:after', this.currentItem);
+    }
+  }
+
+  /**
+   * Initiate autoplay system
+   * @method _autoPlay
+   * @param  {Number}  [delay=5000] Delay between slides in milliseconds
+   * @return {void}
+   */
+  _autoPlay(delay = 5000) {
+    this._autoPlayInterval = setInterval(() => {
+      this._slide('next');
+    }, delay);
+  }
+}
+
+return Carousel;
+
+})));
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
+
+var bulmaIconpicker = (function () {
+'use strict';
+
+const MOUSE_EVENTS = ['click', 'touchstart'];
+
+let fetchStyle = function(url) {
+  return new Promise((resolve, reject) => {
+    let link = document.createElement('link');
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    link.onload = function() { resolve(); };
+    link.href = url;
+
+    if (!document.querySelector('link[href="' + url + '"]')) {
+      let headScript = document.querySelector('head');
+      headScript.append(link);
+    }
+  });
+};
+
+class IconPicker {
+  constructor(element, options = {}) {
+    const defaultOptions = {
+      iconSets: [ {
+        name: 'simpleLine', // Name displayed on tab
+        css: 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css', // CSS url containing icons rules
+        prefix: 'icon-', // CSS rules prefix to identify icons
+        displayPrefix: ''
+      },{
+        name: 'fontAwesome', // Name displayed on tab
+        css: 'https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css', // CSS url containing icons rules
+        prefix: 'fa-', // CSS rules prefix to identify icons
+        displayPrefix: 'fa fa-icon'
+      } ]
+    };
+
+
+    this.element = element;
+    this.options = Object.assign({}, defaultOptions, options);
+    this.icons = [];
+    this.id = 'iconPicker' + ( new Date ).getTime();
+    this.init();
+  }
+
+  init() {
+    this.createModal();
+    this.createPreview();
+
+    this.options.iconSets.forEach( iconSet => {
+      fetchStyle(iconSet.css);
+      // Parse CSS file to get array of all available icons
+      fetch(iconSet.css, {mode: 'cors'})
+        .then(res => {
+          return res.text();
+        })
+        .then(css => {
+          this.icons[iconSet.name] = this.parseCSS(css, iconSet.prefix || 'fa-', iconSet.displayPrefix || '');
+          this.modalSetTabs.querySelector('a').click();
+          var touchEvent = new Event('touchstart');
+          this.modalSetTabs.querySelector('a').dispatchEvent(touchEvent);
+        })
+        ;
+    } );
+  }
+
+  createPreview() {
+    this.preview = document.createElement('div');
+    this.preview.className = 'icon is-large';
+    this.preview.classList.add('iconpicker-preview');
+    let iconPreview = document.createElement('i');
+    iconPreview.className = 'iconpicker-icon-preview';
+    if (this.element.value.length) {
+      let classes = this.element.value.split(' ');
+      classes.forEach( cls => {
+        iconPreview.classList.add( cls );
+      });
+    }
+    this.preview.appendChild(iconPreview);
+
+    MOUSE_EVENTS.forEach((event) => {
+      this.preview.addEventListener(event, e => {
+        e.preventDefault();
+
+        this.modal.classList.add('is-active');
+      });
+    });
+
+    this.element.parentNode.insertBefore(this.preview, this.element.nextSibling);
+  }
+
+  parseCSS( css, prefix = 'fa-', displayPrefix = '' ) {
+    const iconPattern = new RegExp('\\.' + prefix + '([^\\.!:]*)::?before\\s*{\\s*content:\\s*["|\']\\\\[^\'|"]*["|\'];?\\s*}', 'g');
+    const index = 1;
+    let icons = [], icon, match;
+
+    while ( match = iconPattern.exec(css)) {
+      icon = {
+        prefix: prefix,
+        selector: prefix + match[index].trim(':'),
+        name: this.ucwords(match[index]).trim(':'),
+        filter: match[index].trim(':'),
+        displayPrefix: displayPrefix
+      };
+      icons[match[index]] = icon;
+    }
+
+    if (Object.getOwnPropertyNames(this.icons).length == 0) {
+      console.warn( "No icons found in CSS file" );
+    }
+    return icons;
+  }
+
+  ucwords (str) {
+    return (str + '').replace(/^(.)|\s+(.)/g, function ($1) {
+      return $1.toUpperCase();
+    });
+  }
+
+  drawIcons(iconSet) {
+    this.iconsList.innerHTML = '';
+
+    if (iconSet) {
+      for (let [iconName, icon] of Object.entries(iconSet)) {
+        this.iconsList.appendChild(this.createIconPreview(icon));
+      }
+    }
+  }
+
+  createIconPreview(icon, prefix = 'fa-') {
+    let iconLink = document.createElement('a');
+    iconLink.dataset.title = icon['name'];
+    iconLink.setAttribute('title', icon['name']);
+    iconLink.dataset.icon = icon['selector'];
+    iconLink.dataset.filter = icon['filter'];
+    let iconPreview = document.createElement('i');
+    iconPreview.className = 'iconpicker-icon-preview';
+    if (icon['displayPrefix'].length) {
+      prefix = icon['displayPrefix'].split(' ');
+      prefix.forEach( pfx => {
+        iconPreview.classList.add( pfx );
+      });
+    }
+    iconPreview.classList.add( icon['selector'] );
+    iconLink.appendChild(iconPreview);
+    MOUSE_EVENTS.forEach((event) => {
+      iconLink.addEventListener(event, e => {
+        e.preventDefault();
+        this.preview.innerHTML = '';
+        this.element.value = e.target.classList;
+        this.preview.appendChild(e.target.cloneNode(true));
+        this.modal.classList.remove('is-active');
+      });
+    });
+    return iconLink;
+  }
+
+  createModal() {
+    this.modal = document.createElement('div');
+    this.modal.className = 'modal';
+    this.modal.classList.add( 'iconpicker-modal' );
+    this.modal.id = this.id;
+    let modalBackground = document.createElement('div');
+    modalBackground.className = 'modal-background';
+    let modalCard = document.createElement('div');
+    modalCard.className = 'modal-card';
+
+    let modalHeader = document.createElement('header');
+    modalHeader.className = 'modal-card-head';
+    let modalHeaderTitle = document.createElement('p');
+    modalHeaderTitle.className = 'modal-card-title';
+    modalHeaderTitle.innerHTML = 'iconPicker';
+    this.modalHeaderSearch = document.createElement('input');
+    this.modalHeaderSearch.setAttribute('type', 'search');
+    this.modalHeaderSearch.setAttribute('placeholder', 'Search');
+    this.modalHeaderSearch.className = 'iconpicker-search';
+    this.modalHeaderSearch.addEventListener('input', e => {
+      this.filter(e.target.value);
+    });
+    let modalHeaderClose = document.createElement('button');
+    modalHeaderClose.className = 'delete';
+    MOUSE_EVENTS.forEach((event) => {
+      modalHeaderClose.addEventListener(event, e => {
+        e.preventDefault();
+
+        this.modal.classList.remove('is-active');
+      });
+    });
+
+    modalCard.appendChild(modalHeader);
+
+    this.modalBody = document.createElement('section');
+    this.modalBody.className = 'modal-card-body';
+
+    if (this.options.iconSets.length >= 1) {
+      let modalSets = document.createElement('div');
+      modalSets.className = 'iconpicker-sets';
+      modalSets.classList.add('tabs');
+      this.modalSetTabs = document.createElement('ul');
+      this.options.iconSets.forEach(iconSet => {
+        let modalSetTab = document.createElement('li');
+        let modalSetTabLink = document.createElement('a');
+        modalSetTabLink.dataset.iconset = iconSet.name;
+        modalSetTabLink.innerHTML = iconSet.name;
+        MOUSE_EVENTS.forEach((event) => {
+          modalSetTabLink.addEventListener(event, e => {
+            e.preventDefault();
+
+            var activeModalTabs = this.modalSetTabs.querySelectorAll('.is-active');
+            [].forEach.call(activeModalTabs, function(activeModalTab) {
+              activeModalTab.classList.remove('is-active');
+            });
+
+            e.target.parentNode.classList.add('is-active');
+            this.drawIcons(this.icons[e.target.dataset.iconset]);
+            this.filter(this.modalHeaderSearch.value);
+          });
+        });
+        modalSetTab.appendChild(modalSetTabLink);
+        this.modalSetTabs.appendChild(modalSetTab);
+      });
+      modalSets.appendChild(this.modalSetTabs);
+      modalCard.appendChild(modalSets);
+    }
+
+    this.iconsList = document.createElement('div');
+    this.iconsList.className = 'iconpicker-icons';
+
+    modalHeader.appendChild(modalHeaderTitle);
+    modalHeader.appendChild(this.modalHeaderSearch);
+    modalHeader.appendChild(modalHeaderClose);
+
+    this.modalBody.appendChild(this.iconsList);
+    modalCard.appendChild(this.modalBody);
+
+    this.modal.appendChild(modalBackground);
+    this.modal.appendChild(modalCard);
+    document.body.appendChild(this.modal);
+  }
+
+  filter(value = '') {
+    if (value === '') {
+      this.iconsList.querySelectorAll('[data-filter]').forEach( el => {
+        el.classList.remove('is-hidden');
+      });
+      return;
+    }
+    this.iconsList.querySelectorAll('[data-filter]').forEach( el => {
+      el.classList.remove('is-hidden');
+    });
+    this.iconsList.querySelectorAll('[data-filter]:not([data-filter*="' + value + '"])').forEach( el => {
+      el.classList.add('is-hidden');
+    });
+  }
+}
+
+document.addEventListener( 'DOMContentLoaded', function () {
+  let iconPickers = document.querySelectorAll('[data-action="iconPicker"]');
+  let iconPickerOptions = {};
+  [].forEach.call(iconPickers, function(iconPicker) {
+    if (!iconPicker.dataset.iconPicker) {
+      iconPicker.dataset.iconPicker = new IconPicker(iconPicker, iconPickerOptions);
+    }
+  });
+});
+
+return IconPicker;
+
+}());
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+
+(function () {
+'use strict';
+
+const MOUSE_EVENTS = ['click', 'touchstart'];
+
+function closest(el, selector) {
+  var matchesFn;
+
+  // find vendor prefix
+  ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'].some(function(fn) {
+    if (typeof document.body[fn] == 'function') {
+      matchesFn = fn;
+      return true;
+    }
+    return false;
+  });
+
+  var parent;
+
+  // traverse parents
+  while (el) {
+    parent = el.parentElement;
+    if (parent && parent[matchesFn](selector)) {
+      return parent;
+    }
+    el = parent;
+  }
+
+  return null;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all document sliders
+  var showQuickview = document.querySelectorAll('[data-show="quickview"]');
+  [].forEach.call(showQuickview, function(show) {
+    var quickview = document.getElementById(show.dataset['target']);
+    if (quickview) {
+      // Add event listener to update output when slider value change
+      MOUSE_EVENTS.forEach((event) => {
+        show.addEventListener(event, function(e) {
+          e.preventDefault();
+          quickview.classList.add('is-active');
+        });
+      });
+    }
+  });
+
+  // Get all document sliders
+  var dismissQuickView = document.querySelectorAll('[data-dismiss="quickview"]');
+  [].forEach.call(dismissQuickView, function(dismiss) {
+    var quickview = closest(dismiss, '.quickview');
+    if (quickview) {
+      // Add event listener to update output when slider value change
+      MOUSE_EVENTS.forEach((event) => {
+        dismiss.addEventListener(event, function(e) {
+          quickview.classList.remove('is-active');
+        });
+      });
+    }
+  });
+});
+
+}());
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+(function () {
+'use strict';
+
+// Find output DOM associated to the DOM element passed as parameter
+function findOutputForSlider(element) {
+  var idVal = element.id;
+  var outputs = document.getElementsByTagName('output');
+  for (var i = 0; i < outputs.length; i++) {
+    if (outputs[i].htmlFor == idVal)
+      return outputs[i];
+    }
+  }
+
+function getSliderOutputPosition(slider) {
+  // Update output position
+  var newPlace, minValue;
+
+  var style = window.getComputedStyle(slider, null);
+  // Measure width of range input
+  var sliderWidth = parseInt(style.getPropertyValue('width'), 10);
+
+  // Figure out placement percentage between left and right of input
+  if (!slider.getAttribute('min')) {
+    minValue = 0;
+  } else {
+    minValue = slider.getAttribute('min');
+  }
+  var newPoint = (slider.value - minValue) / (slider.getAttribute('max') - minValue);
+
+  // Prevent bubble from going beyond left or right (unsupported browsers)
+  if (newPoint < 0) {
+    newPlace = 0;
+  } else if (newPoint > 1) {
+    newPlace = sliderWidth;
+  } else {
+    newPlace = sliderWidth * newPoint;
+  }
+
+  return {
+    'position': newPlace + 'px'
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all document sliders
+  var sliders = document.querySelectorAll('input[type="range"].slider');
+  [].forEach.call(sliders, function(slider) {
+    var output = findOutputForSlider(slider);
+    if (output) {
+      if (slider.classList.contains('has-output-tooltip')) {
+        // Get new output position
+        var newPosition = getSliderOutputPosition(slider);
+
+        // Set output position
+        output.style['left'] = newPosition.position;
+      }
+
+      // Add event listener to update output when slider value change
+      slider.addEventListener('input', function(event) {
+        if (event.target.classList.contains('has-output-tooltip')) {
+          // Get new output position
+          var newPosition = getSliderOutputPosition(event.target);
+
+          // Set output position
+          output.style['left'] = newPosition.position;
+        }
+
+        // Check for prefix and postfix
+        var prefix = (output.hasAttribute('data-prefix') ? output.getAttribute('data-prefix') : '');
+        var postfix = (output.hasAttribute('data-postfix') ? output.getAttribute('data-postfix') : '');
+        
+        // Update output with slider value
+        output.value = prefix + event.target.value + postfix;
+      });
+    }
+  });
+});
+
+}());
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports) {
+
+var bulmaSteps = (function () {
+'use strict';
+
+const MOUSE_EVENTS = ['click', 'touchstart'];
+
+class StepsWizard {
+  constructor(element = null, options = {}) {
+    this.options = Object.assign({}, {
+      'selector': '.step-item',
+      'selector_content': '.step-content',
+      'previous_selector': '[data-nav="previous"]',
+      'next_selector': '[data-nav="next"]',
+      'active_class': 'is-active',
+      'completed_class': 'is-completed',
+      'beforeNext': null,
+      'onShow': null,
+      'onFinish': null,
+      'onError': null
+    }, options);
+
+    this.element = element;
+    this.steps = element.querySelectorAll(this.options.selector);
+    this.contents = element.querySelectorAll(this.options.selector_content);
+    this.previous_btn = element.querySelector(this.options.previous_selector);
+    this.next_btn = element.querySelector(this.options.next_selector);
+
+    this.init();
+  }
+
+  init() {
+    for (var i = 0; i < this.steps.length; i++) {
+      var step = this.steps[i];
+
+      step.setAttribute('data-step-id', i);
+    }
+
+    this.bind();
+
+    this.start();
+  }
+
+  bind() {
+    var _this = this;
+
+    if (this.previous_btn != null) {
+      MOUSE_EVENTS.forEach((event) => {
+        this.previous_btn.addEventListener(event, function(e) {
+          e.preventDefault();
+          if (!e.target.getAttribute('disabled')) {
+            _this.previous_step();
+          }
+        });
+      });
+    }
+
+    if (this.next_btn != null) {
+      MOUSE_EVENTS.forEach((event) => {
+        this.next_btn.addEventListener(event, function(e) {
+          e.preventDefault();
+          if (!e.target.getAttribute('disabled')) {
+            _this.next_step();
+          }
+        });
+      });
+    }
+  }
+
+  start() {
+    this.activate_step(0);
+    this.updateActions(this.steps[0]);
+  }
+
+  get_current_step_id() {
+    for (var i = 0; i < this.steps.length; i++) {
+      var step = this.steps[i];
+
+      if (step.classList.contains(this.options.active_class)) {
+        return parseInt(step.getAttribute('data-step-id'));
+      }
+    }
+
+    return null;
+  }
+
+  updateActions(step) {
+    var stepId = parseInt(step.getAttribute('data-step-id'));
+    if (stepId == 0) {
+      if (this.previous_btn != null) {
+        this.previous_btn.setAttribute('disabled', 'disabled');
+      }
+      if (this.next_btn != null) {
+        this.next_btn.removeAttribute('disabled', 'disabled');
+      }
+    } else if (stepId == (this.steps.length - 1)) {
+      if (this.previous_btn != null) {
+        this.previous_btn.removeAttribute('disabled', 'disabled');
+      }
+      if (this.next_btn != null) {
+        this.next_btn.setAttribute('disabled', 'disabled');
+      }
+    } else {
+      if (this.previous_btn != null) {
+        this.previous_btn.removeAttribute('disabled', 'disabled');
+      }
+      if (this.next_btn != null) {
+        this.next_btn.removeAttribute('disabled', 'disabled');
+      }
+    }
+  }
+
+  next_step() {
+    var current_id = this.get_current_step_id();
+
+    if (current_id == null) {
+      return;
+    }
+
+    var next_id = current_id + 1,
+      errors = [];
+
+    if (typeof this.options.beforeNext != 'undefined' && this.options.beforeNext != null && this.options.beforeNext) {
+      errors = this.options.beforeNext(current_id);
+    }
+
+    if (typeof errors == 'undefined') {
+      errors = [];
+    }
+
+    if (errors.length > 0) {
+      for (var i = 0; i < errors.length; i++) {
+        if (typeof this.options.onError != 'undefined' && this.options.onError != null && this.options.onError) {
+          this.options.onError(errors[i]);
+        }
+      }
+
+      return;
+    }
+
+    if (next_id >= this.steps.length) {
+      if (typeof this.options.onFinish != 'undefined' && this.options.onFinish != null && this.options.onFinish) {
+        this.options.onFinish(current_id);
+      }
+      this.deactivate_step(current_id);
+    } else {
+      this.complete_step(current_id);
+      this.activate_step(next_id);
+    }
+  }
+
+  previous_step() {
+    var current_id = this.get_current_step_id();
+    if (current_id == null) {
+      return;
+    }
+
+    this.uncomplete_step(current_id - 1);
+    this.activate_step(current_id - 1);
+  }
+
+  /**
+   * Activate a single step,
+   * will deactivate all other steps.
+   */
+  activate_step(step_id) {
+    this.updateActions(this.steps[step_id]);
+
+    for (var i = 0; i < this.steps.length; i++) {
+      var _step = this.steps[i];
+
+      if (_step == this.steps[step_id]) {
+        continue;
+      }
+
+      this.deactivate_step(i);
+    }
+
+    this.steps[step_id].classList.add(this.options.active_class);
+    if (typeof this.contents[step_id] !== 'undefined') {
+      this.contents[step_id].classList.add(this.options.active_class);
+    }
+
+    if (typeof this.options.onShow != 'undefined' && this.options.onShow != null && this.options.onShow) {
+      this.options.onShow(step_id);
+    }
+  }
+
+  complete_step(step_id) {
+    this.steps[step_id].classList.add(this.options.completed_class);
+  }
+
+  uncomplete_step(step_id) {
+    this.steps[step_id].classList.remove(this.options.completed_class);
+  }
+
+  deactivate_step(step_id) {
+    this.steps[step_id].classList.remove(this.options.active_class);
+    if (typeof this.contents[step_id] !== 'undefined') {
+      this.contents[step_id].classList.remove(this.options.active_class);
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var stepsContainers = document.querySelectorAll('.steps');
+  [].forEach.call(stepsContainers, (stepsContainer) => {
+    var stepsWizard = new StepsWizard(stepsContainer);
+  });
+});
+
+return StepsWizard;
+
+}());
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function (global, factory) {
+	 true ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define('bulmaTagsinput', factory) :
+	(global.bulmaTagsinput = factory());
+}(this, (function () { 'use strict';
+
+if (typeof Object.assign != 'function') {
+  // Must be writable: true, enumerable: false, configurable: true
+  Object.defineProperty(Object, "assign", {
+    value: function assign(target, varArgs) { // .length of function is 2
+      'use strict';
+      if (target == null) { // TypeError if undefined or null
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+
+      var to = Object(target);
+
+      for (var index = 1; index < arguments.length; index++) {
+        var nextSource = arguments[index];
+
+        if (nextSource != null) { // Skip over if undefined or null
+          for (var nextKey in nextSource) {
+            // Avoid bugs when hasOwnProperty is shadowed
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+      return to;
+    },
+    writable: true,
+    configurable: true
+  });
+}
+
+const MOUSE_EVENTS = ['click', 'touchstart'];
+
+const KEY_BACKSPACE = 8;
+const KEY_TAB = 9;
+const KEY_ENTER = 13;
+const KEY_LEFT = 37;
+const KEY_RIGHT = 39;
+const KEY_DELETE = 46;
+const KEY_COMMA = 188;
+
+class Tagify {
+  constructor(element, options = {}) {
+    let defaultOptions = {
+      disabled: false,
+      delimiter: ',',
+      allowDelete: true,
+      lowercase: false,
+      uppercase: false,
+      duplicates: true
+    };
+    this.element = element;
+    this.options = Object.assign({}, defaultOptions, options);
+
+    this.init();
+  }
+
+  init() {
+    if (!this.options.disabled) {
+      this.tags = [];
+      // The container will visually looks like an input
+      this.container = document.createElement('div');
+      this.container.className = 'tagsinput';
+      this.container.classList.add('field');
+      this.container.classList.add('is-grouped');
+      this.container.classList.add('is-grouped-multiline');
+      this.container.classList.add('input');
+
+      let inputType = this.element.getAttribute('type');
+    	if (!inputType || inputType === 'tags') {
+    		inputType = 'text';
+      }
+      // Create an invisible input element so user will be able to enter value
+      this.input = document.createElement('input');
+      this.input.setAttribute('type', inputType);
+      if (this.element.getAttribute('placeholder')) {
+        this.input.setAttribute('placeholder', this.element.getAttribute('placeholder'));
+      } else {
+        this.input.setAttribute('placeholder', 'Add a Tag');
+      }
+      this.container.appendChild(this.input);
+
+      let sib = this.element.nextSibling;
+      this.element.parentNode[sib ? 'insertBefore':'appendChild'](this.container, sib);
+      this.element.style.cssText = 'position:absolute;left:0;top:0;width:1px;height:1px;opacity:0.01;';
+      this.element.tabIndex = -1;
+
+      this.enable();
+    }
+  }
+
+  enable() {
+    if (!this.enabled && !this.options.disabled) {
+
+      this.element.addEventListener('focus', () => {
+        this.container.classList.add('is-focused');
+        this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
+      });
+
+      this.input.addEventListener('focus', () => {
+    		this.container.classList.add('is-focused');
+    		this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
+      });
+      this.input.addEventListener('blur', () => {
+    		this.container.classList.remove('is-focused');
+    		this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
+    		this.savePartial();
+      });
+      this.input.addEventListener('keydown', (e) => {
+        let key = e.charCode || e.keyCode || e.which,
+          selectedTag,
+          activeTag = this.container.querySelector('.tag.is-active'),
+          last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop(),
+          atStart = this.caretAtStart(this.input);
+
+        if (activeTag) {
+          selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerHTML.trim() + '"]');
+        }
+        this.setInputWidth();
+
+        if (key === KEY_ENTER || key === this.options.delimiter.charCodeAt(0) || key === KEY_COMMA || key === KEY_TAB) {
+          if (!this.input.value && (key !== this.options.delimiter.charCodeAt(0) || key === KEY_COMMA)) {
+            return;
+          }
+          this.savePartial();
+        } else if (key === KEY_DELETE && selectedTag) {
+    			if (selectedTag.nextSibling) {
+            this.select(selectedTag.nextSibling.querySelector('.tag'));
+          } else if (selectedTag.previousSibling) {
+            this.select(selectedTag.previousSibling.querySelector('.tag'));
+          }
+    			this.container.removeChild(selectedTag);
+          this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
+    			this.setInputWidth();
+    			this.save();
+        } else if (key === KEY_BACKSPACE) {
+          if (selectedTag) {
+            if (selectedTag.previousSibling) {
+    				  this.select(selectedTag.previousSibling.querySelector('.tag'));
+            } else if (selectedTag.nextSibling) {
+    				  this.select(selectedTag.nextSibling.querySelector('.tag'));
+            }
+    				this.container.removeChild(selectedTag);
+            this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
+    				this.setInputWidth();
+    				this.save();
+    			} else if (last && atStart) {
+    				this.select(last);
+    			} else {
+    				return;
+          }
+        } else if (key === KEY_LEFT) {
+    			if (selectedTag) {
+    				if (selectedTag.previousSibling) {
+    					this.select(selectedTag.previousSibling.querySelector('.tag'));
+    				}
+    			} else if (!atStart) {
+    				return;
+    			} else {
+    				this.select(last);
+    			}
+    		}
+    		else if (key === KEY_RIGHT) {
+    			if (!selectedTag) {
+            return;
+          }
+    			this.select(selectedTag.nextSibling.querySelector('.tag'));
+    		}
+    		else {
+    			return this.select();
+        }
+
+        e.preventDefault();
+        return false;
+      });
+      this.input.addEventListener('input', () => {
+        this.element.value = this.getValue();
+        this.element.dispatchEvent(new Event('input'));
+      });
+      this.input.addEventListener('paste', () => setTimeout(savePartial, 0));
+
+      this.container.addEventListener('mousedown', (e) => { this.refocus(e); });
+      this.container.addEventListener('touchstart', (e) => { this.refocus(e); });
+
+      this.savePartial(this.element.value);
+
+      this.enabled = true;
+    }
+  }
+
+  disable() {
+    if (this.enabled && !this.options.disabled) {
+      this.reset();
+
+      this.enabled = false;
+    }
+  }
+
+  select(el) {
+		let sel = this.container.querySelector('.is-active');
+		if (sel) {
+      sel.classList.remove('is-active');
+    }
+		if (el) {
+      el.classList.add('is-active');
+    }
+  }
+
+  addTag(text) {
+    if (~text.indexOf(this.options.delimiter)) {
+      text = text.split(this.options.delimiter);
+    }
+    if (Array.isArray(text)) {
+      return text.forEach((text) => {
+        this.addTag(text);
+      });
+    }
+
+    let tag = text && text.trim();
+    if (!tag) {
+      return false;
+    }
+
+    if (this.element.getAttribute('lowercase') || this.options['lowercase'] == 'true') {
+      tag = tag.toLowerCase();
+    }
+    if (this.element.getAttribute('uppercase') || this.options['uppercase'] == 'true') {
+      tag = tag.toUpperCase();
+    }
+    if (this.element.getAttribute('duplicates') == 'true' || this.options['duplicates'] || this.tags.indexOf(tag) === -1) {
+      this.tags.push(tag);
+
+      let newTagWrapper = document.createElement('div');
+      newTagWrapper.className = 'control';
+      newTagWrapper.setAttribute('data-tag', tag);
+
+      let newTag = document.createElement('div');
+      newTag.className = 'tags';
+      newTag.classList.add('has-addons');
+
+      let newTagContent = document.createElement('span');
+      newTagContent.className = 'tag';
+      newTagContent.classList.add('is-active');
+      this.select(newTagContent);
+      newTagContent.innerHTML = tag;
+
+      newTag.appendChild(newTagContent);
+      if (this.options.allowDelete) {
+        let newTagDeleteButton = document.createElement('a');
+        newTagDeleteButton.className = 'tag';
+        newTagDeleteButton.classList.add('is-delete');
+        MOUSE_EVENTS.forEach((event) => {
+          newTagDeleteButton.addEventListener(event, (e) => {
+          let selectedTag,
+            activeTag = e.target.parentNode,
+            last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).pop(),
+            atStart = this.caretAtStart(this.input);
+
+          if (activeTag) {
+            selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerText.trim() + '"]');
+          }
+
+          if (selectedTag) {
+    				this.select(selectedTag.previousSibling);
+    				this.container.removeChild(selectedTag);
+            this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
+    				this.setInputWidth();
+    				this.save();
+    			}
+    			else if (last && atStart) {
+    				this.select(last);
+    			}
+    			else {
+    				return;
+          }
+        });
+      });
+        newTag.appendChild(newTagDeleteButton);
+      }
+      newTagWrapper.appendChild(newTag);
+
+      this.container.insertBefore(newTagWrapper, this.input);
+    }
+  }
+
+  getValue() {
+    return this.tags.join(this.options.delimiter);
+  }
+
+  setValue(value) {
+    (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).forEach((tag) => {
+      this.tags.splice(this.tags.indexOf(tag.innerHTML), 1);
+      this.container.removeChild(tag);
+    });
+    this.savePartial(value);
+  }
+
+  setInputWidth() {
+    let last = (Array.prototype.slice.call(this.container.querySelectorAll('.control'))).pop();
+
+    if (!this.container.offsetWidth) {
+      return;
+    }
+    this.input.style.width = Math.max(this.container.offsetWidth - (last ? (last.offsetLeft + last.offsetWidth) : 30) - 30, this.container.offsetWidth / 4) + 'px';
+  }
+
+  savePartial(value) {
+    if (typeof value !== 'string' && !Array.isArray(value)) {
+      value = this.input.value;
+    }
+    if (this.addTag(value) !== false) {
+			this.input.value = '';
+			this.save();
+			this.setInputWidth();
+    }
+  }
+
+  save() {
+    this.element.value = this.tags.join(this.options.delimiter);
+    this.element.dispatchEvent(new Event('change'));
+  }
+
+  caretAtStart(el) {
+		try {
+			return el.selectionStart === 0 && el.selectionEnd === 0;
+		}
+		catch(e) {
+			return el.value === '';
+		}
+  }
+
+  refocus(e) {
+		if (e.target.classList.contains('tag')) {
+      this.select(e.target);
+    }
+		if (e.target === this.input) {
+      return this.select();
+    }
+		this.input.focus();
+		e.preventDefault();
+		return false;
+  }
+
+  reset() {
+    this.tags = [];
+  }
+
+  destroy() {
+    this.disable();
+    this.reset();
+    this.element = null;
+  }
+}
+
+document.addEventListener( 'DOMContentLoaded', function () {
+  let tagInputs = document.querySelectorAll('input[type="tags"]');
+  [].forEach.call(tagInputs, function(tagInput) {
+      new Tagify(tagInput);
+  });
+});
+
+return Tagify;
+
+})));
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+// Bulma NavBar Burger Script
+document.addEventListener('DOMContentLoaded', function () {
+    // Get all "navbar-burger" elements
+    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(function ($el) {
+            $el.addEventListener('click', function () {
+
+                // Get the target from the "data-target" attribute
+                var target = $el.dataset.target;
+                var $target = document.getElementById(target);
+
+                // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+                $el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
+});
+
+// Textarea auto expand
+$(document).one('focus.auto-expand', 'textarea.auto-expand', function () {
+    var savedValue = this.value;
+    this.value = '';
+    this.baseScrollHeight = this.scrollHeight;
+    this.value = savedValue;
+}).on('input.auto-expand', 'textarea.auto-expand', function () {
+    var minRows = this.getAttribute('data-min-rows') | 0,
+        rows;
+    this.rows = minRows;
+    rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 20);
+    this.rows = minRows + rows;
+});
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

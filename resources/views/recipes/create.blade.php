@@ -4,7 +4,7 @@
     <div class="container">
         <div class="columns is- is-marginless is-centered">
             <div class="column is-10">
-                <h1 class="m-t-60 m-b-40">Let's create a new <span class="vd-text-primary">awesome</span> recipe!</h1>
+                <h1 class="m-t-60 m-b-40">{!! trans('recipes.create_title') !!}</h1>
                 <recipe-form></recipe-form>
             </div>
         </div>

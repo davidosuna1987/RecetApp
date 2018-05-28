@@ -133,6 +133,12 @@
 
 
 /* Forms */
+  .vd-radio__group,
+  .vd-checkbox__group{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   /* Radio buttons */
     /* Defaults */
       .vd-radio{
@@ -550,7 +556,6 @@
         top: 12px;
         left: 8px;
         color: #DDD;
-        z-index: -1;
         transition: all 200ms ease-in-out;
       }
 
@@ -601,12 +606,18 @@
 
     /* Colors */
       /* Labels */
+        .vd-input .vd-input-field:not(:placeholder-shown) + .vd-placeholder.is-transparent,
+        .vd-textarea .vd-textarea-field:not(:placeholder-shown) + .vd-placeholder.is-transparent{
+          display: none;
+        }
+
         .vd-input.is-primary .vd-input-field:not(:placeholder-shown) + .vd-placeholder,
         .vd-textarea.is-primary .vd-textarea-field:not(:placeholder-shown) + .vd-placeholder,
         .vd-input.has-label-primary .vd-input-field:not(:placeholder-shown) + .vd-placeholder,
         .vd-textarea.has-label-primary .vd-textarea-field:not(:placeholder-shown) + .vd-placeholder{
           color: $primary-color;
         }
+
         .vd-input.is-secondary .vd-input-field:not(:placeholder-shown) + .vd-placeholder,
         .vd-textarea.is-secondary .vd-textarea-field:not(:placeholder-shown) + .vd-placeholder,
         .vd-input.has-label-secondary .vd-input-field:not(:placeholder-shown) + .vd-placeholder,
@@ -684,7 +695,6 @@
         .vd-textarea.has-border-warning{
           border-color: $warning-color;
         }
-
 
 
 /* Tags */
