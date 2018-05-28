@@ -46,3 +46,25 @@ Route::group(['middleware' => 'auth'], function(){
     dump(Auth::user()->recipes()->with('categories', 'tags', 'ingredients')->get());
   });
 });
+
+// Lang routes
+Route::get('/js/lang.js', function () {
+  Cache::flush();
+  $strings = Cache::rememberForever('lang.js', function(){
+    $lang = config('app.locale');
+
+    $files = glob(resource_path('lang/' . $lang . '/*.php'));
+    $strings = [];
+
+    foreach($files as $file):
+      $name = basename($file, '.php');
+      $strings[$name] = require $file;
+    endforeach;
+
+    return $strings;
+  });
+
+  header('Content-Type: text/javascript');
+  echo('window.i18n = ' . json_encode($strings) . ';');
+  exit();
+})->name('assets.lang');
