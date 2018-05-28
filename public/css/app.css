@@ -20216,6 +20216,7 @@ h6 *,
   color: #DDD;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
+  z-index: -1;
 }
 
 /* Input */
@@ -20227,6 +20228,7 @@ h6 *,
   margin-top: 1.75rem;
   border: none;
   border-bottom: solid 1px #363636;
+  z-index: 1;
 }
 
 .vd-input ::-webkit-input-placeholder {
@@ -20261,6 +20263,7 @@ h6 *,
   margin-top: 1.75rem;
   border: none;
   border-bottom: solid 1px #363636;
+  z-index: 1;
 }
 
 .vd-textarea ::-webkit-input-placeholder {
@@ -20685,6 +20688,14 @@ h6 *,
   position: absolute;
   top: 8px;
   right: 5px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+  -webkit-text-fill-color: inherit;
 }
 
 /**

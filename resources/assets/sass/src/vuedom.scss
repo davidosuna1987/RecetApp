@@ -557,6 +557,7 @@
         left: 8px;
         color: #DDD;
         transition: all 200ms ease-in-out;
+        z-index: -1;
       }
 
     /* Input */
@@ -567,6 +568,7 @@
         margin-top: 1.75rem;
         border: none;
         border-bottom: solid 1px #363636;
+        z-index: 1;
 
         ::placeholder{
           color: transparent;
@@ -588,6 +590,7 @@
         margin-top: 1.75rem;
         border: none;
         border-bottom: solid 1px #363636;
+        z-index: 1;
 
         ::placeholder{
           color: transparent;
