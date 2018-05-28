@@ -47,7 +47,10 @@ Route::group(['middleware' => 'auth'], function(){
   });
 });
 
-// Lang routes
+
+
+
+// Translations route
 Route::get('/js/lang.js', function () {
   Cache::flush();
   $strings = Cache::rememberForever('lang.js', function(){
