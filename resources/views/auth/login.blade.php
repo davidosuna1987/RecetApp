@@ -13,22 +13,22 @@
                         {{ csrf_field() }}
 
                         <div class="vd-input has-label-primary">
-                            <input id="email" class="vd-input-field" type="email" name="email" value="{{ old('email') }}" placeholder="{{ trans('auth.email') }}" autofocus />
+                            <input id="email" class="vd-input-field" type="text" name="email" value="{{ old('email') }}" placeholder="{{ trans('auth.email') }}" autofocus />
 
                             <label class="vd-placeholder">{{ trans('auth.email') }}</label>
-                            @if ($errors->has('email'))
-                                <p class="help is-danger">{{ $errors->first('email') }}</p>
-                            @endif
                         </div>
+                        @if ($errors->has('email'))
+                            <p class="help is-danger">{{ $errors->first('email') }}</p>
+                        @endif
 
                         <div class="vd-input has-label-primary">
                             <input id="password" class="vd-input-field" type="password" name="password" value="" placeholder="{{ trans('auth.password') }}" />
 
                             <label class="vd-placeholder">{{ trans('auth.password') }}</label>
-                            @if ($errors->has('password'))
-                                <p class="help is-danger">{{ $errors->first('password') }}</p>
-                            @endif
                         </div>
+                        @if ($errors->has('password'))
+                            <p class="help is-danger">{{ $errors->first('password') }}</p>
+                        @endif
 
                         <div class="vd-checkbox__group">
                             <label for="remember" class="vd-checkbox is-primary">

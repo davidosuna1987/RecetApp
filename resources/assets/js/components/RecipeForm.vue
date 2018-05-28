@@ -74,6 +74,8 @@
                             rows="5"
                             v-html="recipe.preparation">
                         </textarea>
+
+                        <label class="vd-placeholder is-transparent">Write the preparation here...</label>
                     </div>
                     <p v-if="errors.has('preparation')" class="help is-danger">{{ errors.first('preparation') }}</p>
                 </div>

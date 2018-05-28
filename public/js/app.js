@@ -46058,6 +46058,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['recipeId'],
@@ -46546,7 +46548,11 @@ var render = function() {
                     _vm.preparationInput($event)
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("label", { staticClass: "vd-placeholder is-transparent" }, [
+                _vm._v("Write the preparation here...")
+              ])
             ]),
             _vm._v(" "),
             _vm.errors.has("preparation")
