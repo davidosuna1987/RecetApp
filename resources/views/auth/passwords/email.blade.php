@@ -10,7 +10,7 @@
 
                 <div class="card-content">
                     @if (session('status'))
-                        <div class="notification">
+                        <div class="notification is-info">
                             {{ session('status') }}
                         </div>
                     @endif
