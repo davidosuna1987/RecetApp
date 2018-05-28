@@ -19736,6 +19736,12 @@ h6 *,
 
 /* Forms */
 
+.vd-radio__group,
+.vd-checkbox__group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* Radio buttons */
 
 /* Defaults */

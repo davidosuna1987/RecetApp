@@ -12,61 +12,37 @@
                     <form class="login-form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        <div class="field">
-                            <label class="label">{{ trans('auth.email') }}</label>
+                        <div class="vd-input has-label-primary">
+                            <input id="email" class="vd-input-field" type="email" name="email" value="{{ old('email') }}" placeholder="{{ trans('auth.email') }}" autofocus />
 
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input class="input" id="email" type="email" name="email"
-                                               value="{{ old('email') }}" autofocus>
-                                    </p>
-
-                                    @if ($errors->has('email'))
-                                        <p class="help is-danger">
-                                            {{ $errors->first('email') }}
-                                        </p>
-                                    @endif
-                                </div>
-                            </div>
+                            <label class="vd-placeholder">{{ trans('auth.email') }}</label>
+                            @if ($errors->has('email'))
+                                <p class="help is-danger">{{ $errors->first('email') }}</p>
+                            @endif
                         </div>
 
-                        <div class="field">
-                                <label class="label">{{ trans('auth.password') }}</label>
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input class="input" id="password" type="password" name="password">
-                                    </p>
+                        <div class="vd-input has-label-primary">
+                            <input id="password" class="vd-input-field" type="password" name="password" value="" placeholder="{{ trans('auth.password') }}" />
 
-                                    @if ($errors->has('password'))
-                                        <p class="help is-danger">
-                                            {{ $errors->first('password') }}
-                                        </p>
-                                    @endif
-                                </div>
-                            </div>
+                            <label class="vd-placeholder">{{ trans('auth.password') }}</label>
+                            @if ($errors->has('password'))
+                                <p class="help is-danger">{{ $errors->first('password') }}</p>
+                            @endif
                         </div>
 
-                        <div class="field">
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <label for="remember" class="vd-checkbox is-primary">
-                                            <input
-                                                id="remember"
-                                                {{ old('remember') ? 'checked' : '' }}
-                                                name="remember"
-                                                type="checkbox" />
+                        <div class="vd-checkbox__group">
+                            <label for="remember" class="vd-checkbox is-primary">
+                                <input
+                                    id="remember"
+                                    {{ old('remember') ? 'checked' : '' }}
+                                    name="remember"
+                                    type="checkbox" />
 
-                                            <span class="vd-checkbox__info">
-                                                <span class="vd-checkbox__check"></span>
-                                                <span class="vd-checkbox__label">{{ trans('auth.remember') }}</span>
-                                            </span>
-                                        </label>
-                                    </p>
-                                </div>
-                            </div>
+                                <span class="vd-checkbox__info">
+                                    <span class="vd-checkbox__check"></span>
+                                    <span class="vd-checkbox__label">{{ trans('auth.remember') }}</span>
+                                </span>
+                            </label>
                         </div>
 
                         <div class="field">
