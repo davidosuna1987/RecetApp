@@ -24,6 +24,19 @@
             </div>
 
             <div class="navbar-end">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">{{ trans('navbar.lang') }}</a>
+
+                    <div class="navbar-dropdown">
+                        @foreach(Helpers::getLanguages() as $language => $name)
+                            @if(App::getLocale() !== $language)
+                                <a class="navbar-item" href="{{ route('languages.switch', $language) }}">
+                                    {{ $name }}
+                                </a>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
                 @if(Auth::guest())
                     <a class="navbar-item " href="{{ route('login') }}">{{ trans('navbar.login') }}</a>
                     <a class="navbar-item " href="{{ route('register') }}">{{ trans('navbar.register') }}</a>

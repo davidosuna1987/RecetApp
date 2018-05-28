@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'create_title' => '¡Vamos a crear una nueva receta <span class="vd-text-primary">increible</span>!',
+  'create_title' => '¡Vamos a crear una receta <span class="vd-text-primary">increible</span>!',
   'edit_title' => '¡Vamos a editar tu <span class="vd-text-primary">increible</span> receta!',
 
   'title' => 'Título de la receta',
@@ -13,6 +13,6 @@ return [
   'preparation_placeholder' => 'Escribe aquí la preparación...',
   'tags' => 'Etiquetas',
   'tags_placeholder' => 'Agregar etiqueta',
-  'updaate' => 'Actualizar receta!',
-  'create' => 'Crear receta!',
+  'updaate' => '¡Actualizar receta!',
+  'create' => '¡Crear receta!',
 ];

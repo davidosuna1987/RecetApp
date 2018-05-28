@@ -45,8 +45,14 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/test/recipes', function(){
     dump(Auth::user()->recipes()->with('categories', 'tags', 'ingredients')->get());
   });
+
+  Route::get('/test/langs', function(){
+    return App\Helpers\Language::all();
+  });
 });
 
+// Languages routes
+Route::get('/languages/{lang}', 'LanguageController@switch')->name('languages.switch');
 
 
 

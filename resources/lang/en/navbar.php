@@ -7,4 +7,5 @@ return [
     'recipes' => 'Recipes',
     'recipes_create' => 'Create recipe',
     'hello' => 'Hello',
+    'lang' => 'EN',
 ];
