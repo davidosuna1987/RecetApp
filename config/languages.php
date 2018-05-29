@@ -2,19 +2,19 @@
 
 // Avalible languages
 return [
-    'ca' => [
-      'ca' => 'Català',
-      'en' => 'Anglès',
-      'es' => 'Espanyol',
-    ],
-    'en' => [
-      'ca' => 'Catalan',
-      'en' => 'English',
-      'es' => 'Spanish',
-    ],
     'es' => [
+      'es' => 'Español',
       'ca' => 'Catalán',
       'en' => 'Inglés',
-      'es' => 'Español',
+    ],
+    'ca' => [
+      'es' => 'Espanyol',
+      'ca' => 'Català',
+      'en' => 'Anglès',
+    ],
+    'en' => [
+      'es' => 'Spanish',
+      'ca' => 'Catalan',
+      'en' => 'English',
     ],
 ];
