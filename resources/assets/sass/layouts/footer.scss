@@ -1,6 +1,4 @@
 .footer{
-  margin-top: 50px;
-
   &.is-primary{ background-color: $primary; }
   &.is-secondary{ background-color: $secondary-color; }
   &.is-info{ background-color: $info-color; }
@@ -15,6 +13,12 @@
       color: $white-color;
     }
 
-    a{ color: $warning-color; }
+    a{
+      color: #D85454;
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
   }
 }
