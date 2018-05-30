@@ -567,7 +567,6 @@
         height: 40px;
         margin-top: 1.75rem;
         border: none;
-        border-bottom: solid 1px $text-color;
         z-index: 1;
 
         ::placeholder{
@@ -581,6 +580,7 @@
         background-color: transparent;
         padding: 6px 8px;
         border: none;
+        border-bottom: solid 2px $text-color;
       }
 
     /* Textarea */
@@ -589,7 +589,6 @@
         width: 100%;
         margin-top: 1.75rem;
         border: none;
-        border-bottom: solid 1px $text-color;
         z-index: 1;
 
         ::placeholder{
@@ -603,6 +602,7 @@
         background-color: transparent;
         padding: 10px 8px 6px 8px;
         border: none;
+        border-bottom: solid 1px $text-color;
         line-height: 1.3;
         resize: none;
       }
@@ -657,45 +657,59 @@
         }
 
       /* Borders */
-        .vd-input.is-primary,
-        .vd-textarea.is-primary,
-        .vd-input.has-border-primary,
-        .vd-textarea.has-border-primary{
+        .vd-input .vd-input-field:focus,
+        .vd-textarea .vd-input-field:focus,
+        .vd-input.is-primary .vd-input-field,
+        .vd-textarea.is-primary .vd-input-field,
+        .vd-input.is-primary .vd-input-field:focus,
+        .vd-textarea.is-primary .vd-input-field:focus,
+        .vd-input.has-border-primary .vd-input-field,
+        .vd-textarea.has-border-primary .vd-input-field{
           border-color: $primary-color;
         }
 
-        .vd-input.is-secondary,
-        .vd-textarea.is-secondary,
-        .vd-input.has-border-secondary,
-        .vd-textarea.has-border-secondary{
+        .vd-input.is-secondary .vd-input-field,
+        .vd-textarea.is-secondary .vd-input-field,
+        .vd-input.is-secondary .vd-input-field:focus,
+        .vd-textarea.is-secondary .vd-input-field:focus,
+        .vd-input.has-border-secondary .vd-input-field,
+        .vd-textarea.has-border-secondary .vd-input-field{
           border-color: $secondary-color;
         }
 
-        .vd-input.is-info,
-        .vd-textarea.is-info,
-        .vd-input.has-border-info,
-        .vd-textarea.has-border-info{
+        .vd-input.is-info .vd-input-field,
+        .vd-textarea.is-info .vd-input-field,
+        .vd-input.is-info .vd-input-field:focus,
+        .vd-textarea.is-info .vd-input-field:focus,
+        .vd-input.has-border-info .vd-input-field,
+        .vd-textarea.has-border-info .vd-input-field{
           border-color: $info-color;
         }
 
-        .vd-input.is-success,
-        .vd-textarea.is-success,
-        .vd-input.has-border-success,
-        .vd-textarea.has-border-success{
+        .vd-input.is-success .vd-input-field,
+        .vd-textarea.is-success .vd-input-field,
+        .vd-input.is-success .vd-input-field:focus,
+        .vd-textarea.is-success .vd-input-field:focus,
+        .vd-input.has-border-success .vd-input-field,
+        .vd-textarea.has-border-success .vd-input-field{
           border-color: $success-color;
         }
 
-        .vd-input.is-danger,
-        .vd-textarea.is-danger,
-        .vd-input.has-border-danger,
-        .vd-textarea.has-border-danger{
+        .vd-input.is-danger .vd-input-field,
+        .vd-textarea.is-danger .vd-input-field,
+        .vd-input.is-danger .vd-input-field:focus,
+        .vd-textarea.is-danger .vd-input-field:focus,
+        .vd-input.has-border-danger .vd-input-field,
+        .vd-textarea.has-border-danger .vd-input-field{
           border-color: $danger-color;
         }
 
-        .vd-input.is-warning,
-        .vd-textarea.is-warning,
-        .vd-input.has-border-warning,
-        .vd-textarea.has-border-warning{
+        .vd-input.is-warning .vd-input-field,
+        .vd-textarea.is-warning .vd-input-field,
+        .vd-input.is-warning .vd-input-field:focus,
+        .vd-textarea.is-warning .vd-input-field:focus,
+        .vd-input.has-border-warning .vd-input-field,
+        .vd-textarea.has-border-warning .vd-input-field{
           border-color: $warning-color;
         }
 
