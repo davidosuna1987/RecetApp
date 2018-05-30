@@ -5,12 +5,12 @@
         <div class="column is-5">
             <div class="card m-t-60">
                 <header class="card-header">
-                    <p class="card-header-title">Reset Password</p>
+                    <p class="card-header-title">{{ trans('auth.password_reset') }}</p>
                 </header>
 
                 <div class="card-content">
                     @if (session('status'))
-                        <div class="notification">
+                        <div class="notification is-info">
                             {{ session('status') }}
                         </div>
                     @endif
@@ -19,29 +19,20 @@
 
                         {{ csrf_field() }}
 
-                        <div class="field">
-                            <label class="label">E-Mail Address</label>
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input class="input" id="email" type="email" name="email"
-                                               value="{{ old('email') }}" required autofocus>
-                                    </p>
+                        <div class="vd-input has-label-primary">
+                            <input id="email" class="vd-input-field" type="text" name="email" value="{{ old('email') }}" placeholder="{{ trans('auth.email') }}" autofocus />
 
-                                    @if ($errors->has('email'))
-                                        <p class="help is-danger">
-                                            {{ $errors->first('email') }}
-                                        </p>
-                                    @endif
-                                </div>
-                            </div>
+                            <label class="vd-placeholder">{{ trans('auth.email') }}</label>
                         </div>
+                        @if ($errors->has('email'))
+                            <p class="help is-danger">{{ $errors->first('email') }}</p>
+                        @endif
 
-                        <div class="field">
+                        <div class="field m-t-20">
                             <div class="field-body">
                                 <div class="field is-grouped">
                                     <div class="control">
-                                        <button type="submit" class="button is-primary">Send Password Reset Link
+                                        <button type="submit" class="button is-primary">{{ trans('auth.password_reset_link') }}
                                         </button>
                                     </div>
                                 </div>
