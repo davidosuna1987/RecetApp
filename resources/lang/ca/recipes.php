@@ -1,8 +1,8 @@
 <?php
 
 return [
-  'create_title' => 'Anem a crear una recepta <span class="vd-text-primary">increïble</span>!',
-  'edit_title' => 'Anem a editar la teva <span class="vd-text-primary">increïble</span> recepta!',
+  'create_title' => 'Anem a crear una recepta <span class="vd-text-secondary">increïble</span>!',
+  'edit_title' => 'Anem a editar la teva <span class="vd-text-secondary">increïble</span> recepta!',
 
   'title' => 'Títol de la recepta',
   'select_categories' => 'Selecciona les categories de la recepta',
@@ -13,6 +13,6 @@ return [
   'preparation_placeholder' => 'Escriu aquí la preparació...',
   'tags' => 'Etiquetes',
   'tags_placeholder' => 'Afegir etiqueta',
-  'updaate' => 'Actualitzar recepta!',
+  'update' => 'Actualitzar recepta!',
   'create' => 'Crear recepta!',
 ];

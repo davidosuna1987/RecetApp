@@ -1,8 +1,8 @@
 <?php
 
 return [
-  'create_title' => 'Let\'s create a new <span class="vd-text-primary">awesome</span> recipe!',
-  'edit_title' => 'Let\'s edit your <span class="vd-text-primary">awesome</span> recipe!',
+  'create_title' => 'Let\'s create a new <span class="vd-text-secondary">awesome</span> recipe!',
+  'edit_title' => 'Let\'s edit your <span class="vd-text-secondary">awesome</span> recipe!',
 
   'title' => 'Recipe title',
   'select_categories' => 'Select recipe categories',
@@ -13,6 +13,6 @@ return [
   'preparation_placeholder' => 'Write the preparation here...',
   'tags' => 'Tags',
   'tags_placeholder' => 'Add tag',
-  'updaate' => 'Update recipe!',
+  'update' => 'Update recipe!',
   'create' => 'Create recipe!',
 ];

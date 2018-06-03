@@ -1,6 +1,6 @@
 <template>
     <section class="recipe-form-section">
-        <form @submit.prevent="validateForm()" class="recipe-form">
+        <form @submit.prevent="validateForm()" class="recipe-form" enctype="multipart/form-data">
             <div class="columns is-multiline">
                 <div class="column is-12">
                     <div class="vd-input has-label-primary">
@@ -19,7 +19,7 @@
 
                 <div class="column is-12 m-t-25">
                     <p class="m-b-15">{{ trans('recipes.select_categories') }}</p>
-                    <label v-for="category in categories" :for="'cat-'+category.id" class="vd-checkbox is-primary">
+                    <label v-for="category in categories" :for="'cat-'+category.id" class="vd-checkbox is-secondary">
                         <input v-model="recipe.categories"
                             @input="setCategoriesError()"
                             name="categories[]"
@@ -57,7 +57,7 @@
                         </div>
 
                         <p class="buttons is-right m-t-20">
-                            <a @click.prevent="addIngredient()" class="is-size-7 vd-text-primary">{{ trans('recipes.add_ingredient') }}</a>
+                            <a @click.prevent="addIngredient()" class="is-size-7 vd-text-secondary">{{ trans('recipes.add_ingredient') }}</a>
                         </p>
                     </div>
                 </div>

@@ -46266,6 +46266,7 @@ var render = function() {
       "form",
       {
         staticClass: "recipe-form",
+        attrs: { enctype: "multipart/form-data" },
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -46338,7 +46339,7 @@ var render = function() {
                 return _c(
                   "label",
                   {
-                    staticClass: "vd-checkbox is-primary",
+                    staticClass: "vd-checkbox is-secondary",
                     attrs: { for: "cat-" + category.id }
                   },
                   [
@@ -46512,7 +46513,7 @@ var render = function() {
                   _c(
                     "a",
                     {
-                      staticClass: "is-size-7 vd-text-primary",
+                      staticClass: "is-size-7 vd-text-secondary",
                       on: {
                         click: function($event) {
                           $event.preventDefault()

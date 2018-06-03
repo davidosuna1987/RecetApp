@@ -377,7 +377,7 @@
       }
 
       .vd-checkbox.is-primary input:checked + .vd-checkbox__info .vd-checkbox__label{
-        color: $primary-color;
+        // color: $primary-color;
       }
 
         .vd-checkbox.is-primary input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
@@ -388,12 +388,28 @@
           box-shadow: 2px 2px 0px 0.025em rgba($primary-color, 0.25);
         }
 
+      .vd-checkbox.is-secondary input:checked + .vd-checkbox__info .vd-checkbox__check:before{
+        border-color: transparent $secondary-color $secondary-color transparent;
+      }
+
+      .vd-checkbox.is-secondary input:checked + .vd-checkbox__info .vd-checkbox__label{
+        // color: $secondary-color;
+      }
+
+        .vd-checkbox.is-secondary input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
+          box-shadow: 0 0 0 0.125em rgba($secondary-color, 0.25);
+        }
+
+        .vd-checkbox.is-secondary input:focus:checked + .vd-checkbox__info .vd-checkbox__check:before{
+          box-shadow: 2px 2px 0px 0.025em rgba($secondary-color, 0.25);
+        }
+
       .vd-checkbox.is-info input:checked + .vd-checkbox__info .vd-checkbox__check:before{
         border-color: transparent $info-color $info-color transparent;
       }
 
       .vd-checkbox.is-info input:checked + .vd-checkbox__info .vd-checkbox__label{
-        color: $info-color;
+        // color: $info-color;
       }
 
         .vd-checkbox.is-info input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
@@ -409,7 +425,7 @@
       }
 
       .vd-checkbox.is-success input:checked + .vd-checkbox__info .vd-checkbox__label{
-        color: $success-color;
+        // color: $success-color;
       }
 
         .vd-checkbox.is-success input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
@@ -425,7 +441,7 @@
       }
 
       .vd-checkbox.is-danger input:checked + .vd-checkbox__info .vd-checkbox__label{
-        color: $danger-color;
+        // color: $danger-color;
       }
 
         .vd-checkbox.is-danger input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
@@ -441,7 +457,7 @@
       }
 
       .vd-checkbox.is-warning input:checked + .vd-checkbox__info .vd-checkbox__label{
-        color: $warning-color;
+        // color: $warning-color;
       }
 
         .vd-checkbox.is-warning input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
@@ -713,6 +729,25 @@
           border-color: $warning-color;
         }
 
+  /* File */
+    /* Defaults */
+      .vd-file{
+        .vd-file__field{
+          display: none;
+        }
+
+        .vd-file__label {
+          width: 100%;
+          height: 200px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          border: dashed $secondary-color 2px;
+          cursor: pointer;
+        }
+      }
+
 
 /* Tags */
   /* Defaults */
@@ -766,11 +801,11 @@
       &:focus{
         +.vd-tag__icon{
           // background-color: #AFAFAF;
-          background-color: rgba($primary-color, 0.5);
+          background-color: rgba($secondary-color, 0.5);
 
           &:before{
             // border-left-color: #AFAFAF;
-            border-left-color: rgba($primary-color, 0.5);
+            border-left-color: rgba($secondary-color, 0.5);
           }
         }
       }

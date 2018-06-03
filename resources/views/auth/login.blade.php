@@ -31,7 +31,7 @@
                         @endif
 
                         <div class="vd-checkbox__group">
-                            <label for="remember" class="vd-checkbox is-primary">
+                            <label for="remember" class="vd-checkbox is-secondary">
                                 <input
                                     id="remember"
                                     {{ old('remember') ? 'checked' : '' }}
