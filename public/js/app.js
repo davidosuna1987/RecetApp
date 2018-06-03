@@ -46337,7 +46337,7 @@ var render = function() {
                         staticClass: "vd-file__label",
                         attrs: { for: "image" }
                       },
-                      [_vm._v(_vm._s("Click to select image"))]
+                      [_vm._v(_vm._s(_vm.trans("recipes.select_image")))]
                     )
                   ])
                 : _c(
@@ -46360,7 +46360,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("Clic to clear image")]
+                        [_vm._v(_vm._s(_vm.trans("recipes.clear_image")))]
                       )
                     ]
                   )

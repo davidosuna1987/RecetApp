@@ -7,10 +7,10 @@
                     <div class="vd-file">
                         <div v-if="!recipe.image" class="vd-file__field">
                             <input id="image" class="vd-file__input" type="file" name="image" accept="image/*" @change="previewImage($event)">
-                            <label for="image" class="vd-file__label">{{ 'Click to select image' }}</label>
+                            <label for="image" class="vd-file__label">{{ trans('recipes.select_image') }}</label>
                         </div>
                         <div v-else class="vd-file__preview" :style="{backgroundImage: 'url('+recipe.image+')'}">
-                            <div class="vd-file__clear" @click.prevent="recipe.image = null">Clic to clear image</div>
+                            <div class="vd-file__clear" @click.prevent="recipe.image = null">{{ trans('recipes.clear_image') }}</div>
                         </div>
                     </div>
                 </div>

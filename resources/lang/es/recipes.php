@@ -4,6 +4,8 @@ return [
   'create_title' => '¡Vamos a crear una receta <span class="vd-text-secondary">increible</span>!',
   'edit_title' => '¡Vamos a editar tu <span class="vd-text-secondary">increible</span> receta!',
 
+  'select_image' => 'Haz click para seleccionar la imagen',
+  'clear_image' => 'Haz click para borrar la imagen',
   'title' => 'Título de la receta',
   'select_categories' => 'Selecciona las categoríass de la receta',
   'ingredients' => 'Ingredientes',
