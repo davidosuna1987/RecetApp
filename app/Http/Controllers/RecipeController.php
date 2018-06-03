@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Image;
 use App\Tag;
 use App\Recipe;
 use App\Ingredient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class RecipeController extends Controller
 {
@@ -39,6 +41,7 @@ class RecipeController extends Controller
 
       return response()->json([
         'id' => $recipe->id,
+        'image' => $recipe->image,
         'title' => $recipe->title,
         'preparation' => $recipe->preparation,
         'tags' => $tags,
@@ -67,7 +70,27 @@ class RecipeController extends Controller
       $recipe = new Recipe();
       $recipe->title = $request->title;
       $recipe->preparation = $request->preparation;
+
       Auth::user()->recipes()->save($recipe);
+
+      $temp_file_path = public_path().'/images/recipes/'.$recipe->id.'/';
+      File::cleanDirectory($temp_file_path);
+
+      if($request->image):
+        File::makeDirectory($temp_file_path, $mode = 0777, true, true);
+        $image = Image::make($request->image);
+        $mime = $image->mime();
+        $mime_array = explode('/', $mime);
+        $extension = end($mime_array);
+        $file_name = str_random(25).'.'.$extension;
+
+        $image->resize(1000, null, function($c){
+          $c->aspectRatio();
+        })->save($temp_file_path.$file_name);
+
+        $recipe->image = asset('images/recipes/'.$recipe->id.'/'.$file_name);
+        $recipe->save();
+      endif;
 
       $recipe->categories()->detach();
       $recipe->categories()->attach($request->categories);
@@ -123,6 +146,30 @@ class RecipeController extends Controller
       $recipe->title = $request->title;
       $recipe->preparation = $request->preparation;
       $recipe->save();
+
+      $temp_file_path = public_path().'/images/recipes/'.$recipe->id.'/';
+
+      if($request->image):
+        if($request->image != $recipe->image):
+          File::cleanDirectory($temp_file_path);
+          File::makeDirectory($temp_file_path, $mode = 0777, true, true);
+          $image = Image::make($request->image);
+          $mime = $image->mime();
+          $mime_array = explode('/', $mime);
+          $extension = end($mime_array);
+          $file_name = str_random(25).'.'.$extension;
+
+          $image->resize(1000, null, function($c){
+            $c->aspectRatio();
+          })->save($temp_file_path.$file_name);
+
+          $recipe->image = asset('images/recipes/'.$recipe->id.'/'.$file_name);
+          $recipe->save();
+        endif;
+      else:
+        $recipe->image = null;
+        $recipe->save();
+      endif;
 
       $recipe->categories()->detach();
       $recipe->categories()->attach($request->categories);

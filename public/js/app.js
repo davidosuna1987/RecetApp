@@ -46069,6 +46069,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['recipeId'],
@@ -46077,6 +46090,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             recipe: {
                 id: null,
+                image: null,
                 title: '',
                 preparation: '',
                 categories: [],
@@ -46114,6 +46128,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     vue.categoriesError = null;
                 }
             }, 10);
+        },
+
+
+        // Image
+        previewImage: function previewImage(event) {
+            var _this2 = this;
+
+            var input = event.target;
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    _this2.recipe.image = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                this.recipe.image = null;
+            }
         },
 
 
@@ -46173,10 +46205,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         // Recipe
         getRecipe: function getRecipe(id) {
-            var _this2 = this;
+            var _this3 = this;
 
             axios.get('/recipes/' + id + '/get').then(function (response) {
-                _this2.recipe = response.data;
+                _this3.recipe = response.data;
             }).catch(function (error) {
                 if (error.response && error.response.status && error.response.status === 419) {
                     location.href = '/login';
@@ -46214,19 +46246,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         // Validation
         validateForm: function validateForm() {
-            var _this3 = this;
+            var _this4 = this;
 
             var vue = this;
             vue.$validator.validateAll().then(function (validated) {
-                if (!_this3.recipe.categories.length) {
-                    _this3.categoriesError = 'You must select at least one category.';
+                if (!_this4.recipe.categories.length) {
+                    _this4.categoriesError = 'You must select at least one category.';
                     validated = false;
                 } else {
-                    _this3.categoriesError = null;
+                    _this4.categoriesError = null;
                 }
 
                 if (validated) {
-                    _this3.recipeId ? _this3.update() : _this3.store();
+                    _this4.recipeId ? _this4.update() : _this4.store();
                 } else {
                     var action = vue.recipe.id ? 'update' : 'create';
                     console.info(action + ' not validated');
@@ -46276,6 +46308,65 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "columns is-multiline" }, [
+          _c("div", { staticClass: "column is-12" }, [
+            _c("p", { staticClass: "m-b-15" }, [
+              _vm._v(_vm._s("Select recipe image"))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "vd-file" }, [
+              !_vm.recipe.image
+                ? _c("div", { staticClass: "vd-file__field" }, [
+                    _c("input", {
+                      staticClass: "vd-file__input",
+                      attrs: {
+                        id: "image",
+                        type: "file",
+                        name: "image",
+                        accept: "image/*"
+                      },
+                      on: {
+                        change: function($event) {
+                          _vm.previewImage($event)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "vd-file__label",
+                        attrs: { for: "image" }
+                      },
+                      [_vm._v(_vm._s("Click to select image"))]
+                    )
+                  ])
+                : _c(
+                    "div",
+                    {
+                      staticClass: "vd-file__preview",
+                      style: {
+                        backgroundImage: "url(" + _vm.recipe.image + ")"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "vd-file__clear",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.recipe.image = null
+                            }
+                          }
+                        },
+                        [_vm._v("Clic to clear image")]
+                      )
+                    ]
+                  )
+            ])
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "column is-12" }, [
             _c("div", { staticClass: "vd-input has-label-primary" }, [
               _c("input", {

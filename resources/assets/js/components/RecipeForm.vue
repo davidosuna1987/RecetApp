@@ -3,6 +3,19 @@
         <form @submit.prevent="validateForm()" class="recipe-form" enctype="multipart/form-data">
             <div class="columns is-multiline">
                 <div class="column is-12">
+                    <p class="m-b-15">{{ 'Select recipe image' }}</p>
+                    <div class="vd-file">
+                        <div v-if="!recipe.image" class="vd-file__field">
+                            <input id="image" class="vd-file__input" type="file" name="image" accept="image/*" @change="previewImage($event)">
+                            <label for="image" class="vd-file__label">{{ 'Click to select image' }}</label>
+                        </div>
+                        <div v-else class="vd-file__preview" :style="{backgroundImage: 'url('+recipe.image+')'}">
+                            <div class="vd-file__clear" @click.prevent="recipe.image = null">Clic to clear image</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-12">
                     <div class="vd-input has-label-primary">
                         <input v-model="recipe.title"
                             @blur="titleBlur($event)"
@@ -122,6 +135,7 @@
             return {
                 recipe: {
                     id: null,
+                    image: null,
                     title: '',
                     preparation: '',
                     categories: [],
@@ -158,6 +172,21 @@
                             vue.categoriesError = null;
                         }
                     }, 10);
+                },
+
+            // Image
+                previewImage(event) {
+                    let input = event.target;
+
+                    if(input.files && input.files[0]){
+                        let reader = new FileReader();
+                        reader.onload = (e) => {
+                            this.recipe.image = e.target.result;
+                        }
+                        reader.readAsDataURL(input.files[0]);
+                    }else{
+                        this.recipe.image = null;
+                    }
                 },
 
             // Tags

@@ -20399,7 +20399,7 @@ h6 *,
 
 /* Defaults */
 
-.vd-file .vd-file__field {
+.vd-file .vd-file__input {
   display: none;
 }
 
@@ -20418,6 +20418,39 @@ h6 *,
   font-size: 2rem;
   border: dashed #EDAE49 2px;
   cursor: pointer;
+}
+
+.vd-file .vd-file__preview {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 200px;
+}
+
+.vd-file .vd-file__clear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.vd-file .vd-file__clear:hover {
+  opacity: 1;
 }
 
 /* Tags */
