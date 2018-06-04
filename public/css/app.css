@@ -20418,6 +20418,12 @@ h6 *,
   font-size: 2rem;
   border: dashed #EDAE49 2px;
   cursor: pointer;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.vd-file .vd-file__label:hover {
+  background: rgba(89, 60, 143, 0.1);
 }
 
 .vd-file .vd-file__preview {
@@ -20447,6 +20453,8 @@ h6 *,
   font-size: 2rem;
   cursor: pointer;
   opacity: 0;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .vd-file .vd-file__clear:hover {

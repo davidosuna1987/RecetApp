@@ -745,6 +745,11 @@
           font-size: 2rem;
           border: dashed $secondary-color 2px;
           cursor: pointer;
+          transition: all 200ms ease-in-out;
+
+          &:hover{
+            background: rgba($primary-color, 0.1);
+          }
         }
 
         .vd-file__preview{
@@ -768,6 +773,7 @@
           font-size: 2rem;
           cursor: pointer;
           opacity: 0;
+          transition: all 200ms ease-in-out;
 
           &:hover{
             opacity: 1;
