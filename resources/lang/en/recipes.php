@@ -4,6 +4,7 @@ return [
   'create_title' => 'Let\'s create a new <span class="vd-text-secondary">awesome</span> recipe!',
   'edit_title' => 'Let\'s edit your <span class="vd-text-secondary">awesome</span> recipe!',
 
+  'select_image_title' => 'Select recipe image',
   'select_image' => 'Click to select image',
   'clear_image' => 'Click to clear image',
   'title' => 'Recipe title',

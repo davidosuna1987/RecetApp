@@ -3,7 +3,7 @@
         <form @submit.prevent="validateForm()" class="recipe-form" enctype="multipart/form-data">
             <div class="columns is-multiline">
                 <div class="column is-12">
-                    <p class="m-b-15">{{ 'Select recipe image' }}</p>
+                    <p class="m-b-15">{{ trans('recipes.select_image_title') }}</p>
                     <div class="vd-file">
                         <div v-if="!recipe.image" class="vd-file__field">
                             <input id="image" class="vd-file__input" type="file" name="image" accept="image/*" @change="previewImage($event)">

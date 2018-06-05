@@ -46310,7 +46310,7 @@ var render = function() {
         _c("div", { staticClass: "columns is-multiline" }, [
           _c("div", { staticClass: "column is-12" }, [
             _c("p", { staticClass: "m-b-15" }, [
-              _vm._v(_vm._s("Select recipe image"))
+              _vm._v(_vm._s(_vm.trans("recipes.select_image_title")))
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "vd-file" }, [

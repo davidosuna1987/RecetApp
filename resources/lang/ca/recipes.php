@@ -4,6 +4,7 @@ return [
   'create_title' => 'Anem a crear una recepta <span class="vd-text-secondary">increïble</span>!',
   'edit_title' => 'Anem a editar la teva <span class="vd-text-secondary">increïble</span> recepta!',
 
+  'select_image_title' => 'Selecciona imatge per la recepta',
   'select_image' => 'Fes clic per seleccionar l\'imatge',
   'clear_image' => 'Fes clic per esborrar l\'imatge',
   'title' => 'Títol de la recepta',
