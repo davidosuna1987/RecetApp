@@ -14,6 +14,11 @@ class RecipeController extends Controller
 {
     public function index()
     {
+      return view('recipes.index');
+    }
+
+    public function fetch()
+    {
       return response()->json([
         'recipes' => Recipe::with('categories', 'tags', 'ingredients')->get()
       ]);

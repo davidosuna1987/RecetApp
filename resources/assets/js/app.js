@@ -10,6 +10,7 @@ import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate);
 
 Vue.component('recipe-form', require('./components/RecipeForm.vue'));
+Vue.component('recipe-list', require('./components/RecipeList.vue'));
 
 const app = new Vue({
     el: '#app'

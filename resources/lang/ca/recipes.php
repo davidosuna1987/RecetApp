@@ -1,6 +1,7 @@
 <?php
 
 return [
+  'index_title' => 'Anem a veure les <span class="vd-text-secondary">increïbles</span> receptes!',
   'create_title' => 'Anem a crear una recepta <span class="vd-text-secondary">increïble</span>!',
   'edit_title' => 'Anem a editar la teva <span class="vd-text-secondary">increïble</span> recepta!',
 

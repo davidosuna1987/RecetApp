@@ -992,6 +992,7 @@ Vue.prototype.trans = function (string) {
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vee_validate__["a" /* default */]);
 
 Vue.component('recipe-form', __webpack_require__(38));
+Vue.component('recipe-list', __webpack_require__(58));
 
 var app = new Vue({
     el: '#app'
@@ -49474,6 +49475,159 @@ $(document).one('focus.auto-expand', 'textarea.auto-expand', function () {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(39)
+/* script */
+var __vue_script__ = __webpack_require__(59)
+/* template */
+var __vue_template__ = __webpack_require__(60)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/RecipeList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4853cac3", Component.options)
+  } else {
+    hotAPI.reload("data-v-4853cac3", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            recipes: []
+        };
+    },
+
+
+    computed: {
+        backgroundImages: function backgroundImages() {
+            return this.recipes.map(function (recipe) {
+                return recipe.image ? recipe.image : 'https://source.unsplash.com/600x500/?meal';
+            });
+        }
+    },
+
+    methods: {
+        getRecipes: function getRecipes() {
+            var _this = this;
+
+            axios.get('/recipes/fetch').then(function (response) {
+                _this.recipes = response.data.recipes;
+            });
+        }
+    },
+
+    mounted: function mounted() {
+        this.getRecipes();
+    }
+});
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "recipe-list-section" }, [
+    _c(
+      "div",
+      { staticClass: "columns is-multiline bg-full-width" },
+      _vm._l(_vm.recipes, function(recipe, index) {
+        return _c("div", { staticClass: "column is-one-third-tablet" }, [
+          _c("article", { staticClass: "vd-card" }, [
+            _c("div", {
+              staticClass: "vd-card__hero",
+              style: {
+                backgroundImage: "url(" + _vm.backgroundImages[index] + ")"
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "vd-card__content" }, [
+              _c("div", { staticClass: "vd-card__title" }, [
+                _vm._v(_vm._s(recipe.title))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "vd-card__author" })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "vd-card__avatar" })
+          ])
+        ])
+      })
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4853cac3", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
