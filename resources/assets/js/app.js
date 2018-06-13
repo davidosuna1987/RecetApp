@@ -11,6 +11,7 @@ Vue.use(VeeValidate);
 
 Vue.component('recipe-form', require('./components/RecipeForm.vue'));
 Vue.component('recipe-list', require('./components/RecipeList.vue'));
+Vue.component('recipe-card', require('./components/RecipeCard.vue'));
 
 const app = new Vue({
     el: '#app'

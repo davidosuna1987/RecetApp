@@ -971,7 +971,6 @@
       }
 
 
-
 /* Cards */
   .vd-card{
     background: $white-color;
@@ -995,8 +994,11 @@
 
     .vd-card__content{
       flex: 1;
-      padding: 10px;
-      padding-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 10px 20px;
 
       .vd-card__title{
         font-size: 1.4rem;

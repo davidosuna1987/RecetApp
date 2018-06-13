@@ -13,9 +13,19 @@ class User extends Authenticatable
     protected $fillable = [
         'email', 'password',
     ];
+
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $appends = [
+        'full_name'
+    ];
+
+    public function getFullNameAttribute()
+    {
+        return $this->email;
+    }
 
     public function profile()
     {
