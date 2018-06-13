@@ -17,6 +17,7 @@
                         <a class="navbar-link">{{ trans('navbar.recipes') }}</a>
 
                         <div class="navbar-dropdown">
+                            <a class="navbar-item" href="{{ route('recipes.index') }}">{{ trans('navbar.recipes_index') }}</a>
                             <a class="navbar-item" href="{{ route('recipes.create') }}">{{ trans('navbar.recipes_create') }}</a>
                         </div>
                     </div>
