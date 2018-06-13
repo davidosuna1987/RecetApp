@@ -47004,7 +47004,10 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "vd-card__avatar" })
+    _c("div", {
+      staticClass: "vd-card__avatar",
+      style: { backgroundImage: "url(" + _vm.recipe.user.avatar + ")" }
+    })
   ])
 }
 var staticRenderFns = []

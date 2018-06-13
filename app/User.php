@@ -19,12 +19,17 @@ class User extends Authenticatable
     ];
 
     protected $appends = [
-        'full_name'
+        'full_name', 'avatar'
     ];
 
     public function getFullNameAttribute()
     {
         return $this->email;
+    }
+
+    public function getAvatarAttribute()
+    {
+        return 'http://www.gravatar.com/avatar/'.md5($this->email).'fs=150';
     }
 
     public function profile()

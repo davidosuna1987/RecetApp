@@ -5,7 +5,7 @@
             <div class="vd-card__title">{{ recipe.title }}</div>
             <div class="vd-card__author">{{ recipe.user.full_name }}</div>
         </div>
-        <div class="vd-card__avatar"></div>
+        <div class="vd-card__avatar" :style="{backgroundImage: 'url('+recipe.user.avatar+')'}"></div>
     </article>
 </template>
 

@@ -20427,10 +20427,11 @@ h6 *,
 }
 
 .vd-file .vd-file__preview {
-  position: relative;
-  left: 50%;
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
+  left: 50%;
   width: 100vw;
   height: 400px;
   -webkit-transform: translateX(-50%);
@@ -20722,7 +20723,9 @@ h6 *,
 }
 
 .vd-card .vd-card__avatar {
-  background: crimson;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   position: absolute;
   top: 55%;
   left: 50%;
@@ -20731,6 +20734,8 @@ h6 *,
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   border-radius: 999px;
+  -webkit-box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.5);
 }
 
 #app {
