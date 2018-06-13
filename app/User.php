@@ -29,7 +29,7 @@ class User extends Authenticatable
 
     public function getAvatarAttribute()
     {
-        return 'http://www.gravatar.com/avatar/'.md5($this->email).'fs=150';
+        return 'http://www.gravatar.com/avatar/'.md5($this->email).'fs=150?d=retro';
     }
 
     public function profile()
