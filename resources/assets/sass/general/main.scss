@@ -1,13 +1,47 @@
 // Autofill background color white
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px white inset;
-    -webkit-text-fill-color: inherit;
-}
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px white inset;
+      -webkit-text-fill-color: inherit;
+  }
 
-body{
-  background-color: $light-color;
-  font-family: 'IBMPlexSans-300', 'system-ui', 'Open Sans', sans-serif;
-}
+/* Reset */
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: normal;
+    line-height: normal;
+  }
+
+  :after,:before{
+    box-sizing: border-box;
+  }
+
+  ::placeholder{
+    color: gainsboro;
+  }
+
+  body{
+    font-family: $font-primary;
+    font-size: 1rem;
+    background-color: $light-color;
+    color: $text-color;
+  }
+
+  /* Mozilla based browsers */
+  ::-moz-selection{
+    background-color: #FFA;
+    color: #000;
+  }
+
+  /* Works in Safari */
+  ::selection{
+    background-color: #FFA;
+    color: #000;
+  }

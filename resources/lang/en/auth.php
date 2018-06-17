@@ -21,7 +21,7 @@ return [
     'password' => 'Password',
     'remember' => 'Remember me',
     'forgot' => 'Forgot your password?',
-    'register' => 'Sign in',
+    'register' => 'Sign up',
     'first_name' => 'First name',
     'last_name' => 'Last name',
     'password_confirmation' => 'Confirm password',

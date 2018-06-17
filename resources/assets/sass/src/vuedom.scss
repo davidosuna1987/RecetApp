@@ -1,51 +1,12 @@
-/* Reset */
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    font-weight: 400;
-    font-size: 1rem;
-    letter-spacing: normal;
-    line-height: normal;
-  }
-
-  :after,:before{
-    box-sizing: border-box;
-  }
-
-  ::placeholder{
-    color: gainsboro;
-  }
-
-  body{
-    color: $text-color;
-    font-size: 1rem;
-    font-family: sans-serif;
-  }
-
-  /* Mozilla based browsers */
-  ::-moz-selection{
-         background-color: #FFA;
-         color: #000;
-  }
-
-  /* Works in Safari */
-  ::selection{
-         background-color: #FFA;
-         color: #000;
-  }
-
-
 /* Tipography*/
   /* Defaults */
     h1,h2,h3,h4,h5,h6{
       margin: 20px 0 12px;
-      font-weight: 500;
+      // font-family: $font-primary-400;
     }
 
     h1 *,h2 *,h3 *,h4 *,h5 *,h6 *{
-      font-weight: 500;
+      // font-family: $font-primary-400;
     }
 
     p{ margin-bottom: 8px; }
@@ -364,11 +325,11 @@
       }
 
       .vd-checkbox input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
-        box-shadow: 0 0 0 0.125em rgba(54, 54, 54, 0.25);
+        box-shadow: 0 0 0 0.125em rgba($text-color, 0.25);
       }
 
       .vd-checkbox input:focus:checked + .vd-checkbox__info .vd-checkbox__check:before{
-        box-shadow: 2px 2px 0px 0.025em rgba(54, 54, 54, 0.25);
+        box-shadow: 2px 2px 0px 0.025em rgba($text-color, 0.25);
       }
 
     /* Colors */
@@ -743,7 +704,7 @@
           align-items: center;
           justify-content: center;
           font-size: 2rem;
-          border: dashed $secondary-color 2px;
+          border: dashed rgba($secondary-color, 0.5) 2px;
           cursor: pointer;
           transition: all 200ms ease-in-out;
 
@@ -758,7 +719,8 @@
           background-size: cover;
           position: relative;
           left: 50%;
-          width: 100vw;
+          // width: 100vw;
+          width: calc(100% + 208px);
           height: 400px;
           transform: translateX(-50%);
         }

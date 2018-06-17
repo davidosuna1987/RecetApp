@@ -46432,7 +46432,7 @@ var render = function() {
                 return _c(
                   "label",
                   {
-                    staticClass: "vd-checkbox is-secondary",
+                    staticClass: "vd-checkbox is-primary",
                     attrs: { for: "cat-" + category.id }
                   },
                   [
@@ -46511,7 +46511,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "columns m-t-30" }, [
-          _c("div", { staticClass: "column is-4" }, [
+          _c("div", { staticClass: "column is-5" }, [
             _c(
               "div",
               { staticClass: "ingredients" },
@@ -46622,7 +46622,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "column is-8" }, [
+          _c("div", { staticClass: "column is-7" }, [
             _c("p", { staticClass: "m-b-15" }, [
               _vm._v(_vm._s(_vm.trans("recipes.preparation")))
             ]),

@@ -32,7 +32,7 @@
 
                 <div class="column is-12 m-t-25">
                     <p class="m-b-15">{{ trans('recipes.select_categories') }}</p>
-                    <label v-for="category in categories" :for="'cat-'+category.id" class="vd-checkbox is-secondary">
+                    <label v-for="category in categories" :for="'cat-'+category.id" class="vd-checkbox is-primary">
                         <input v-model="recipe.categories"
                             @input="setCategoriesError()"
                             name="categories[]"
@@ -50,7 +50,7 @@
             </div>
 
             <div class="columns m-t-30">
-                <div class="column is-4">
+                <div class="column is-5">
                     <div class="ingredients">
                         <p class="m-b-15">{{ trans('recipes.ingredients') }}</p>
 
@@ -74,7 +74,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="column is-8">
+                <div class="column is-7">
                     <p class="m-b-15">{{ trans('recipes.preparation') }}</p>
 
                     <div class="vd-textarea has-label-primary m-t-0">

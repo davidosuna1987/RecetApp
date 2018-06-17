@@ -14,6 +14,24 @@ $grey-light-color: #B5B5B5;
 $grey-lighter-color: #DBDBDB;
 $light-color: #F5F5F5;
 $white-color: #FFFFFF;
+$border-color: rgba(0, 0, 0, 0.0975);
 
 $navbar-item-hover-color: $turquoise !default;
 $primary: $primary-color !default;
+
+// Fonts
+$font-primary: 'IBMPlexSans-300', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-100: 'IBMPlexSans-100', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-200: 'IBMPlexSans-200', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-400: 'IBMPlexSans-400', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-500: 'IBMPlexSans-500', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-600: 'IBMPlexSans-600', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-700: 'IBMPlexSans-700', 'system-ui', 'Open Sans', sans-serif;
+
+$font-primary-italic: 'IBMPlexSansItalic-300', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-italic-100: 'IBMPlexSansItalic-100', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-italic-200: 'IBMPlexSansItalic-200', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-italic-400: 'IBMPlexSansItalic-400', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-italic-500: 'IBMPlexSansItalic-500', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-italic-600: 'IBMPlexSansItalic-600', 'system-ui', 'Open Sans', sans-serif;
+$font-primary-italic-700: 'IBMPlexSansItalic-700', 'system-ui', 'Open Sans', sans-serif;
