@@ -1,10 +1,20 @@
 .footer{
+  border-top: solid 1px rgba(0, 0, 0, 0.0975);
+
   &.is-primary{ background-color: $primary; }
   &.is-secondary{ background-color: $secondary-color; }
   &.is-info{ background-color: $info-color; }
   &.is-danger{ background-color: $danger-color; }
   &.is-success{ background-color: $success-color; }
   &.is-warning{ background-color: $warning-color; }
+
+  a{
+    color: $primary-color;
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 
   &.is-primary, &.is-secondary, &.is-info, &.is-danger, &.is-success{
     color: $white-color;
@@ -14,12 +24,7 @@
     }
 
     a{
-      // color: #D85454;
       color: $secondary-color;
-
-      &:hover{
-        text-decoration: underline;
-      }
     }
   }
 }

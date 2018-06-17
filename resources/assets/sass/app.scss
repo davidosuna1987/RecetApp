@@ -1,7 +1,3 @@
-
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
 // Initial bulma variables
 @import "src/initial-variables.sass";
 
@@ -22,6 +18,9 @@
 @import "general/main";
 @import "general/utils";
 @import "general/helpers";
+
+// Components
+@import "components/navbar";
 
 // Overrides
 @import "general/overrides";

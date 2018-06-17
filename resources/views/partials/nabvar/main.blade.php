@@ -1,4 +1,4 @@
-<nav class="navbar is-primary has-shadow is-fixed-top">
+<nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
             <a href="{{ url('/') }}" class="navbar-item">{{ config('app.name', 'RecetApp') }}</a>
