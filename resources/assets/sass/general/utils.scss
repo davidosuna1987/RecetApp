@@ -1,0 +1,20 @@
+.gradient-primary{
+  background: linear-gradient(45deg, $primary-color 1%, rgba($primary-color, 0.6) 100%);
+}
+
+.bg-full-width{
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100%;
+    background: $light-color;
+    transform: translateX(-50%);
+  }
+}

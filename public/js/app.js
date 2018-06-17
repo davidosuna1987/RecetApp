@@ -46877,7 +46877,7 @@ var render = function() {
   return _c("section", { staticClass: "recipe-list-section" }, [
     _c(
       "div",
-      { staticClass: "columns is-multiline bg-full-width" },
+      { staticClass: "columns is-multiline" },
       _vm._l(_vm.recipes, function(recipe, index) {
         return _c(
           "div",
@@ -46970,10 +46970,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             type: Object,
             required: true,
             default: {}
+        },
+        link: {
+            type: Boolean,
+            required: false,
+            default: true
         }
     },
 
     computed: {
+        recipeLink: function recipeLink() {
+            return this.link ? '/recipes/' + this.recipe.id : null;
+        },
         backgroundImage: function backgroundImage() {
             return this.recipe.image ? this.recipe.image : 'https://source.unsplash.com/600x500/?meal';
         }
@@ -46988,27 +46996,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("article", { staticClass: "vd-card" }, [
-    _c("div", {
-      staticClass: "vd-card__hero",
-      style: { backgroundImage: "url(" + _vm.backgroundImage + ")" }
-    }),
-    _vm._v(" "),
-    _c("div", { staticClass: "vd-card__content" }, [
-      _c("div", { staticClass: "vd-card__title" }, [
-        _vm._v(_vm._s(_vm.recipe.title))
+  return _c(
+    "a",
+    {
+      staticClass: "vd-card",
+      style: { pointerEvents: _vm.link ? "all" : "none" },
+      attrs: { href: _vm.recipeLink }
+    },
+    [
+      _c("div", {
+        staticClass: "vd-card__hero",
+        style: { backgroundImage: "url(" + _vm.backgroundImage + ")" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "vd-card__content" }, [
+        _c("div", { staticClass: "vd-card__title" }, [
+          _vm._v(_vm._s(_vm.recipe.title))
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "vd-card__author" }, [
+          _vm._v(_vm._s(_vm.recipe.user.full_name))
+        ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "vd-card__author" }, [
-        _vm._v(_vm._s(_vm.recipe.user.full_name))
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", {
-      staticClass: "vd-card__avatar",
-      style: { backgroundImage: "url(" + _vm.recipe.user.avatar + ")" }
-    })
-  ])
+      _c("div", {
+        staticClass: "vd-card__avatar",
+        style: { backgroundImage: "url(" + _vm.recipe.user.avatar + ")" }
+      })
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

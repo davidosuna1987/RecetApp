@@ -11,6 +11,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @include('partials.assets.styles')
         @stack('styles')
     </head>
     <body>

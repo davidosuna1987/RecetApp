@@ -7,21 +7,7 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: inherit;
 }
 
-.gradient-primary{
-  background: linear-gradient(45deg, $primary-color 1%, rgba($primary-color, 0.6) 100%);
-}
-
-.bg-full-width{
-  position: relative;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 100vw;
-    height: 100%;
-    background: #F5F5F5;
-    transform: translateX(-50%);
-  }
+body{
+  background-color: $light-color;
+  font-family: 'IBMPlexSans-300', 'Open Sans', sans-serif;
 }
