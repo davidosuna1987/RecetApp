@@ -3,7 +3,7 @@
 @section('content')
     <div class="columns is-marginless is-centered">
         <div class="column is-5">
-            <h1 class="m-t-60 m-b-40">{{ trans('auth.password_reset') }}</h1>
+            <h1 class="m-b-40">{{ trans('auth.password_reset') }}</h1>
             @if (session('status'))
                 <div class="notification is-info">
                     {{ session('status') }}

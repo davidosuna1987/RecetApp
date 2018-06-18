@@ -21,6 +21,8 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "vee-validate": "^2.0.9"
+        "@mdi/font": "^2.4.85",
+        "vee-validate": "^2.0.9",
+        "vue-line-clamp": "^1.2.3"
     }
 }

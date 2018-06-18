@@ -19,4 +19,6 @@ return [
   'tags_placeholder' => 'Add tag',
   'update' => 'Update recipe!',
   'create' => 'Create recipe!',
+
+  'comments_placeholder' => 'Add a comment...',
 ];

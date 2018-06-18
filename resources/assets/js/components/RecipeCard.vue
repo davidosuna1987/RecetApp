@@ -1,12 +1,33 @@
 <template>
-    <a :href="recipeLink" class="vd-card" :style="{pointerEvents: link ? 'all' : 'none'}">
-        <div class="vd-card__hero" :style="{backgroundImage: 'url('+backgroundImage+')'}"></div>
-        <div class="vd-card__content">
-            <div class="vd-card__title">{{ recipe.title }}</div>
+    <article class="vd-card">
+        <a :href="authorLink" class="vd-card__header">
+            <div class="vd-card__avatar" :style="{backgroundImage: 'url('+recipe.user.avatar+')'}"></div>
             <div class="vd-card__author">{{ recipe.user.full_name }}</div>
+        </a>
+        <a :href="recipeLink" class="vd-card__hero"
+            :style="{backgroundImage: 'url('+backgroundImage+')', pointerEvents: link ? 'all' : 'none'}">
+        </a>
+        <div class="vd-card__content">
+            <div class="vd-card__actions">
+                <a href="">
+                    <span class="icon is-medium">
+                      <i class="mdi mdi-24px mdi-heart-outline"></i>
+                    </span>
+                </a>
+                <a href="">
+                    <span class="icon is-medium">
+                      <i class="mdi mdi-24px mdi-comment-outline"></i>
+                    </span>
+                </a>
+            </div>
+            <a :href="authorLink" class="vd-card__title">{{ recipe.title }}</a>
+            <div class="vd-card__text" v-line-clamp="2">{{ recipe.preparation }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eligendi hic architecto, debitis, animi expedita quas tenetur? Ut explicabo sint, sunt assumenda, et, nobis nam iste animi natus, possimus ipsam.</div>
+            <div class="vd-card__comments"></div>
+            <div class="vd-card__comment-box">
+                <input class="vd-card__comment-input" type="text" :placeholder="trans('recipes.comments_placeholder')">
+            </div>
         </div>
-        <div class="vd-card__avatar" :style="{backgroundImage: 'url('+recipe.user.avatar+')'}"></div>
-    </a>
+    </article>
 </template>
 
 <script>
@@ -25,6 +46,9 @@
         },
 
         computed: {
+            authorLink() {
+                return '';
+            },
             recipeLink() {
                 return this.link ? '/recipes/' + this.recipe.id : null;
             },

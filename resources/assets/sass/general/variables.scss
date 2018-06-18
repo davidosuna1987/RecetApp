@@ -1,8 +1,5 @@
+// Colors
 $primary-color: #9C3CF5;
-// $primary-color: #F9C500;
-// $primary-color: #FD9662;
-// $primary-color: #593C8F;
-// $secondary-color: #00D1B2;
 $secondary-color: #EDAE49 ;
 $info-color: #209CEE;
 $success-color: #23D160;
@@ -18,6 +15,8 @@ $border-color: rgba(0, 0, 0, 0.0975);
 
 $navbar-item-hover-color: $turquoise !default;
 $primary: $primary-color !default;
+
+$box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
 
 // Fonts
 $font-primary: 'IBMPlexSans-300', 'system-ui', 'Open Sans', sans-serif;

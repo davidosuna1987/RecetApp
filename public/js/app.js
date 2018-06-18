@@ -1076,7 +1076,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(59);
+module.exports = __webpack_require__(60);
 
 
 /***/ }),
@@ -1086,29 +1086,39 @@ module.exports = __webpack_require__(59);
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vee_validate__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_line_clamp__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_line_clamp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_line_clamp__);
 __webpack_require__(12);
 
 window.Vue = __webpack_require__(35);
 
 window.trans = function (string) {
-    return _.get(window.i18n, string);
+  return _.get(window.i18n, string);
 };
 Vue.prototype.trans = function (string) {
-    return _.get(window.i18n, string);
+  return _.get(window.i18n, string);
 };
 
+// Libraries
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vee_validate__["a" /* default */]);
 
-Vue.component('recipe-form', __webpack_require__(39));
-Vue.component('recipe-list', __webpack_require__(42));
-Vue.component('recipe-card', __webpack_require__(45));
 
-var app = new Vue({
-    el: '#app'
+Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_line_clamp___default.a, {
+  // plugin options (show in https://github.com/Frondor/vue-line-clamp)
 });
 
-__webpack_require__(48);
+// Components
+Vue.component('recipe-form', __webpack_require__(40));
+Vue.component('recipe-list', __webpack_require__(43));
+Vue.component('recipe-card', __webpack_require__(46));
+
+// Instance
+var app = new Vue({
+  el: '#app'
+});
+
+__webpack_require__(49);
 
 /***/ }),
 /* 12 */
@@ -45906,12 +45916,108 @@ var index_esm = {
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
+(function (global, factory) {
+	 true ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.VueLineClamp = factory());
+}(this, (function () { 'use strict';
+
+var css = 'display:block;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis';
+var currentValueProp = "vLineClampValue";
+
+function defaultFallbackFunc(el, bindings, lines) {
+  if (lines) {
+    var lineHeight = parseInt(bindings.arg);
+    if (isNaN(lineHeight)) {
+      console.warn('line-height argument for vue-line-clamp must be a number (of pixels), falling back to 16px');
+      lineHeight = 16;
+    }
+
+    var maxHeight = lineHeight * lines;
+
+    el.style.maxHeight = maxHeight ? maxHeight + 'px' : '';
+    el.style.overflowX = 'hidden';
+    el.style.lineHeight = lineHeight + 'px'; // to ensure consistency
+  } else {
+    el.style.maxHeight = el.style.overflowX = '';
+  }
+}
+
+var truncateText = function truncateText(el, bindings, useFallbackFunc) {
+  var lines = parseInt(bindings.value);
+  if (isNaN(lines)) {
+    console.error('Parameter for vue-line-clamp must be a number');
+    return;
+  } else if (lines !== el[currentValueProp]) {
+    el[currentValueProp] = lines;
+
+    if (useFallbackFunc) {
+      useFallbackFunc(el, bindings, lines);
+    } else {
+      el.style.webkitLineClamp = lines ? lines : '';
+    }
+  }
+};
+
+var VueLineClamp = {
+  install: function install(Vue, options) {
+    options = Object.assign({
+      importCss: false
+    }, options);
+
+    if (options.importCss) {
+      var stylesheets = window.document.styleSheets,
+          rule = '.vue-line-clamp{' + css + '}';
+      if (stylesheets && stylesheets[0] && stylesheets.insertRule) {
+        stylesheets.insertRule(rule);
+      } else {
+        var link = window.document.createElement('style');
+        link.id = 'vue-line-clamp';
+        link.appendChild(window.document.createTextNode(rule));
+        window.document.head.appendChild(link);
+      }
+    }
+
+    var useFallbackFunc = "webkitLineClamp" in document.body.style ? undefined : options.fallbackFunc || defaultFallbackFunc;
+
+    Vue.directive('line-clamp', {
+      currentValue: 0,
+      bind: function bind(el) {
+        if (!options.importCss) {
+          el.style.cssText += css;
+        } else {
+          el.classList.add('vue-line-clamp');
+        }
+      },
+
+      inserted: function inserted(el, bindings) {
+        return truncateText(el, bindings, useFallbackFunc);
+      },
+      updated: function updated(el, bindings) {
+        return truncateText(el, bindings, useFallbackFunc);
+      },
+      componentUpdated: function componentUpdated(el, bindings) {
+        return truncateText(el, bindings, useFallbackFunc);
+      }
+    });
+  }
+};
+
+return VueLineClamp;
+
+})));
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(40)
+var __vue_script__ = __webpack_require__(41)
 /* template */
-var __vue_template__ = __webpack_require__(41)
+var __vue_template__ = __webpack_require__(42)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -45950,7 +46056,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46288,7 +46394,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -46780,15 +46886,15 @@ if (false) {
 }
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(43)
+var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(44)
+var __vue_template__ = __webpack_require__(45)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -46827,7 +46933,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46867,7 +46973,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -46881,7 +46987,7 @@ var render = function() {
       _vm._l(_vm.recipes, function(recipe, index) {
         return _c(
           "div",
-          { staticClass: "column is-one-third-tablet" },
+          { staticClass: "column is-half-tablet" },
           [_c("recipe-card", { attrs: { recipe: recipe } })],
           1
         )
@@ -46900,15 +47006,15 @@ if (false) {
 }
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(46)
+var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(47)
+var __vue_template__ = __webpack_require__(48)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -46947,11 +47053,32 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -46979,6 +47106,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     computed: {
+        authorLink: function authorLink() {
+            return '';
+        },
         recipeLink: function recipeLink() {
             return this.link ? '/recipes/' + this.recipe.id : null;
         },
@@ -46989,44 +47119,102 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "a",
-    {
-      staticClass: "vd-card",
-      style: { pointerEvents: _vm.link ? "all" : "none" },
-      attrs: { href: _vm.recipeLink }
-    },
-    [
-      _c("div", {
-        staticClass: "vd-card__hero",
-        style: { backgroundImage: "url(" + _vm.backgroundImage + ")" }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "vd-card__content" }, [
-        _c("div", { staticClass: "vd-card__title" }, [
-          _vm._v(_vm._s(_vm.recipe.title))
-        ]),
+  return _c("article", { staticClass: "vd-card" }, [
+    _c(
+      "a",
+      { staticClass: "vd-card__header", attrs: { href: _vm.authorLink } },
+      [
+        _c("div", {
+          staticClass: "vd-card__avatar",
+          style: { backgroundImage: "url(" + _vm.recipe.user.avatar + ")" }
+        }),
         _vm._v(" "),
         _c("div", { staticClass: "vd-card__author" }, [
           _vm._v(_vm._s(_vm.recipe.user.full_name))
         ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("a", {
+      staticClass: "vd-card__hero",
+      style: {
+        backgroundImage: "url(" + _vm.backgroundImage + ")",
+        pointerEvents: _vm.link ? "all" : "none"
+      },
+      attrs: { href: _vm.recipeLink }
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "vd-card__content" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "vd-card__title", attrs: { href: _vm.authorLink } },
+        [_vm._v(_vm._s(_vm.recipe.title))]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "line-clamp",
+              rawName: "v-line-clamp",
+              value: 2,
+              expression: "2"
+            }
+          ],
+          staticClass: "vd-card__text"
+        },
+        [
+          _vm._v(
+            _vm._s(_vm.recipe.preparation) +
+              " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eligendi hic architecto, debitis, animi expedita quas tenetur? Ut explicabo sint, sunt assumenda, et, nobis nam iste animi natus, possimus ipsam."
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "vd-card__comments" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "vd-card__comment-box" }, [
+        _c("input", {
+          staticClass: "vd-card__comment-input",
+          attrs: {
+            type: "text",
+            placeholder: _vm.trans("recipes.comments_placeholder")
+          }
+        })
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "vd-card__actions" }, [
+      _c("a", { attrs: { href: "" } }, [
+        _c("span", { staticClass: "icon is-medium" }, [
+          _c("i", { staticClass: "mdi mdi-24px mdi-heart-outline" })
+        ])
       ]),
       _vm._v(" "),
-      _c("div", {
-        staticClass: "vd-card__avatar",
-        style: { backgroundImage: "url(" + _vm.recipe.user.avatar + ")" }
-      })
-    ]
-  )
-}
-var staticRenderFns = []
+      _c("a", { attrs: { href: "" } }, [
+        _c("span", { staticClass: "icon is-medium" }, [
+          _c("i", { staticClass: "mdi mdi-24px mdi-comment-outline" })
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -47037,18 +47225,17 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(49);
-__webpack_require__(58);
-
-/***/ }),
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 __webpack_require__(50);
+__webpack_require__(59);
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
 __webpack_require__(51);
 __webpack_require__(52);
 __webpack_require__(53);
@@ -47056,9 +47243,10 @@ __webpack_require__(54);
 __webpack_require__(55);
 __webpack_require__(56);
 __webpack_require__(57);
+__webpack_require__(58);
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports) {
 
 (function () {
@@ -47093,7 +47281,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -48168,7 +48356,7 @@ return datePicker;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -48666,7 +48854,7 @@ return Carousel;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports) {
 
 var bulmaIconpicker = (function () {
@@ -48940,7 +49128,7 @@ return IconPicker;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports) {
 
 (function () {
@@ -49009,7 +49197,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports) {
 
 (function () {
@@ -49094,7 +49282,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports) {
 
 var bulmaSteps = (function () {
@@ -49312,7 +49500,7 @@ return StepsWizard;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -49687,7 +49875,7 @@ return Tagify;
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports) {
 
 // Bulma NavBar Burger Script
@@ -49729,7 +49917,7 @@ $(document).one('focus.auto-expand', 'textarea.auto-expand', function () {
 });
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

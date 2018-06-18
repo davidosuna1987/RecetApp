@@ -2,7 +2,7 @@
 
 return [
     'login' => 'Login',
-    'register' => 'Sign in',
+    'register' => 'Sign up',
     'logout' => 'Logout',
     'recipes' => 'Recipes',
     'recipes_index' => 'Show recipes',

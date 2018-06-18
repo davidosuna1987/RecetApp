@@ -1,7 +1,7 @@
 <template>
     <section class="recipe-list-section">
         <div class="columns is-multiline">
-            <div v-for="(recipe, index) in recipes" class="column is-one-third-tablet">
+            <div v-for="(recipe, index) in recipes" class="column is-half-tablet">
                 <recipe-card :recipe="recipe"></recipe-card>
             </div>
         </div>

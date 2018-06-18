@@ -19,4 +19,6 @@ return [
   'tags_placeholder' => 'Afegir etiqueta',
   'update' => 'Actualitzar recepta!',
   'create' => 'Crear recepta!',
+
+  'comments_placeholder' => 'Afegeix un comentari...',
 ];

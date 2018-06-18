@@ -3,7 +3,7 @@
 @section('content')
     <div class="columns is-marginless is-centered">
         <div class="column is-5">
-            <h1 class="m-t-60 m-b-40">{{ trans('auth.login') }}</h1>
+            <h1 class="m-b-40">{{ trans('auth.login') }}</h1>
             <form class="login-form" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
 
