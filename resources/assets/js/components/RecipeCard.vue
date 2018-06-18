@@ -21,7 +21,7 @@
                 </a>
             </div>
             <a :href="authorLink" class="vd-card__title">{{ recipe.title }}</a>
-            <div class="vd-card__text" v-line-clamp="2">{{ recipe.preparation }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eligendi hic architecto, debitis, animi expedita quas tenetur? Ut explicabo sint, sunt assumenda, et, nobis nam iste animi natus, possimus ipsam.</div>
+            <div class="vd-card__text" v-line-clamp="2">{{ recipe.preparation }}</div>
             <div class="vd-card__comments"></div>
             <div class="vd-card__comment-box">
                 <input class="vd-card__comment-input" type="text" :placeholder="trans('recipes.comments_placeholder')">

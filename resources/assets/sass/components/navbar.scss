@@ -10,6 +10,16 @@
     max-width: 1100px;
   }
 
+  .avatar{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 999px;
+    margin-right: 5px;
+    height: 25px;
+    width: 25px;
+  }
+
   &:not([class*="is-"]){
     a{
       &:hover{

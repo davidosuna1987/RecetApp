@@ -47173,12 +47173,7 @@ var render = function() {
           ],
           staticClass: "vd-card__text"
         },
-        [
-          _vm._v(
-            _vm._s(_vm.recipe.preparation) +
-              " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eligendi hic architecto, debitis, animi expedita quas tenetur? Ut explicabo sint, sunt assumenda, et, nobis nam iste animi natus, possimus ipsam."
-          )
-        ]
+        [_vm._v(_vm._s(_vm.recipe.preparation))]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "vd-card__comments" }),

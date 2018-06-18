@@ -43,7 +43,10 @@
                     <a class="navbar-item " href="{{ route('register') }}">{{ trans('navbar.register') }}</a>
                 @else
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">{{ trans('navbar.hello') }} {{ Auth::user()->profile->first_name }}!</a>
+                        <a class="navbar-link">
+                            <span class="avatar" style="background-image: url({{ Auth::user()->avatar }})"></span>
+                            {{ trans('navbar.hello') }} {{ Auth::user()->profile->first_name }}!
+                        </a>
 
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="{{ route('logout') }}"
