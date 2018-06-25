@@ -21,4 +21,5 @@ return [
   'create' => 'Create recipe!',
 
   'comments_placeholder' => 'Add a comment...',
+  'likes' => ':count likes',
 ];

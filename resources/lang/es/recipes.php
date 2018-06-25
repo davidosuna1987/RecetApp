@@ -21,4 +21,5 @@ return [
   'create' => '¡Crear receta!',
 
   'comments_placeholder' => 'Añade un comentario...',
+  'likes' => ':count me gusta',
 ];

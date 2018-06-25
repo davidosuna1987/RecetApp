@@ -38,6 +38,12 @@ Route::group(['middleware' => 'auth'], function(){
   // Route::get('/categories/create', 'CategoryController@create')->name('categories.create');
   // Route::post('/categories', 'CategoryController@store')->name('categories.store');
 
+  // Likes routes
+  Route::post('/likes', 'LikeController@toggle')->name('likes.toggle');
+
+  // Authuser routes
+  Route::get('/authuser', 'UserController@authuser')->name('authuser');
+
   // Test routes
   Route::get('/test/user', function(){
     dump(Auth::user()->load('profile'));

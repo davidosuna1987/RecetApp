@@ -21,4 +21,5 @@ return [
   'create' => 'Crear recepta!',
 
   'comments_placeholder' => 'Afegeix un comentari...',
+  'likes' => ':count m\'agrada',
 ];

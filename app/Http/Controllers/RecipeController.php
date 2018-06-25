@@ -20,13 +20,13 @@ class RecipeController extends Controller
     public function fetch()
     {
       return response()->json([
-        'recipes' => Recipe::with('user', 'categories', 'tags', 'ingredients')->get()
+        'recipes' => Recipe::with('user', 'categories', 'tags', 'ingredients', 'likes')->get()
       ]);
     }
 
     public function get($id)
     {
-      $recipe = Recipe::findOrFail($id)->load('user', 'categories', 'tags', 'ingredients');
+      $recipe = Recipe::findOrFail($id)->load('user', 'categories', 'tags', 'ingredients', 'likes');
 
       $tags = [];
       $categories = [];
@@ -124,7 +124,7 @@ class RecipeController extends Controller
 
     public function show($id)
     {
-      $recipe = Recipe::findOrFail($id)->load('user', 'categories', 'tags', 'ingredients');
+      $recipe = Recipe::findOrFail($id)->load('user', 'categories', 'tags', 'ingredients', 'likes');
       dump($recipe);
     }
 
@@ -197,7 +197,7 @@ class RecipeController extends Controller
       $recipe->ingredients()->attach($ingredients);
 
       return response()->json([
-        'recipe' => $recipe->load('user', 'categories', 'tags', 'ingredients')
+        'recipe' => $recipe->load('user', 'categories', 'tags', 'ingredients', 'likes')
       ]);
     }
 }

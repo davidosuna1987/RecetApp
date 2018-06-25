@@ -29,4 +29,9 @@ class Recipe extends Model
     {
       return $this->belongsToMany(Ingredient::class);
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }

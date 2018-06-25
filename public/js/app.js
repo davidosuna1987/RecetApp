@@ -1095,8 +1095,14 @@ window.Vue = __webpack_require__(35);
 window.trans = function (string) {
   return _.get(window.i18n, string);
 };
-Vue.prototype.trans = function (string) {
-  return _.get(window.i18n, string);
+// Vue.prototype.trans = string => _.get(window.i18n, string);
+Vue.prototype.trans = function (string, args) {
+  var value = _.get(window.i18n, string);
+
+  _.eachRight(args, function (paramVal, paramKey) {
+    value = _.replace(value, ':' + paramKey, paramVal);
+  });
+  return value;
 };
 
 // Libraries
@@ -1115,7 +1121,32 @@ Vue.component('recipe-card', __webpack_require__(46));
 
 // Instance
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+
+  data: function data() {
+    return {
+      authuser: {}
+    };
+  },
+
+
+  methods: {
+    getAuthuser: function getAuthuser() {
+      var _this = this;
+
+      axios.get('/authuser').then(function (response) {
+        _this.authuser = response.data.authuser;
+      }).catch(function (error) {
+        if (error.response && error.response.status && error.response.status === 419) location.href = '/login';
+
+        console.info(error);
+      });
+    }
+  },
+
+  mounted: function mounted() {
+    this.getAuthuser();
+  }
 });
 
 __webpack_require__(49);
@@ -47090,6 +47121,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -47114,6 +47147,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         backgroundImage: function backgroundImage() {
             return this.recipe.image ? this.recipe.image : 'https://source.unsplash.com/600x500/?meal';
+        },
+        authuserLike: function authuserLike() {
+            var vue = this;
+            return _.find(vue.$root.authuser.likes, function (like) {
+                return like.recipe_id === vue.recipe.id;
+            });
+        }
+    },
+
+    methods: {
+        toggleLike: function toggleLike(recipe_id) {
+            var _this = this;
+
+            var formData = new FormData();
+            formData.set('user_id', this.$root.authuser.id);
+            formData.set('recipe_id', recipe_id);
+
+            axios.post('/likes', formData).then(function (response) {
+                _this.$root.getAuthuser();
+                if (response.data.action === 'like') {
+                    _this.recipe.likes.push(response.data.like);
+                } else {
+                    var index = _this.recipe.likes.map(function (like) {
+                        return like.id;
+                    }).indexOf(_this.recipe.likes.id);
+                    _this.recipe.likes.splice(index, 1);
+                }
+            }).catch(function (error) {
+                if (error.response && error.response.status && error.response.status === 419) location.href = '/login';
+
+                console.info(error);
+            });
         }
     }
 });
@@ -47152,7 +47217,37 @@ var render = function() {
     }),
     _vm._v(" "),
     _c("div", { staticClass: "vd-card__content" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "vd-card__actions" }, [
+        _c(
+          "a",
+          {
+            attrs: { href: "" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.toggleLike(_vm.recipe.id)
+              }
+            }
+          },
+          [
+            _c("span", { staticClass: "icon is-medium" }, [
+              _vm.authuserLike
+                ? _c("i", {
+                    staticClass: "has-text-danger mdi mdi-24px mdi-heart"
+                  })
+                : _c("i", { staticClass: "mdi mdi-24px mdi-heart-outline" })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(0)
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "help m-t-0 m-b-5" }, [
+        _vm._v(
+          _vm._s(_vm.trans("recipes.likes", { count: _vm.recipe.likes.length }))
+        )
+      ]),
       _vm._v(" "),
       _c(
         "a",
@@ -47195,17 +47290,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "vd-card__actions" }, [
-      _c("a", { attrs: { href: "" } }, [
-        _c("span", { staticClass: "icon is-medium" }, [
-          _c("i", { staticClass: "mdi mdi-24px mdi-heart-outline" })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "" } }, [
-        _c("span", { staticClass: "icon is-medium" }, [
-          _c("i", { staticClass: "mdi mdi-24px mdi-comment-outline" })
-        ])
+    return _c("a", { attrs: { href: "" } }, [
+      _c("span", { staticClass: "icon is-medium" }, [
+        _c("i", { staticClass: "mdi mdi-24px mdi-comment-outline" })
       ])
     ])
   }
