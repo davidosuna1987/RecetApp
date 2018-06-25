@@ -1,51 +1,12 @@
-/* Reset */
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    font-weight: 400;
-    font-size: 1rem;
-    letter-spacing: normal;
-    line-height: normal;
-  }
-
-  :after,:before{
-    box-sizing: border-box;
-  }
-
-  ::placeholder{
-    color: gainsboro;
-  }
-
-  body{
-    color: $text-color;
-    font-size: 1rem;
-    font-family: sans-serif;
-  }
-
-  /* Mozilla based browsers */
-  ::-moz-selection {
-         background-color: #FFA;
-         color: #000;
-  }
-
-  /* Works in Safari */
-  ::selection {
-         background-color: #FFA;
-         color: #000;
-  }
-
-
 /* Tipography*/
   /* Defaults */
     h1,h2,h3,h4,h5,h6{
       margin: 20px 0 12px;
-      font-weight: 500;
+      // font-family: $font-primary-400;
     }
 
     h1 *,h2 *,h3 *,h4 *,h5 *,h6 *{
-      font-weight: 500;
+      // font-family: $font-primary-400;
     }
 
     p{ margin-bottom: 8px; }
@@ -167,7 +128,7 @@
         transition: color 100ms ease-in-out;
       }
 
-      .vd-radio__check:before {
+      .vd-radio__check:before{
         content: '';
         position: absolute;
         top: 0;
@@ -178,7 +139,7 @@
         border-radius: 999px;
       }
 
-      .vd-radio__check:after {
+      .vd-radio__check:after{
         content: '';
         position: absolute;
         top: 0px;
@@ -340,7 +301,7 @@
         transition: color 100ms ease-in-out;
       }
 
-      .vd-checkbox__check:before {
+      .vd-checkbox__check:before{
         content: '';
         position: absolute;
         top: 0;
@@ -364,11 +325,11 @@
       }
 
       .vd-checkbox input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
-        box-shadow: 0 0 0 0.125em rgba(54, 54, 54, 0.25);
+        box-shadow: 0 0 0 0.125em rgba($text-color, 0.25);
       }
 
       .vd-checkbox input:focus:checked + .vd-checkbox__info .vd-checkbox__check:before{
-        box-shadow: 2px 2px 0px 0.025em rgba(54, 54, 54, 0.25);
+        box-shadow: 2px 2px 0px 0.025em rgba($text-color, 0.25);
       }
 
     /* Colors */
@@ -377,7 +338,7 @@
       }
 
       .vd-checkbox.is-primary input:checked + .vd-checkbox__info .vd-checkbox__label{
-        color: $primary-color;
+        // color: $primary-color;
       }
 
         .vd-checkbox.is-primary input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
@@ -388,12 +349,28 @@
           box-shadow: 2px 2px 0px 0.025em rgba($primary-color, 0.25);
         }
 
+      .vd-checkbox.is-secondary input:checked + .vd-checkbox__info .vd-checkbox__check:before{
+        border-color: transparent $secondary-color $secondary-color transparent;
+      }
+
+      .vd-checkbox.is-secondary input:checked + .vd-checkbox__info .vd-checkbox__label{
+        // color: $secondary-color;
+      }
+
+        .vd-checkbox.is-secondary input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
+          box-shadow: 0 0 0 0.125em rgba($secondary-color, 0.25);
+        }
+
+        .vd-checkbox.is-secondary input:focus:checked + .vd-checkbox__info .vd-checkbox__check:before{
+          box-shadow: 2px 2px 0px 0.025em rgba($secondary-color, 0.25);
+        }
+
       .vd-checkbox.is-info input:checked + .vd-checkbox__info .vd-checkbox__check:before{
         border-color: transparent $info-color $info-color transparent;
       }
 
       .vd-checkbox.is-info input:checked + .vd-checkbox__info .vd-checkbox__label{
-        color: $info-color;
+        // color: $info-color;
       }
 
         .vd-checkbox.is-info input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
@@ -409,7 +386,7 @@
       }
 
       .vd-checkbox.is-success input:checked + .vd-checkbox__info .vd-checkbox__label{
-        color: $success-color;
+        // color: $success-color;
       }
 
         .vd-checkbox.is-success input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
@@ -425,7 +402,7 @@
       }
 
       .vd-checkbox.is-danger input:checked + .vd-checkbox__info .vd-checkbox__label{
-        color: $danger-color;
+        // color: $danger-color;
       }
 
         .vd-checkbox.is-danger input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
@@ -441,7 +418,7 @@
       }
 
       .vd-checkbox.is-warning input:checked + .vd-checkbox__info .vd-checkbox__label{
-        color: $warning-color;
+        // color: $warning-color;
       }
 
         .vd-checkbox.is-warning input:focus:not(:checked) + .vd-checkbox__info .vd-checkbox__check:before{
@@ -713,6 +690,62 @@
           border-color: $warning-color;
         }
 
+  /* File */
+    /* Defaults */
+      .vd-file{
+        .vd-file__input{
+          display: none;
+        }
+
+        .vd-file__label{
+          width: 100%;
+          height: 200px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          border: dashed rgba($secondary-color, 0.5) 2px;
+          cursor: pointer;
+          transition: all 200ms ease-in-out;
+
+          &:hover{
+            background: rgba($primary-color, 0.1);
+          }
+        }
+
+        .vd-file__preview{
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          position: relative;
+          left: 50%;
+          // width: 100vw;
+          width: calc(100% + 204px);
+          height: 400px;
+          transform: translateX(-50%);
+        }
+
+        .vd-file__clear{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.7);
+          font-size: 2rem;
+          cursor: pointer;
+          opacity: 0;
+          transition: all 200ms ease-in-out;
+
+          &:hover{
+            opacity: 1;
+          }
+        }
+      }
+
 
 /* Tags */
   /* Defaults */
@@ -766,11 +799,11 @@
       &:focus{
         +.vd-tag__icon{
           // background-color: #AFAFAF;
-          background-color: rgba($primary-color, 0.5);
+          background-color: rgba($secondary-color, 0.5);
 
           &:before{
             // border-left-color: #AFAFAF;
-            border-left-color: rgba($primary-color, 0.5);
+            border-left-color: rgba($secondary-color, 0.5);
           }
         }
       }
@@ -807,7 +840,7 @@
         background-color: rgba(10, 10, 10, 0.3)
       }
 
-      &::before, &::after {
+      &::before, &::after{
         background-color: $white-color;
         content: "";
         display: block;
@@ -899,3 +932,88 @@
       .vd-tags.has-border-warning{
         border-color: $warning-color;
       }
+
+
+/* Cards */
+  .vd-card{
+    background: $white-color;
+    border-radius: 3px;
+    color: $text-color;
+    overflow: hidden;
+    position: relative;
+    transform-origin: left;
+    transition: transform 0.5s, filter 0.5s, z-index 0.5s, opacity 0.5s;
+    width: 100%;
+    // height: 400px;
+    // display: flex;
+    // flex-direction: column;
+    box-shadow: $box-shadow;
+
+    .vd-card__header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: solid 1px $border-color;
+
+      .vd-card__avatar{
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: white;
+        background-size: cover;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 999px;
+      }
+
+      .vd-card__author{
+        font-family: $font-primary-500;
+        font-size: 14px;
+        color: $text-color;
+      }
+    }
+
+    .vd-card__hero{
+      // flex: 0 0 55%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 250px;
+      display: block;
+    }
+
+    .vd-card__content{
+      flex: 1;
+      padding: 13px;
+
+      .vd-card__actions{
+        margin-left: -5px;
+
+        a{
+          color: $text-color;
+        }
+      }
+
+      .vd-card__title{
+        font-size: 1.1rem;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 7px;
+        color: $text-color;
+      }
+
+      .vd-card__comments{}
+
+      .vd-card__comment-box{
+        margin-top: 20px;
+        border-top: solid 1px $border-color;
+      }
+
+      .vd-card__comment-input{
+        border: none;
+        width: 100%;
+        height: 40px;
+        font-size: 14px;
+      }
+    }
+  }

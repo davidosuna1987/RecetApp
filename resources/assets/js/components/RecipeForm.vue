@@ -1,7 +1,20 @@
 <template>
     <section class="recipe-form-section">
-        <form @submit.prevent="validateForm()" class="recipe-form">
+        <form @submit.prevent="validateForm()" class="recipe-form" enctype="multipart/form-data">
             <div class="columns is-multiline">
+                <div class="column is-12">
+                    <p class="m-b-15">{{ trans('recipes.select_image_title') }}</p>
+                    <div class="vd-file">
+                        <div v-if="!recipe.image" class="vd-file__field">
+                            <input id="image" class="vd-file__input" type="file" name="image" accept="image/*" @change="previewImage($event)">
+                            <label for="image" class="vd-file__label">{{ trans('recipes.select_image') }}</label>
+                        </div>
+                        <div v-else class="vd-file__preview" :style="{backgroundImage: 'url('+recipe.image+')'}">
+                            <div class="vd-file__clear" @click.prevent="recipe.image = null">{{ trans('recipes.clear_image') }}</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="column is-12">
                     <div class="vd-input has-label-primary">
                         <input v-model="recipe.title"
@@ -37,7 +50,7 @@
             </div>
 
             <div class="columns m-t-30">
-                <div class="column is-4">
+                <div class="column is-5">
                     <div class="ingredients">
                         <p class="m-b-15">{{ trans('recipes.ingredients') }}</p>
 
@@ -57,11 +70,11 @@
                         </div>
 
                         <p class="buttons is-right m-t-20">
-                            <a @click.prevent="addIngredient()" class="is-size-7 vd-text-primary">{{ trans('recipes.add_ingredient') }}</a>
+                            <a @click.prevent="addIngredient()" class="is-size-7 vd-text-secondary">{{ trans('recipes.add_ingredient') }}</a>
                         </p>
                     </div>
                 </div>
-                <div class="column is-8">
+                <div class="column is-7">
                     <p class="m-b-15">{{ trans('recipes.preparation') }}</p>
 
                     <div class="vd-textarea has-label-primary m-t-0">
@@ -122,6 +135,7 @@
             return {
                 recipe: {
                     id: null,
+                    image: null,
                     title: '',
                     preparation: '',
                     categories: [],
@@ -158,6 +172,21 @@
                             vue.categoriesError = null;
                         }
                     }, 10);
+                },
+
+            // Image
+                previewImage(event) {
+                    let input = event.target;
+
+                    if(input.files && input.files[0]){
+                        let reader = new FileReader();
+                        reader.onload = (e) => {
+                            this.recipe.image = e.target.result;
+                        }
+                        reader.readAsDataURL(input.files[0]);
+                    }else{
+                        this.recipe.image = null;
+                    }
                 },
 
             // Tags

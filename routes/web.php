@@ -24,8 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function(){
 
   // Recipes routes
-  Route::get('/recipes', 'RecipeController@index')->name('recipes');
+  Route::get('/recipes', 'RecipeController@index')->name('recipes.index');
   Route::get('/recipes/create', 'RecipeController@create')->name('recipes.create');
+  Route::get('/recipes/fetch', 'RecipeController@fetch')->name('recipes.fetch');
   Route::post('/recipes', 'RecipeController@store')->name('recipes.store');
   Route::get('/recipes/{id}', 'RecipeController@show')->name('recipes.show');
   Route::get('/recipes/{id}/edit', 'RecipeController@edit')->name('recipes.edit');
@@ -36,6 +37,12 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/categories', 'CategoryController@index')->name('categories');
   // Route::get('/categories/create', 'CategoryController@create')->name('categories.create');
   // Route::post('/categories', 'CategoryController@store')->name('categories.store');
+
+  // Likes routes
+  Route::post('/likes', 'LikeController@toggle')->name('likes.toggle');
+
+  // Authuser routes
+  Route::get('/authuser', 'UserController@authuser')->name('authuser');
 
   // Test routes
   Route::get('/test/user', function(){

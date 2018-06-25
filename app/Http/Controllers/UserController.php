@@ -9,7 +9,14 @@ class UserController extends Controller
 {
     public function index()
     {
-        // return view('home');
+        // return view('users');
+    }
+
+    public function authuser()
+    {
+        return response()->json([
+            'authuser' => Auth::user()->load(['profile', 'recipes', 'likes'])
+        ]);
     }
 
     public function sendFriendshipRequest($id)

@@ -3,3 +3,17 @@
   padding-bottom: 52px;
   min-height: calc(100vh - 170px);
 }
+
+.wrapper{
+    position: relative;
+    max-width: 1100px;
+    width: 95vw;
+    margin: 50px auto;
+    padding: 60px 90px 75px;
+    background: white;
+    border: solid 1px $border-color;
+}
+
+.container{
+  max-width: 100%;
+}

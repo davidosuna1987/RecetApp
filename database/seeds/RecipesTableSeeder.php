@@ -1,16 +1,19 @@
 <?php
 
-use App\Tag;
-use App\User;
-use App\Recipe;
 use App\Category;
 use App\Ingredient;
+use App\Recipe;
+use App\Tag;
+use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class RecipesTableSeeder extends Seeder
 {
     public function run()
     {
+        File::deleteDirectory(public_path('recipes'), true);
+
         $user = User::findOrFail(1);
 
         $tag1 = Tag::create([

@@ -1,6 +1,5 @@
-
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+// MDI
+@import "node_modules/@mdi/font/scss/materialdesignicons.scss";
 
 // Initial bulma variables
 @import "src/initial-variables.sass";
@@ -20,7 +19,11 @@
 
 // General
 @import "general/main";
+@import "general/utils";
 @import "general/helpers";
+
+// Components
+@import "components/navbar";
 
 // Overrides
 @import "general/overrides";

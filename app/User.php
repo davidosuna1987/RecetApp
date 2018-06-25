@@ -13,9 +13,24 @@ class User extends Authenticatable
     protected $fillable = [
         'email', 'password',
     ];
+
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $appends = [
+        'full_name', 'avatar'
+    ];
+
+    public function getFullNameAttribute()
+    {
+        return $this->email;
+    }
+
+    public function getAvatarAttribute()
+    {
+        return 'http://www.gravatar.com/avatar/'.md5($this->email).'fs=150?d=retro';
+    }
 
     public function profile()
     {
@@ -25,5 +40,10 @@ class User extends Authenticatable
     public function recipes()
     {
         return $this->hasMany(Recipe::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }

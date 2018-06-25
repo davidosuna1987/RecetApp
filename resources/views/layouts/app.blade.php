@@ -11,12 +11,15 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @include('partials.assets.styles')
         @stack('styles')
     </head>
     <body>
         <div id="app">
-            @include('partials.nabvar.main')
-            @yield('content')
+            <section class="wrapper">
+                @include('partials.nabvar.main')
+                @yield('content')
+            </section>
         </div>
 
         @include('partials.footer.main')
