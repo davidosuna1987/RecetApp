@@ -9,7 +9,7 @@
         </a>
         <div class="vd-card__content">
             <div class="vd-card__actions">
-                <a href="" @click.prevent="toggleLike(recipe.id)">
+                <a href="" @click.prevent="toggleLike(recipe.id)" :disabled="likeDisabled">
                     <span class="icon is-medium">
                       <i v-if="authuserLike" class="has-text-danger mdi mdi-24px mdi-heart"></i>
                       <i v-else class="mdi mdi-24px mdi-heart-outline"></i>
@@ -47,6 +47,12 @@
             },
         },
 
+        data() {
+            return {
+                likeDisabled: false
+            }
+        },
+
         computed: {
             authorLink() {
                 return '';
@@ -59,9 +65,10 @@
             },
             authuserLike() {
                 let vue = this;
-                return _.find(vue.$root.authuser.likes, function(like) {
-                    return like.recipe_id === vue.recipe.id;
+                let like = _.find(vue.recipe.likes, function(like) {
+                    return like.user_id == vue.$root.authuser.id;
                 });
+                return like ? true : false;
             }
         },
 
@@ -72,7 +79,6 @@
                 formData.set('recipe_id', recipe_id);
 
                 axios.post('/likes', formData).then(response => {
-                    this.$root.getAuthuser();
                     if(response.data.action === 'like'){
                         this.recipe.likes.push(response.data.like);
                     }else{

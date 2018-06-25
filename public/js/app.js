@@ -47138,6 +47138,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
 
+    data: function data() {
+        return {
+            likeDisabled: false
+        };
+    },
+
+
     computed: {
         authorLink: function authorLink() {
             return '';
@@ -47150,9 +47157,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         authuserLike: function authuserLike() {
             var vue = this;
-            return _.find(vue.$root.authuser.likes, function (like) {
-                return like.recipe_id === vue.recipe.id;
+            var like = _.find(vue.recipe.likes, function (like) {
+                return like.user_id == vue.$root.authuser.id;
             });
+            return like ? true : false;
         }
     },
 
@@ -47165,7 +47173,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             formData.set('recipe_id', recipe_id);
 
             axios.post('/likes', formData).then(function (response) {
-                _this.$root.getAuthuser();
                 if (response.data.action === 'like') {
                     _this.recipe.likes.push(response.data.like);
                 } else {
@@ -47221,7 +47228,7 @@ var render = function() {
         _c(
           "a",
           {
-            attrs: { href: "" },
+            attrs: { href: "", disabled: _vm.likeDisabled },
             on: {
               click: function($event) {
                 $event.preventDefault()
